@@ -9,18 +9,23 @@
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <header>
-      <span class="ribbon-outer">
-        <span class="ribbon-inner">
-          <h1>judewang.github.com</h1>
-        </span>
-        <span class="left-tail"></span>
-        <span class="right-tail"></span>
-      </span>
-    </header>
-    <span class="banner-fix"></span>
-    
     <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>judewang.github.com</h1>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+      <div id="no-downloads">
+        <span class="inner">
+        </span>
+      </div>
+      <span class="banner-fix"></span>
+      
       <section id="main_content">
         {{ content }}
       </section>
@@ -31,9 +36,9 @@
         <span class="ribbon-inner">
           <p>Projects by <a href="https://github.com/judewang">judewang</a> can be found on <a href="https://github.com/judewang">GitHub</a></p>
         </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+        <span class="left-tail"></span>
+        <span class="right-tail"></span>
+      </span>
     </footer>
   </body>
 </html>
