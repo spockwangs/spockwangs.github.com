@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta name="description" content="{{ site.description }}" />
+    <link rel="stylesheet" href="/stylesheets/core.css" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <header>
+      <span class="ribbon-inner">
+        <h1>judewang.github.com</h1>
+      </span>
+    </header>
+
+    <section id="main_content">
+      {{ content }}
+    </section>
+
+    <footer>
+      <span class="ribbon-outer">
+        <span class="ribbon-inner">
+          <p>Projects by <a href="https://github.com/judewang">judewang</a> can be found on <a href="https://github.com/judewang">GitHub</a></p>
+        </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+    </footer>
+  </body>
+</html>
