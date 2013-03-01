@@ -60,19 +60,27 @@ body {
     font-size: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    display: list-item;
+}
+
 .header {
     display: block;
     margin: 0 0 30px 0;
     padding: 0;
     width: 100%;
-    background-color: #444;
+    background-color: gray;
 }
 
 .header .title {
     display: block;
     margin: 0;
     padding: 30px 0 30px 30px;
-    color: white;
+    color: navy;
     font-family: Helvetical, Arial, Sans-serif;
     font-weight: bold;
     font-size: 200%;
@@ -83,7 +91,6 @@ body {
     width: 25%;
     margin: 0;
     padding: 0;
-    border: solid black 1px;
     vertical-align: top;
 }
 
@@ -92,13 +99,12 @@ body {
     width: 50%;
     margin: 0;
     padding: 0;
-    border: solid black 1px;
     vertical-align: top;
 }
 
 .grid-right {
     display: inline-block;
-    width: 25%;
+    width: 24%;
     margin: 0;
     padding: 0;
     vertical-align: top;
@@ -142,8 +148,41 @@ body {
 }
 
 .toc {
-    /*#position: fixed;*/
-    /*margin: 0 0 0 20px;*/
+    position: fixed;
+    right: 10px;
+    margin-right: 10px;
+    border: solid #d4d8eb 1px;
+    border-radius: 3px;
+}
+
+.toc .hd {
+    display: block;
+    background-color: #e5e6f1;
+    padding: 4px 7px 5px;
+}
+
+.toc .bd {
+    display: block;
+    padding: 10px 8px 10px;
+    background-color: #f9f9fc;
+    border-radius: 3px;
+}
+
+.toc ul, .toc ol {
+    padding-left: 14px;
+}
+
+.toc li, .toc li li {
+    color: #d4d5e3;
+    list-style-type: disc;
+}
+
+.toc li {
+    font-weight: bold;
+}
+
+.toc li li {
+    font-weight: normal;
 }
 
 .footer {
