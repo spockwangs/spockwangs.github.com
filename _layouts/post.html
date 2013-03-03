@@ -5,6 +5,7 @@
     <meta name="author" content="{{ site.author.name }}" />
     <meta name="description" content="{{ site.description }}" />
     <link rel="stylesheet" href="/stylesheets/default.css" />
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>Judewang.github.com</title>
   </head>
@@ -18,9 +19,8 @@
         <div class="grid-left">
           <article class="article">
             <h1 class="article-title">{{ page.title }}</h1>
-            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
             <div class="article-author">By judewang</div>
-
+            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
             {{ content }}
           </article>
         </div>
