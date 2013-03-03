@@ -142,6 +142,13 @@ pre code {
     background: #fcfbfa;
 }
 
+blockquote {
+    display: block;
+    padding: 5px;
+    border: 1px solid #d4d8eb;
+    border-radius: 3px;
+}
+
 .header {
     display: block;
     padding: 0;

@@ -48,30 +48,33 @@ title: Linux程序的加载、运行与终止
 ## 程序运行的基本流程
 
 首先给出一个大致的流程。
+
 1. 操作系统运行用户程序时将其映射到内存中；
-2. 当它看到可执行文件中的`PT_INERP`时，操作系统将`PT_INTERP`指定的动态链接器映射进内存，并通过栈向其传递它所需要  的参数，并跳到动态链接器的入口处开始执行；
+2. 当它看到可执行文件中的`PT_INERP`时，操作系统将`PT_INTERP`指定的动态链接
+   器映射进内存，并通过栈向其传递它所需要的参数，并跳到动态链接器的入口处开
+   始执行；
 3. 动态链接器开始自举（Bootstrap），对自己进行重定位，并开始构造符号表；
 4. 自举完成后，动态链接器根据可执行文件.dynamic段中的DT_NEEDED元素开始加
-载依赖的共享对象，并加入它的符号表。如果这个共享对象依赖其它的共享对象，
-动态链接器也会加载它们。当这个过程结束时，所有需要的共享对象都已加载进内
-存，动态链接器也具有了程序和所有共享库的符号表。
+   载依赖的共享对象，并加入它的符号表。如果这个共享对象依赖其它的共享对象，
+   动态链接器也会加载它们。当这个过程结束时，所有需要的共享对象都已加载进内
+   存，动态链接器也具有了程序和所有共享库的符号表。
 5. 这时，动态链接器重新遍历共享库，并进行加载时重定位（注意加载时重定位  采
-用依赖图的后序遍历顺序进行。也就是说如果A对象依赖B对象，则先处理B对象再  处
-理A对象）。加载时重定位包括：
+   用依赖图的后序遍历顺序进行。也就是说如果A对象依赖B对象，则先处理B对象再  处
+   理A对象）。加载时重定位包括：
     * 对数据的引用，在`.rel.dyn`段中，需要初始化一个GOT（在`.got`中）项为一个全局符号的地址；
 	* 对代码的引用（在`.rel.plt`段中），需要初始化一个GOT（在`.got.plt`)项
-    为PLT表中第二条指令的地址（<q>Procedure Linkage Table</q>, [abi386-4]）。
-    如果共享对象有初始化代码（在`.init`中，全局对象的初始化就是这样实现
-    的），动态链接器会执行它，并将终止代码（在`.fini`中，全局对象的
-    析构就是这样实现的）记录下来以便退出时执行。动态链接器不会执行用户程序
-    的初始化代码，它由用户程序的启动代码自己执行。这个过程完成后，所有的共
-    享对象都已重定位并初始化，动态链接器跳到用户程序的入口处开始执行。注意，为
-    了能在程序退出时让动态链接器有机会调用共享对象的终止代码，动态链接器会
-    传递一个终止函数（用以调用共享对象的终止代码）给用户程序。
+      为PLT表中第二条指令的地址（<q>Procedure Linkage Table</q>, [abi386-4]）。
+      如果共享对象有初始化代码（在`.init`中，全局对象的初始化就是这样实现
+      的），动态链接器会执行它，并将终止代码（在`.fini`中，全局对象的
+      析构就是这样实现的）记录下来以便退出时执行。动态链接器不会执行用户程序
+      的初始化代码，它由用户程序的启动代码自己执行。这个过程完成后，所有的共
+      享对象都已重定位并初始化，动态链接器跳到用户程序的入口处开始执行。注意，为
+      了能在程序退出时让动态链接器有机会调用共享对象的终止代码，动态链接器会
+      传递一个终止函数（用以调用共享对象的终止代码）给用户程序。
 	* 用户程序开始执行。首先它注册动态链接器的终止函数和它自己的终止函数，
-    然后调用用户程序的初始化代码，然后调用用户定义的`main()`函数。
-    `main()`函数返回后，以注册的相反顺序调用终止函数（也就是说先调用用户程
-    序的终止函数，再调用动态链接器的终止函数），最后调用`_exit()`退出进程。
+      然后调用用户程序的初始化代码，然后调用用户定义的`main()`函数。
+      `main()`函数返回后，以注册的相反顺序调用终止函数（也就是说先调用用户程
+      序的终止函数，再调用动态链接器的终止函数），最后调用`_exit()`退出进程。
 
 详见[Levine]第10章。
 
@@ -95,7 +98,8 @@ title: Linux程序的加载、运行与终止
    `PT_INTERP`项。存在的话说明该文件是动态链接的可执行文件，需要动态
    连接器的支持。
 3. 根据ELF文件程序头的信息对ELF文件进行映射，通常包括两个段：代码段和数据段。
-4. 初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态连接器的一些附加参数（Auxiliary Vector）。（见[abi386-4]的图3-31）
+4. 初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态
+   连接器的一些附加参数（Auxiliary Vector）。（见[abi386-4]的图3-31）
 5. 若ELF文件是静态链接的可执行文件，跳转到用户程序入口点（由其程序头定义）
    开始执行；若ELF文件是动态链接的可执行文件，映射动态连接器，并跳转到动态连
    接器的入口处开始执行。
@@ -127,14 +131,16 @@ title: Linux程序的加载、运行与终止
   `R_386_COPY`（见[abi386-4]的78页）重定位类型，要特别加载时重定位的
   顺序。下面是摘自`_dl_main()`中的一段注释。
 
-    > /* Now we have all the objects loaded.  Relocate them all except for the
-    > dynamic linker itself.  We do this in reverse order so that copy  relocs
-    > of earlier objects overwrite the data written by later  objects.  We do
-    > not re-relocate the dynamic linker itself in this  loop because that
-    > could result in the GOT entries for functions we  call being changed, and
-    > that would break us.  It is safe to relocate  the dynamic linker out of
-    > order because it has no copy relocs (we  know that because it is
-    > self-contained).
+    <blockquote>
+    /* Now we have all the objects loaded.  Relocate them all except for the
+    dynamic linker itself.  We do this in reverse order so that copy  relocs
+    of earlier objects overwrite the data written by later  objects.  We do
+    not re-relocate the dynamic linker itself in this  loop because that
+    could result in the GOT entries for functions we  call being changed, and
+    that would break us.  It is safe to relocate  the dynamic linker out of
+    order because it has no copy relocs (we  know that because it is
+    self-contained). */
+    </blockquote>
 
     简单地说，先重定位一个对象文件所依赖的所有对象文件再重定位这个对象文件。
   重定位完成后返回到`_dl_sysdep_start()`，然后返回到
