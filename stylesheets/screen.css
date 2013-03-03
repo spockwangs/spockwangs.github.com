@@ -109,7 +109,7 @@ pre, code, kbd, samp {
     line-height: 1.35;
 }
 
-pre.code {
+pre code {
     margin: 1.2em 0;
     padding: .3em .6em;
     border: 1px solid #efeeed;
