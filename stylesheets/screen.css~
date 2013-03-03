@@ -54,35 +54,10 @@ header, footer, section {
 
 /* STYLES */
 body {
+    width: 100%;
     font-family: Helvetical, Arial, Sans-serif;
     font-weight: normal;
     font-size: 100%;
-    color: #333;
-    background-color: #fff;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #eb8c28;
-    font-weight: bold;
-    line-height: 1.1;
-    margin: 1.1em 0.5em;
-}
-
-h1 {
-    font-size: 180%;
-}
-
-h2 {
-    font-size: 150%;
-}
-
-h3 {
-    font-size: 130%;
-}
-
-#doc {
-    max-width: 1200px;
-    margin: auto;
 }
 
 a {
@@ -95,12 +70,10 @@ li {
 
 .header {
     display: block;
+    margin: 0 0 30px 0;
     padding: 0;
-    max-width: 1200px;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dcdbd9), color-stop(100%, #f6f5f3));
-    border-top: 0;
-    border-bottom: 1px solid #dfdfdf;
-    border-radius: 0 0 6px 6px;
+    width: 100%;
+    background-color: gray;
 }
 
 .header .title {
@@ -113,14 +86,17 @@ li {
     font-size: 200%;
 }
 
-#bd {
-    display: block;
-    margin: 30px 0;
-}
-
 .grid-left {
     display: inline-block;
-    width: 75%;
+    width: 25%;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.grid-middle {
+    display: inline-block;
+    width: 50%;
     margin: 0;
     padding: 0;
     vertical-align: top;
@@ -134,8 +110,18 @@ li {
     vertical-align: top;
 }
 
+.menu {
+    padding: 10px 100px 0 0;
+    text-align: right;
+}
+
+.menu-item {
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
 .article {
-    margin: 0 20px;
 }
 
 .article-title {
@@ -144,7 +130,6 @@ li {
     font-family: Helvetical, Arial, Sans-serif;
     font-weight: bold;
     font-size: 150%;
-    color: #30418c;
 }
 
 .article-date {
@@ -163,23 +148,21 @@ li {
 }
 
 .toc {
+    position: fixed;
     right: 10px;
-    margin: 0 10px;
+    margin-right: 10px;
     border: solid #d4d8eb 1px;
     border-radius: 3px;
 }
 
 .toc .hd {
     display: block;
-    padding: 4px 7px 5px;
-    font-size: 105%;
-    font-weight: bold;
     background-color: #e5e6f1;
+    padding: 4px 7px 5px;
 }
 
 .toc .bd {
     display: block;
-    margin: 0;
     padding: 10px 8px 10px;
     background-color: #f9f9fc;
     border-radius: 3px;
@@ -205,17 +188,9 @@ li {
 .footer {
     display: block;
     width: 100%;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #dfddda;
-    border-bottom: 0;
-    border-radius: 6px 6px 0 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f6f5f3), color-stop(100%, #dcdbd9));
-    text-align: left;
-    bottom: 0;
-}
-
-.footer .copyright {
-    display: block;
-    padding: 14px 21px;
+    margin: 20px 0 0 0;
+    padding: 10px 0 30px 0;
+    border-top: black solid 3px;
+    background-color: gray;
+    text-align: center;
 }

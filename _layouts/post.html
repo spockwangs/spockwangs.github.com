@@ -4,39 +4,45 @@
     <meta charset="utf-8" />
     <meta name="author" content="{{ site.author.name }}" />
     <meta name="description" content="{{ site.description }}" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="stylesheets/default.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Judewang.github.com</title>
   </head>
   <body>
-    <header>
-      <span>
-        <h1>judewang.github.com</h1>
-      </span>
-    </header>
-    
-    <!-- Navigation bar -->
-    <nav>
-      <ul>
-        <li>ARCHIVE</li>
-        <li>PROJECTS</li>
-        <li>CONTACT</li>
-      </ul>
-    </nav>
+    <div id="doc">
+      <header class="header">
+        <h1 class="title">judewang.github.com</h1>
+      </header>
+      
+      <div id="bd">
+        <div class="grid-left">
+          <article class="article">
+            <div class="article-title">{{ page.title }}</div>
+            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
+            <div class="article-author">By judewang</div>
 
-    <article>
-      <h1>{{ page.title }}</h1>
-      <p>By judewang</p>
-      <p>{{ page.date|date: "%Y-%m-%d" }}</p>
-      {{ content }}
-    </article>
+            {{ content }}
+          </article>
+        </div>
 
-    <nav>
-      <h3>Table of Contents</h3>
-    </nav>
-
-    <footer>
-      <p>Copyright &copy; 2013 judewang</p>
-    </footer>
+        <div class="grid-right">
+          <div class="toc">
+            <div class="hd">
+              Table of Contents
+            </div>
+            <div class="bd">
+              <ul>
+                <li>
+                  <a href="#">Hello</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="copyright">Copyright &copy; 2013 judewang</p>
+      </footer>
+    </div>
   </body>
 </html>
