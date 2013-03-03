@@ -144,6 +144,7 @@ pre code {
 
 blockquote {
     display: block;
+    margin: 0 2em;
     padding: 1em;
     border: 1px solid #d4d8eb;
     border-radius: 3px;
