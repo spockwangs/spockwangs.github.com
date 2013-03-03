@@ -109,6 +109,14 @@ pre, code, kbd, samp {
     line-height: 1.35;
 }
 
+code {
+    padding: 0px 5px 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-clip: padding-box;
+    color: #666;
+}
+
 pre code {
     display: block;
     margin: 1.2em 0;
