@@ -3,7 +3,7 @@ layout: post
 title: Hello
 ---
 
-# {{ page.title }}
+## {{ page.title }}
 
 Hello, everyone!
 
