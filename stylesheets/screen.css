@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #eb8c28;
     font-weight: bold;
     line-height: 1.1;
-    margin: 1.1em 0.5em;
+    margin: 1.1em 0 .5em;
 }
 
 h1 {
@@ -141,9 +141,6 @@ li {
 .article-title {
     display: block;
     padding: 0 0 10px 0;
-    font-family: Helvetical, Arial, Sans-serif;
-    font-weight: bold;
-    font-size: 150%;
     color: #30418c;
 }
 
