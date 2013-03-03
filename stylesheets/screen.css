@@ -144,9 +144,12 @@ pre code {
 
 blockquote {
     display: block;
-    padding: 5px;
+    padding: 1em;
     border: 1px solid #d4d8eb;
     border-radius: 3px;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-weight: normal;
 }
 
 .header {

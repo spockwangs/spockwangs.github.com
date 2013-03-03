@@ -76,7 +76,7 @@ title: Linux程序的加载、运行与终止
       `main()`函数返回后，以注册的相反顺序调用终止函数（也就是说先调用用户程
       序的终止函数，再调用动态链接器的终止函数），最后调用`_exit()`退出进程。
 
-详见[Levine]第10章。
+详见[Linkers and Loaders][Levine]第10章。
 
 下面结合实际代码给出Linux下详细的运行流程。
 
@@ -91,26 +91,26 @@ title: Linux程序的加载、运行与终止
 器。若ELF文件是静态链接的，则操作系统准备好环境后直接转移到ELF文件的入口点
 开始执行。详细过程如下：
 
-1. 执行`exec(3)`调用后陷入操作系统内核，检查参数，并判断可执行文件
-   的类型。因为Linux支持的可执行文件不止一种类型，加载不同类型的文件方法不一
-   样。下面假设文件类型为ELF。
-2. 检查ELF文件格式的有效性，读入程序头（Program Header），并检查是否存在
-   `PT_INTERP`项。存在的话说明该文件是动态链接的可执行文件，需要动态
-   连接器的支持。
-3. 根据ELF文件程序头的信息对ELF文件进行映射，通常包括两个段：代码段和数据段。
-4. 初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态
-   连接器的一些附加参数（Auxiliary Vector）。（见[abi386-4]的图3-31）
-5. 若ELF文件是静态链接的可执行文件，跳转到用户程序入口点（由其程序头定义）
-   开始执行；若ELF文件是动态链接的可执行文件，映射动态连接器，并跳转到动态连
-   接器的入口处开始执行。
+1.  执行`exec(3)`调用后陷入操作系统内核，检查参数，并判断可执行文件
+    的类型。因为Linux支持的可执行文件不止一种类型，加载不同类型的文件方法不一
+    样。下面假设文件类型为ELF。
+2.  检查ELF文件格式的有效性，读入程序头（Program Header），并检查是否存在
+    `PT_INTERP`项。存在的话说明该文件是动态链接的可执行文件，需要动态
+    连接器的支持。
+3.  根据ELF文件程序头的信息对ELF文件进行映射，通常包括两个段：代码段和数据段。
+4.  初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态
+    连接器的一些附加参数（Auxiliary Vector）。（见[abi386-4]的图3-31）
+5.  若ELF文件是静态链接的可执行文件，跳转到用户程序入口点（由其程序头定义）
+    开始执行；若ELF文件是动态链接的可执行文件，映射动态连接器，并跳转到动态连
+    接器的入口处开始执行。
 
-另见[abi386-4]的第5节，[gabi]的<q>Dynamic Linking</q>.
+另见[abi386-4]的第5节，[gabi]的"Dynamic Linking".
 
 ### 运行动态连接器
 
 对于动态链接的可执行文件，还需要动态连接器为其加载可执行文件依赖的共享对象
 文件并进行符号重定位才可以执行。动态连接器的位置存储在可执行文件程序头的
-`PT_INTERP`元素中（见[gabi]<q>Program Header</q>一节）。动态连接器的
+`PT_INTERP`元素中（见[gabi]"Program Header"一节）。动态连接器的
 运行过程如下：
 
 * 动态连接器的入口是`_start`，在
@@ -174,3 +174,6 @@ title: Linux程序的加载、运行与终止
 * [gabi4] <em>System V Application Binary Interface</em>, 2001.
 * [Levine] John R. Levine, <em><a href="http://www.iecc.com/linker/">Linkers and Loaders</a></em>.
 * <a href="http://ftp.gnu.org/gnu/glibc/">Glibc源代码</a>。
+
+[Levine]: http://www.iecc.com/linker/ "Linkers and Loaders"
+[Glibc]: http://ftp.gnu.org/gnu/glibc/ "Glibc source code"
