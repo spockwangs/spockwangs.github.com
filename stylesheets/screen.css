@@ -201,7 +201,9 @@ blockquote {
 .article-title {
     display: block;
     padding: 0 0 10px 0;
-    color: #30418c;
+    color: #eb8c28;
+    font-weight: bold;
+    line-height: 1.1;
 }
 
 .article-date {

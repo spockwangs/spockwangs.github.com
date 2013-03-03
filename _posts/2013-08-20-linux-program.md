@@ -170,10 +170,10 @@ title: Linux程序的加载、运行与终止
 
 ## 参考文献
 
-* [abi386-4] <em>System V Application Binary Interface: Intel 386 Architecture Processor Supplement,</em> Fourth Edition.
-* [gabi4] <em>System V Application Binary Interface</em>, 2001.
-* [Levine] John R. Levine, <em><a href="http://www.iecc.com/linker/">Linkers and Loaders</a></em>.
-* <a href="http://ftp.gnu.org/gnu/glibc/">Glibc源代码</a>。
+* \[abi386-4\] <em>System V Application Binary Interface: Intel 386 Architecture Processor Supplement,</em> Fourth Edition.
+* \[gabi4\] <em>System V Application Binary Interface</em>, 2001.
+* \[Levine\] John R. Levine, <em><a href="http://www.iecc.com/linker/">Linkers and Loaders</a></em>.
+* [Glibc源代码](http://ftp.gnu.org/gnu/glibc/)
 
 [Levine]: http://www.iecc.com/linker/ "Linkers and Loaders"
 [Glibc]: http://ftp.gnu.org/gnu/glibc/ "Glibc source code"
