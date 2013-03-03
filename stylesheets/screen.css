@@ -57,6 +57,7 @@ body {
     font-family: Helvetical, Arial, Sans-serif;
     font-weight: normal;
     font-size: 100%;
+    line-height: 1.5;
     color: #333;
     background-color: #fff;
 }
@@ -100,7 +101,21 @@ ul, ol {
 li {
     display: list-item;
     list-style-type: disc;
-    color: #d4d5e3;
+    font-weight: normal;
+}
+
+dt {
+    display: block;
+    margin: 0;
+    padding-bottom: 3px;
+    font-family: Helvetical, Arial, Sans-serif;
+    font-weight: bold;
+}
+
+dd {
+    display: block;
+    margin: 0 0 0 14px;
+    padding: 0;
     font-weight: normal;
 }
 
