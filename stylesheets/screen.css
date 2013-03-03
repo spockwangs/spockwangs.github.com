@@ -305,5 +305,6 @@ blockquote {
 
 .footer .copyright {
     display: block;
+    margin: 0;
     padding: 14px 21px;
 }
