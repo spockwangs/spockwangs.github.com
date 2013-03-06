@@ -6,6 +6,7 @@
     <meta name="description" content="{{ site.description }}" />
     <link rel="stylesheet" href="stylesheets/default.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="javascripts/generate_toc.js"></script>
     <title>Judewang.github.com</title>
   </head>
   <body>
@@ -23,12 +24,15 @@
     </div>
 
     <div class="grid-middle">
-      <article class="article">
+      <article id="article" class="article">
         <div class="article-title">{{ page.title }}</div>
         <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
         <div class="article-author">By judewang</div>
 
         {{ content }}
+        <h2>section 1</h2>
+        <h3>subsection 1</h3>
+        <h2>section 2</h2>
       </article>
     </div>
 
@@ -37,10 +41,18 @@
         <div class="hd">
           <h2>Table of Contents</h2>
         </div>
-        <div class="bd">
+        <div id="toc" class="bd">
           <ul>
             <li>
               <a href="#">Hello</a>
+              <ul>
+                <li>
+                  <a href="#">world</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">hello</a>
             </li>
           </ul>
         </div>

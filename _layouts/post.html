@@ -5,7 +5,6 @@
     <meta name="author" content="{{ site.author.name }}" />
     <meta name="description" content="{{ site.description }}" />
     <link rel="stylesheet" href="/stylesheets/default.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>{{ page.title }}</title>
   </head>
   <body>
@@ -24,7 +23,7 @@
       </ul>
     </nav>
 
-    <article>
+    <article id="article">
       <h1>{{ page.title }}</h1>
       <p>By judewang</p>
       <p>{{ page.date|date: "%Y-%m-%d" }}</p>
@@ -38,5 +37,7 @@
     <footer>
       <p>Copyright &copy; 2013 judewang</p>
     </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
   </body>
 </html>
