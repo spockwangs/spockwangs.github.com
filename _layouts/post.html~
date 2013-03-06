@@ -4,29 +4,39 @@
     <meta charset="utf-8" />
     <meta name="author" content="{{ site.author.name }}" />
     <meta name="description" content="{{ site.description }}" />
-    <link rel="stylesheet" href="/stylesheets/core.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/default.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>{{ page.title }}</title>
   </head>
   <body>
     <header>
-      <span class="ribbon-inner">
+      <span>
         <h1>judewang.github.com</h1>
       </span>
     </header>
+    
+    <!-- Navigation bar -->
+    <nav>
+      <ul>
+        <li>ARCHIVE</li>
+        <li>PROJECTS</li>
+        <li>CONTACT</li>
+      </ul>
+    </nav>
 
-    <section id="main_content">
+    <article>
+      <h1>{{ page.title }}</h1>
+      <p>By judewang</p>
+      <p>{{ page.date|date: "%Y-%m-%d" }}</p>
       {{ content }}
-    </section>
+    </article>
+
+    <nav>
+      <h3>Table of Contents</h3>
+    </nav>
 
     <footer>
-      <span class="ribbon-outer">
-        <span class="ribbon-inner">
-          <p>Projects by <a href="https://github.com/judewang">judewang</a> can be found on <a href="https://github.com/judewang">GitHub</a></p>
-        </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+      <p>Copyright &copy; 2013 judewang</p>
     </footer>
   </body>
 </html>
