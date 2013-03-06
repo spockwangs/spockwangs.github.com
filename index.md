@@ -6,4 +6,3 @@ title: Hello
 h1. {{ page.title }}
 
 Hello, everyone!
->>>>>>> bb959cf4fc53b2f022cb35a4c5856cd79e858176
