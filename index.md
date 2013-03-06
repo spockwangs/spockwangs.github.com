@@ -3,6 +3,6 @@ layout: post
 title: Hello
 ---
 
-h1. {{ page.title }}
+## {{ page.title }}
 
 Hello, everyone!
