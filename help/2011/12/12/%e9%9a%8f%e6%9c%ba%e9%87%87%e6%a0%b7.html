@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <meta name="description" content="{{ site.description }}" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
     <link rel="stylesheet" href="/stylesheets/default.css" />
-    <title>{{ page.title }}</title>
+    <title>随机采样</title>
   </head>
   <body>
     <div id="doc">
@@ -17,7 +17,7 @@
               <a href="/">Home</a>
             </li>
             <li class="nav-tab">
-              <a href="/archives.html">Archives</a>
+              <a href="/">Archives</a>
             </li>
             <li class="nav-tab">
               <a href="/">About</a>
@@ -29,10 +29,32 @@
       <div id="bd">
         <div class="grid-left">
           <article id="article" class="article">
-            <div class="article-title">{{ page.title }}</div>
+            <div class="article-title">随机采样</div>
             <div class="article-author">By judewang</div>
-            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
-            {{ content }}
+            <div class="article-date">2011-12-12</div>
+            <h2>问题描述</h2>
+从一个预先不知道其大小的集合中随机选出<code>K</code>个数字。
+<h2>算法</h2>
+<em>Input:</em> <code>K</code>，和一系列数字。
+<em>Output:</em>随机选出的<code>K</code>个数字。
+<pre>R := [ ];     # 初始化为一个空数组。
+N := 0;       # 已经考虑的数字的个数。
+for next number i
+begin
+     N := N + 1;
+     if size(R) &lt; K
+     then
+          R := [ R, i ];      # 将数字i添加到数组R中。
+     else
+          j := randint(0, N);
+          if j &lt; K
+          then
+                R[j] = i;
+          end
+     end
+end</pre>
+其中<tt>randint(0, N)</tt>等概率地返回<tt>[0, N)</tt>中的一个整数。结束后<code>R</code>中的<code>K</code>个数字就是我们需要的。
+
           </article>
         </div>
 

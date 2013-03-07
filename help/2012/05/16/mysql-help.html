@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <meta name="description" content="{{ site.description }}" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
     <link rel="stylesheet" href="/stylesheets/default.css" />
-    <title>{{ page.title }}</title>
+    <title>MySql Help</title>
   </head>
   <body>
     <div id="doc">
@@ -17,7 +17,7 @@
               <a href="/">Home</a>
             </li>
             <li class="nav-tab">
-              <a href="/archives.html">Archives</a>
+              <a href="/">Archives</a>
             </li>
             <li class="nav-tab">
               <a href="/">About</a>
@@ -29,10 +29,24 @@
       <div id="bd">
         <div class="grid-left">
           <article id="article" class="article">
-            <div class="article-title">{{ page.title }}</div>
+            <div class="article-title">MySql Help</div>
             <div class="article-author">By judewang</div>
-            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
-            {{ content }}
+            <div class="article-date">2012-05-16</div>
+            <h2>Backup and Recovery</h2>
+<p>
+Use following command to backup an InnoDB table
+<pre>
+$ mysqldump -u&lt;username&gt; -p&lt;password&gt; --default-character-set=utf8 \
+   --single-transaction db_name table_name > db_name-table_name-backup.sql
+</pre>
+</p>
+<p>
+If you want to backup the whole database you just omit the table name. And then use the following command to recover the table.
+<pre>
+$ mysql -u&lt;username&gt; -p&lt;password&gt; &lt; db_name-table_name-backup.sql
+</pre>
+</p>
+
           </article>
         </div>
 

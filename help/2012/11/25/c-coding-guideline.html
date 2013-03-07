@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <title>C++ Coding Guideline</title>
+  </head>
+  <body>
+    <div id="doc">
+      <header class="header">
+        <h1 class="title">judewang.github.com</h1>
+        <div id="main-nav">
+          <ul class="nav">
+            <li class="nav-tab">
+              <a href="/">Home</a>
+            </li>
+            <li class="nav-tab">
+              <a href="/">Archives</a>
+            </li>
+            <li class="nav-tab">
+              <a href="/">About</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      
+      <div id="bd">
+        <div class="grid-left">
+          <article id="article" class="article">
+            <div class="article-title">C++ Coding Guideline</div>
+            <div class="article-author">By judewang</div>
+            <div class="article-date">2012-11-25</div>
+            <h3>Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.</h3>
+Consider the following code.
+<pre>
+// pimpl.h
+class Impl;    // forward declaration
+class Pimpl {
+public:
+   Pimpl();
+private:
+    boost::scoped_ptr&lt;Impl&gt; m_impl;
+};
+</pre>
+<pre>
+// pimpl.cc
+class Impl {
+     // ...
+};
+<br />
+Pimpl::Pimpl()
+    : m_impl(new Impl)
+{}
+</pre>
+
+If you do not declare the destructor the compiler will generate one in every translation unit that includes <code>"impl.h"</code>, which will call the destructor of member variables, that is, the destructor of <code>m_impl</code> which requires the complete definition of <code>Impl</code>. But the whole purpose of Pimpl idiom is to hide the definition of <code>Impl</code>. To solve this problem you should declare the destructor in the header file to prevent the compiler from generating one and define it in the source file. Then only the "impl.cc" requires the complete definition of <code>Impl</code>. Other translation units just call <code>Pimpl</code>'s destructor as an external function, so they don't  need to generate it.
+
+          </article>
+        </div>
+
+        <div class="grid-right">
+          <div class="toc">
+            <div class="hd">
+              Table of Contents
+            </div>
+            <div id="toc" class="bd">
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <p class="copyright">&copy; 2013 judewang<br />All rights reserved.</p>
+      </footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="/javascripts/generate_toc.js"></script>
+    </div>
+  </body>
+</html>

@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <meta name="description" content="{{ site.description }}" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
     <link rel="stylesheet" href="/stylesheets/default.css" />
-    <title>{{ page.title }}</title>
+    <title>C gotchas</title>
   </head>
   <body>
     <div id="doc">
@@ -17,7 +17,7 @@
               <a href="/">Home</a>
             </li>
             <li class="nav-tab">
-              <a href="/archives.html">Archives</a>
+              <a href="/">Archives</a>
             </li>
             <li class="nav-tab">
               <a href="/">About</a>
@@ -29,10 +29,27 @@
       <div id="bd">
         <div class="grid-left">
           <article id="article" class="article">
-            <div class="article-title">{{ page.title }}</div>
+            <div class="article-title">C gotchas</div>
             <div class="article-author">By judewang</div>
-            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
-            {{ content }}
+            <div class="article-date">2012-05-13</div>
+            <p>
++, - have higher precedence than >>, <<.
+</p>
+<p>
+a/b if a or b is negative, its result is implementation-dependent (truncated to or from 0) prior to C99, and truncated to 0 by C99.  The standard specifies that (a/b)*b + a%b is equal to a.
+</p>
+<h3>Array name vs. pointer</h3>
+<p>
+Usually an array name is transformed to be a pointer to the first element of the array.  But in following situations an array name is not equivalent to a pointer to the first element of the array:
+<ul>
+<li>as an operand of <code>sizeof</code> operator</li>
+<li>as an operand of <code>&</code> operator</li>
+</ul>
+</p>
+<p>
+The declaration of an array and its definition must be compatible, only except as a parameter of a function, in which the declaration of an array is equivalent to the declaration of a pointer.  Particularly you must not define a variable to be an array in one file and declare it to be a pointer in another file.
+</p>
+
           </article>
         </div>
 
