@@ -230,14 +230,18 @@ blockquote {
     vertical-align: top;
 }
 
+.invisible {
+    display: none;
+}
+
 .article {
     margin: 0 20px;
 }
 
 .article-title {
     display: block;
-    padding: 0 0 10px 0;
-    color: #eb8c28;
+    margin-bottom: .5em;
+    color: #30418c;
     font-weight: bold;
     font-size: 180%;
     line-height: 1.1;
@@ -245,9 +249,7 @@ blockquote {
 
 .article-date {
     display: block;
-    margin: 5px 0 5px 0;
-    padding: 0;
-    text-align: right;
+    text-align: left;
 }
 
 .article-author {
@@ -284,6 +286,24 @@ blockquote {
 
 .article td {
     background-color: #e6e9f5;
+}
+
+#pager {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+}
+
+#prev {
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+
+#next {
+    display: block;
+    float: right;
+    text-align: right;
 }
 
 .toc {

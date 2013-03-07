@@ -1,0 +1,8 @@
+---
+layout: post
+title: Blog
+---
+
+{% for post in site.posts limit:1 offset:0 %}
+{{ post.content }}
+{% endfor %}

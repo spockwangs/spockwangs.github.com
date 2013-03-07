@@ -30,13 +30,20 @@
         <div class="grid-left">
           <article id="article" class="article">
             <div class="article-title">{{ page.title }}</div>
-            <div class="article-author">By judewang</div>
             <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
             {{ content }}
+            <div id="pager">
+              {% if page.previous %}
+              <a id="prev" href="{{ page.previous.url }}">«{{ page.previous.title }}</a>
+              {% endif %}
+              {% if page.next %}
+              <a id="next" href="{{ page.next.url }}">{{ page.next.title }}»</a>
+              {% endif %}
+            </div>
           </article>
         </div>
 
-        <div class="grid-right">
+        <div id="toc-wrapper" class="grid-right invisible">
           <div class="toc">
             <div class="hd">
               Table of Contents

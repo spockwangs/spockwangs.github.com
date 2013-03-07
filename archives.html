@@ -3,10 +3,11 @@ layout: default
 title: Archives
 ---
 
-<div>
-  <ul>
+<h1>All posts</h1>
+<hr />
+<div style="margin-left: 2em">
   {% for post in site.posts %}
-  <li>{{ post.date|date: "%Y-%m-%d" }}, <a href="{{ post.url }}">{{ post.title }}</a></li>
+  <div>{{ post.date|date: "%Y-%m-%d" }}, <a href="{{ post.url }}">{{ post.title }}</a></div>
   {% endfor %}
   </ul>
 </div>
