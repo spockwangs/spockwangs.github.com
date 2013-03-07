@@ -1,0 +1,70 @@
+---
+layout: post
+title: Typecast in C++
+tags:
+- Programming
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  _edit_lock: '1314718681'
+  _pingme: '1'
+  _encloseme: '1'
+  _wp_old_slug: ''
+  views: '3'
+---
+There are four types of type-cast in C++, which are preferred than the C-style cast.
+<h2>static_cast</h2>
+<tt>static_cast</tt> has following uses.
+<ol>
+<li> Cast between arithmetic types, such as casting from <tt>int</tt> to <tt>char</tt>.</li>
+<li> Cast a value of integral type to an enumeration type.  In C++ a value of integral type can not be implicitly converted to an enumeration type, which is different from C.  The integral value must be in the range of the enumeration values.  (See clause 7, 5.2.9 of [C++ standard 98])</li>
+<li> Cast a value of type "pointer to <tt>void</tt>" to a pointer to object type.  You must ensure that the original pointer is really pointing to the destination object type.</li>
+<li> Cast any type to <tt>void</tt>.</li>
+<li> Down-cast in case of pointer.  Convert a value of type "pointer to <tt>B</tt>" to a value of type "pointer to <tt>D</tt>", where <tt>B</tt> is a non-virtual base class of <tt>D</tt>.  You must make sure that the original pointer is really pointing to the sub-object of <tt>D</tt>. (See clause 8, 5.2.9 of [C++ standard 98])</li>
+<li> Dow-cast in case of reference.  Convert a value of type "reference to <tt>B</tt>" to a value of type "reference to <tt>D</tt>", where <tt>B</tt> is a non-virtual base class of <tt>D</tt>.  You must make sure that the original reference is really referencing the sub-object of <tt>D</tt>. (See clause 5, 5.2.9 of [C++ standard 98])</li>
+</ol>
+<p>
+Note that you cannot use <tt>static_cast</tt> to convert a value of type "pointer to <tt>int</tt>" to a pointer to <tt>char</tt>.  This is a frequent misuse of <tt>static_cast</tt>.  You have to use <tt>reinterpret_cast</tt> to do that.
+</p>
+<p>
+All the conversions that <tt>static_cast</tt> does is done at compile-time, so what it can do is limited.  Due to lacking run-time info it just does basic type checking and can not make sure what you do is valid.  For example you may convert a pointer to a wrong type but <tt>static_cast</tt> can not figure it out.
+</p>
+<h2>dynamic_cast</h2>
+<p>
+Dynamic cast is usually used to convert a pointer to a base class to a pointer to a derived class.
+</p>
+<p>
+Consider the following dynamic cast expression:
+<code>
+dynamic_cast&lt;T&gt;(v)
+</code>
+we have following situations
+<ol>
+<li> If <tt>v</tt> is a null pointer the result is the null pointer in <tt>T</tt> type. (See clause 4, 5.2.7 of [C++ standard 98])</li>
+<li> Up-cast in case of pointer.  If <tt>v</tt> is a pointer to <tt>D</tt> and <tt>T</tt> is "pointer to <tt>B</tt>" where <tt>B</tt> is a base class of <tt>D</tt>, the result is a pointer to the unique <tt>B</tt> sub-object of <tt>D</tt>. (See clause 5, 5.2.7 of [C++ standard 98])</li>
+<li> Up-cast in case of reference.  If <tt>v</tt> has type <tt>D</tt> and <tt>T</tt> is "reference to <tt>B</tt>" where <tt>B</tt> is a base class of <tt>D</tt>, the result is a reference to the unique <tt>B</tt> sub-object of <tt>D</tt>. (See clause 5, 5.2.7 of [C++ standard 98])</li>
+<li> Down-cast and cross-cast.  If <tt>T</tt> is "pointer to <tt>void</tt>", the result is a pointer to the most derived object pointed to by <tt>v</tt>.  Otherwise, a run-time check is applied to see if the conversion is valid.  The value of a failed cast to pointer type is a null pointer.  A failed cast to reference type throws <tt>bad_cast</tt>.  (See clause 8, 5.2.7 of [C++ standard 98])</li>
+</ol>
+</p>
+
+<h2>reinterpret_cast</h2>
+<p>
+This is the most dangerous type cast of all because the compiler and run-time will not do any check.  Just like what the name means it is a re-interpretation of the bit pattern of the original object.  The C++ standard does not guarantee that the bit pattern be not modified (See clause 3, 5.2.10 of [C++ standard 98]).  Use it judiciously.
+</p>
+<ol>
+<li> Conversion between integral type and pointer type. </li>
+<li> Conversion between different types of pointers. </li>
+<li> Conversion between references which refer to different types. </li>
+</ol>
+
+<h2>const_cast</h2>
+<p>
+It can only be used to cast away cv-qualifiers and the original type must be a pointer or reference.  If the result of a <tt>const_cast</tt> that casts away const-qualifier is pointing to or referring to a object which is declared with const-qualifier, you can not use it to modify the underlying object (see clause 7, 5.2.11 and clause 7, 7.1.5.1 of [C++ standard 98]).
+</p>
+
+<h2>References</h2>
+<ul>
+<li> [C++ standard 98] <i>The C++ standard</i>, 1998.</li>
+</ul>

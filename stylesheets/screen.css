@@ -53,3 +53,43 @@ header, footer, section {
 }
 
 /* STYLES */
+body {
+    margin: auto;
+    font-family: Header, Article, Sans-serif;
+    font-size: 100%;
+    color: black;
+    backgroud-color: lightgray;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+    background-color: #444;
+}
+
+#title {
+    margin: 10px 0;
+    font-family: Helvetica, Arial, Sans-serif;
+    color: gray;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.article {
+    margin: 0;
+    padding: 0;
+}
+
+.toc {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}

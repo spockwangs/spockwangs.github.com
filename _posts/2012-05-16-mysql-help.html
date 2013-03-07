@@ -1,0 +1,28 @@
+---
+layout: post
+title: MySql Help
+tags:
+- Administration
+status: publish
+type: post
+published: true
+meta:
+  _encloseme: '1'
+  _pingme: '1'
+  _edit_last: '1'
+  _edit_lock: '1337098952'
+---
+<h2>Backup and Recovery</h2>
+<p>
+Use following command to backup an InnoDB table
+<pre>
+$ mysqldump -u&lt;username&gt; -p&lt;password&gt; --default-character-set=utf8 \
+   --single-transaction db_name table_name > db_name-table_name-backup.sql
+</pre>
+</p>
+<p>
+If you want to backup the whole database you just omit the table name. And then use the following command to recover the table.
+<pre>
+$ mysql -u&lt;username&gt; -p&lt;password&gt; &lt; db_name-table_name-backup.sql
+</pre>
+</p>

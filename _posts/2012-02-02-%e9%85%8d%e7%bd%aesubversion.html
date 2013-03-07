@@ -1,0 +1,88 @@
+---
+layout: post
+title: 配置Subversion
+tags:
+- Administration
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  _edit_lock: '1328193250'
+  _pingme: '1'
+  _encloseme: '1'
+  _wp_old_slug: ''
+---
+<h2>
+	配置Subversion服务器使用xinetd启动
+</h2>
+<ol>
+	<li>
+		建立/etc/xinetd.d/svn，内容如下：
+	</li>
+	<pre class="border">service svn
+{
+    disable = no
+    id = svn-stream
+    socket_type = stream
+    protocol = tcp
+    user = xxx   # 运行svnserve的用户名
+    wait = no
+    server = /usr/bin/svnserve
+    server_args = -i -r /path/to/repository
+}
+
+service svn
+{
+    disable = no
+    id = svn-dgram
+    socket_type = dgram
+    protocol = udp
+    user = xxx   # 运行svnserve的用户名
+    wait = yes
+    server = /usr/bin/svnserve
+    server_args = -i -r /path/to/repository
+}</pre>
+	<li>
+		重启xinetd服务器。
+	</li>
+	<pre class="border">$ sudo invoke-rc.d xinetd restart
+</pre>
+	接下来我们就可以采用svn协议访版本库中的数据了。
+</ol>
+<h2>
+	建立SVN仓库
+</h2>
+<ol>
+	<li>
+		确定仓库的地址，假设为<code>/home/svn</code>.
+	</li>
+	<li>
+		创建一个仓库，名为<code>repos</code>:
+		<pre class="indent">$ svnadmin create /home/svn/repos
+</pre>
+	</li>
+	<li>
+		配置仓库访问控制。编辑<code>/home/svn/repos/conf/svnserve</code>：
+		<pre class="border">[general]
+# ...
+anon-access = read
+auth-access = write
+# ...
+password-db = passwd
+...
+</pre>
+		在<code>[general]</code>下有几个属性控制访问权限。<code>anon-access</code>控制匿名用户的访问权限，<code>auth-access</code>控制授权用户的访问权限，它们可以为<code>&quot;read&quot;, &quot;write&quot;, &quot;none&quot;</code>。权限控制有几种方式，最简单的一种是通过密码文件来授权。密码文件的位置由<code>password-db</code>指定,一般就放在与<code>svnserve</code>同一目录下，叫<code>passwd</code>，格式如下：
+		<pre class="border">name = password</pre>
+		等号左边是用户名，右边是密码。如果不允许匿名操作，则需要输入密码。
+	</li>
+	<li>
+		导入需要版本控制的数据。假设数据在<code>tree</code>目录下，要导入到刚刚建立的仓库中：
+		<pre class="border">$ svn import tree svn://svnhost/repos/project
+</pre>
+	</li>
+</ol>
+<hr />
+<p>
+	<em>Updated: 2011-03-04 15:55</em>
+</p>
