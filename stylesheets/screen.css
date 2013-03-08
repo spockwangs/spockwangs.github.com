@@ -85,6 +85,10 @@ p {
     margin: 1.2em 0;
 }
 
+em, i {
+    font-style: italic;
+}
+
 #doc {
     max-width: 1200px;
     margin: auto;
