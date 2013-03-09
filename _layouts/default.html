@@ -26,6 +26,17 @@
         </div>
       </div>
       <div class="sidebar">
+        <div id="sidebar-wrapper">
+          <h1>Tags</h1>
+          <ul class="tags">
+            {% for tag in site.tags %}
+            <li>
+              <span class="tag">
+                <a href="/tags/{{ tag[0] }}/" title='Posts tagged "{{ tag[0] }}"'>{{ tag[0] }}</a>
+              </span> x {{ tag[1].size }}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
 
