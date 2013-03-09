@@ -7,7 +7,7 @@
 // Require jquery.
 
 $(function () {
-    var article_id = "article";
+    var article_id = "article-content";
     var toc_id = "toc";
     var children = $("#" + article_id).children();
 

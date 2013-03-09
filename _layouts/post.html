@@ -1,63 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <meta name="description" content="{{ site.description }}" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
-    <title>{{ page.title }}</title>
-  </head>
-  <body>
-    <div id="doc">
-      <header class="header">
-        <h1 class="title">judewang.github.com</h1>
-        <div id="main-nav">
-          <ul class="nav">
-            <li class="nav-tab">
-              <a href="/">Home</a>
-            </li>
-            <li class="nav-tab">
-              <a href="/archives.html">Archives</a>
-            </li>
-            <li class="nav-tab">
-              <a href="/">About</a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      
-      <div id="bd">
-        <div class="grid-left">
-          <article id="article" class="article">
-            <div class="article-title">{{ page.title }}</div>
-            <div class="article-date">{{ page.date|date: "%Y-%m-%d" }}</div>
-            {{ content }}
-            <div id="pager">
-              {% if page.previous %}
-              <a id="prev" href="{{ page.previous.url }}">«{{ page.previous.title }}</a>
-              {% endif %}
-              {% if page.next %}
-              <a id="next" href="{{ page.next.url }}">{{ page.next.title }}»</a>
-              {% endif %}
-            </div>
-          </article>
-        </div>
+---
+layout: default
+---
 
-        <div id="toc-wrapper" class="grid-right invisible">
-          <div class="toc">
-            <div class="hd">
-              Table of Contents
-            </div>
-            <div id="toc" class="bd">
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <p class="copyright">&copy; 2013 judewang<br />All rights reserved.</p>
-      </footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <script src="/javascripts/generate_toc.js"></script>
+<article class="article">
+  <header>
+    <h1 class="title">{{ page.title }}</h1>
+    <div class="meta">
+      <span class="tags">
+        {% for tag in page.tags %}
+        <li class="tag">{{ tag }}</li>
+        {% endfor %}
+      </span>
+      <span class="date">{{ page.date|date: "%Y-%m-%d" }}</span>
     </div>
-  </body>
-</html>
+  </header>
+  <div class="toc-wrapper">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    {{ content }}
+  </div>
+</article>
+<section class="comments">
+</section>

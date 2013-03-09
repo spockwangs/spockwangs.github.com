@@ -1,8 +1,47 @@
 ---
-layout: post
-title: Blog
+layout: default
+title: Archives
 ---
 
-{% for post in site.posts limit:1 offset:0 %}
-{{ post.content }}
+<div class="article">
+{% for post in paginator.posts %}
+<h1 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+<div class="meta">
+  <span class="tags">
+    {% for tag in post.tags %}
+    <li class="tag">{{ tag }}</li>
+    {% endfor %}
+  </span>
+  <span class="date">{{post.date|date: "%Y-%m-%d"}}</span>
+</div>
 {% endfor %}
+</div>
+
+<!-- Pagination links -->
+<div class="pagination">
+  <div class="left">
+  <div class="previous">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <a href="/">Previous</a>
+    {% else %}
+    <a href="/page{{paginator.previous_page}}">Previous</a>
+    {% endif %}
+  {% else %}
+    Previous
+  {% endif %}
+  </div>
+  </div>
+  <div class="middle">
+  <div class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</div>
+  </div>
+  <div class="right">
+  <div class="next">
+  {% if paginator.next_page %}
+    <a href="/page{{paginator.next_page}}">Next</a>
+  {% else %}
+    Next
+  {% endif %}
+  </div>
+  </div>
+</div>

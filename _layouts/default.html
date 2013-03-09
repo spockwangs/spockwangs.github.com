@@ -8,35 +8,32 @@
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <div id="doc">
-      <header class="header">
-        <h1 class="title">judewang.github.com</h1>
-        <div id="main-nav">
-          <ul class="nav">
-            <li class="nav-tab">
-              <a href="/">Home</a>
-            </li>
-            <li class="nav-tab">
-              <a href="/">Archives</a>
-            </li>
-            <li class="nav-tab">
-              <a href="/">About</a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      
-      <div id="bd">
-        <div class="grid-left">
+    <header class="header">
+      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Archives</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main">
+      <div id="content-wrapper">
+        <div id="content">
           {{ content }}
         </div>
       </div>
+      <div class="sidebar">
+      </div>
+    </div>
 
-      <footer class="footer">
-        <p class="copyright">&copy; 2013 judewang<br />All rights reserved.</p>
-      </footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <script src="/javascripts/generate_toc.js"></script>
+    <footer class="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
     </div>
   </body>
 </html>
