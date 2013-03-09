@@ -297,6 +297,7 @@ nav li + li a {
 .meta .tags li {
     display: list-item;
     list-style: none;
+    margin: 0 5px;
     float: left;
 }
 
@@ -315,6 +316,7 @@ nav li + li a {
 
 .tag a {
     color: white;
+    font-size: 90%;
 }
 
 .meta .date {
