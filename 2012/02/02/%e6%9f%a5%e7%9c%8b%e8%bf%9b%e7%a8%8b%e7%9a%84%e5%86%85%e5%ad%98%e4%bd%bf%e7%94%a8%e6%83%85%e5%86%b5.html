@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <title>查看进程的内存使用情况</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Archives</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main">
+      <div id="content-wrapper">
+        <div id="content">
+          <article class="article">
+  <header>
+    <h1 class="title">查看进程的内存使用情况</h1>
+    <div class="meta">
+      <span class="tags">
+        
+        <li class="tag">Programming</li>
+        
+      </span>
+      <span class="date">2012-02-02</span>
+    </div>
+  </header>
+  <div class="toc-wrapper">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    <h2>
+	用ps命令查看进程的内存
+</h2>
+<p>
+	<code>ps</code>命令是Linux下常见的查看进程状况的程序，它有几个字段可以用来查看进程内存使用情况：sz，rss，vsz。分别说明如下：
+</p>
+<ul>
+	<li>
+		sz：进程映像所占用的物理页面数量，也就是以物理页面为单位表示的虚拟内存大小；
+	</li>
+	<li>
+		rss：进程当前所占用的物理内存大小，单位为kB；
+	</li>
+	<li>
+		vsz：进程的虚拟内存大小，单位为kB，它等于sz乘于物理页面大小（x86平台通常为4kB）。
+	</li>
+</ul>
+<p>
+	假如我要查看程序a.out的内存使用情况，操作如下：
+</p>
+<pre class="borderindent">$ <kbd>./a.out &amp;</kbd>
+<samp>[1] 10069&nbsp;</samp>
+$ <kbd>ps -O sz,rsz,vsz</kbd>
+<samp>PID    SZ   RSS    VSZ S TTY          TIME COMMAND
+ 6793  1545  3648   6180 S pts/2    00:00:00 /bin/bash
+10069   404   304   1616 S pts/2    00:00:00 ./a.out
+10070   626   876   2504 R pts/2    00:00:00 ps -O sz,rss,vsz</samp></pre>
+<p>
+	上面ps命令的输出的第3行就是./a.out自行后的相关情况。我们可以看出，它的虚拟 内存大小为1616kB，当前占用的物理内存为304kB（其它数据在磁盘上或交换分区），虚 拟内存占用404个物理页面。由于我的机器的物理页面大小为4kB，可以验证404 x 4kB等于1616kB。
+</p>
+<h2>
+	用/proc文件系统查看进程的内存使用情况
+</h2>
+<p>
+	<tt>ps</tt>命令的输出关于内存的情况不是很详细，尤其是进程所使用的内存中有很大一部分是共享库函数使用的，因此通过<tt>ps</tt>命令的输出看不到进程自己使用了多少内存。为了查看更详细的信息，可以借助于<tt>/proc</tt>文件系统。这个文件系统并存在于磁盘上，但是可以象操作其它普通文件一样操作它。它是Linux提供给用户查看进程相关信息的接口。在<tt>/proc</tt>下有2个文件和进程内存有关：<tt>/proc/&lt;pid&gt;/status</tt>和<tt>/proc/&lt;pid&gt;/smaps</tt>。
+</p>
+<p>
+	通过<tt>/proc/&lt;pid&gt;/status</tt>可以查看进程的内存使用情况，包括虚拟内存大小（VmSize），物理内存大小（VmRSS），数据段大小（VmData），栈的大小（VmStk），代码段的大小（VmExe），共享库的代码段大小（VmLib）等等。
+</p>
+<pre class="borderindent">$ <kbd>cat /proc/10069/status</kbd>
+<samp>Name:   a.out
+State:  S (sleeping)
+Tgid:   10069
+Pid:    10069
+PPid:   6793
+TracerPid:      0
+Uid:    1001    1001    1001    1001
+Gid:    1001    1001    1001    1001
+FDSize: 256
+Groups: 1000 1001 
+VmPeak:     1692 kB
+VmSize:     1616 kB
+VmLck:         0 kB
+VmHWM:       304 kB
+VmRSS:       304 kB
+VmData:       28 kB
+VmStk:        88 kB
+VmExe:         4 kB
+VmLib:      1464 kB
+VmPTE:        20 kB
+Threads:        1
+SigQ:   0/16382
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+SigIgn: 0000000000000000
+SigCgt: 0000000000000000
+CapInh: 0000000000000000
+CapPrm: 0000000000000000
+CapEff: 0000000000000000
+CapBnd: ffffffffffffffff
+Cpus_allowed:   f
+Cpus_allowed_list:      0-3
+Mems_allowed:   1
+Mems_allowed_list:      0
+voluntary_ctxt_switches:        1
+nonvoluntary_ctxt_switches:     1</samp></pre>
+<p>
+	注意，VmData，VmStk，VmExe和VmLib之和并不等于VmSize。这是因为共享库函数的数据段没有计算进去（VmData仅包含a.out程序的数据段，不包括共享库函数的数据段，也不包括通过mmap映射的区域。VmLib仅包括共享库的代码段，不包括共享库的数据段）。
+</p>
+<p>
+	通过<tt>/proc/&lt;pid&gt;/smaps</tt>可以查看进程整个虚拟地址空间的映射情况，它的输出从低地址到高地址按顺序输出每一个映射区域的相关信息，如下所示：
+</p>
+<pre class="borderindent">$ <kbd>cat /proc/10069/smaps</kbd>
+<samp>00110000-00263000 r-xp 00000000 08:07 128311     /lib/tls/i686/cmov/libc-2.11.1.so
+Size:               1356 kB
+Rss:                 148 kB
+Pss:                   8 kB
+Shared_Clean:        148 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:          148 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+......
+......
+bfd7f000-bfd94000 rw-p 00000000 00:00 0          [stack]
+Size:                 88 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB</samp></pre>
+<p>
+	注意：<tt>rwxp</tt>中，<tt>p</tt>表示私有映射（采用Copy-On-Write技术）。<tt>Size</tt>字段就是该区域的大小。
+</p>
+<h2>
+	参考文献
+</h2>
+<ul>
+	<li>
+		ps(1) -O选项。
+	</li>
+	<li>
+		proc(5) /proc/[pid]/status和/proc/[pid]/smaps条目。
+	</li>
+</ul>
+<hr />
+<p>
+	<em>Updated: 2011-03-04 17:11</em>
+</p>
+
+  </div>
+</article>
+<section class="comments">
+</section>
+
+        </div>
+      </div>
+      <div class="sidebar">
+        <div id="sidebar-wrapper">
+          <h1>Tags</h1>
+          <ul class="tags">
+            
+            <li>
+              <span class="tag">
+                <a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a>
+              </span> x 19</li>
+            
+            <li>
+              <span class="tag">
+                <a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a>
+              </span> x 1</li>
+            
+            <li>
+              <span class="tag">
+                <a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a>
+              </span> x 5</li>
+            
+            <li>
+              <span class="tag">
+                <a href="/tags/Network/" title='Posts tagged "Network"'>Network</a>
+              </span> x 3</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
+    </div>
+  </body>
+</html>
