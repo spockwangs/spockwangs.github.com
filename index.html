@@ -26,10 +26,14 @@ title: Archives
 <div class="pagination">
   <div class="left">
     <div class="previous">
+      {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
       <a href="/">Previous</a>
       {% else %}
       <a href="/page{{paginator.previous_page}}">Previous</a>
+      {% endif %}
+      {% else %}
+      Previous
       {% endif %}
     </div>
   </div>
