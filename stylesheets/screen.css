@@ -103,12 +103,19 @@ a {
 }
 
 ul, ol {
-    padding-left: 20px;
+    padding-left: 2em;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ul {
+    list-style-type: disc;
 }
 
 li {
     display: list-item;
-    list-style-type: disc;
     font-weight: normal;
 }
 
@@ -133,32 +140,30 @@ pre, code, kbd, samp {
 }
 
 code {
-    padding: 0px 5px 2px;
-    border: 1px solid #ddd;
+    padding: 1px 5px;
+    border: 1px solid #ccc;
     border-radius: 3px;
     background-clip: padding-box;
-    color: #666;
+    background-color: #f8f8f8;
 }
 
 pre code {
     display: block;
     margin: 1.2em 0;
     padding: .3em .6em;
-    border: 1px solid #efeeed;
     border-left-width: 5px;
+    border-radius: 0;
+    background-clip: border-box;
     overflow-x: auto;
-    background: #fcfbfa;
 }
 
 blockquote {
     display: block;
     margin: 0 2em;
-    padding: 1em;
-    border: 1px solid #d4d8eb;
+    padding-left: 1em;
+    border-left: 10px solid #ddd;
     border-radius: 3px;
-    font-family: Consolas, 'Courier New', Courier, monospace;
-    font-style: italic;
-    font-weight: normal;
+    background-color: #f8f8f8;
 }
 
 .header {

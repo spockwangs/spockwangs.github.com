@@ -40,21 +40,16 @@
     </div>
   </div>
   <div id="article-content" class="content">
-    <h2>Backup and Recovery</h2>
-<p>
-Use following command to backup an InnoDB table
-<pre>
-$ mysqldump -u&lt;username&gt; -p&lt;password&gt; --default-character-set=utf8 \
-   --single-transaction db_name table_name > db_name-table_name-backup.sql
-</pre>
-</p>
-<p>
-If you want to backup the whole database you just omit the table name. And then use the following command to recover the table.
-<pre>
-$ mysql -u&lt;username&gt; -p&lt;password&gt; &lt; db_name-table_name-backup.sql
-</pre>
-</p>
+    <h2 id='backup_and_recovery'>Backup and Recovery</h2>
 
+<p>Use following command to backup an InnoDB table</p>
+
+<pre><code>$ mysqldump -u username -p password --default-character-set=utf8 
+--single-transaction db_name table_name &gt; db_name-table_name-backup.sql</code></pre>
+
+<p>If you want to backup the whole database you just omit the table name. And then use the following command to recover the table.</p>
+
+<pre><code>$ mysql -u username -p password db_name-table_name-backup.sql</code></pre>
   </div>
   <footer class="footer">
     
@@ -95,6 +90,13 @@ $ mysql -u&lt;username&gt; -p&lt;password&gt; &lt; db_name-table_name-backup.sql
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" defer="defer"></script>-->
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
     </div>
   </body>
 </html>

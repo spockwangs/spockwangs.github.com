@@ -38,7 +38,7 @@
     </div>
   </div>
   <div id="article-content" class="content">
-    <h2 id='id2'>简介</h2>
+    <h2 id='id3'>简介</h2>
 
 <p>用户在编写程序时都要定义一个<code>main()</code>函数作为程序运行的入口。程序开始执行时就 从这个函数开始。当这个函数返回时就表明程序运行结束了。可是用户编写的程序要能 正确运行远不是这么简单。比如，我们不禁要问<code>main()</code>是由谁调用的呢？当从 <code>main()</code>返回后又运行到哪里去了呢？C++程序中定义的全局对象是如何构造的呢？又 是如何析构的呢？如果程序是动态链接的，它所依赖的共享库是如何加载进内存的？更 复杂的是，共享对象中的全局对象是如何构造的和析构的呢？要回答这些问题，就不得 不弄清程序加载、运行和终止的整个流程，从中也可以知道系统软件（包括操作系统、 动态链接器、链接编辑器和编译器）为了支持用户程序的正确运行做了多么复杂的工作。</p>
 
@@ -46,7 +46,7 @@
 
 <p>为了理清这些问题，下面我们来分析Linux系统下程序的运行流程。</p>
 
-<h2 id='id3'>术语</h2>
+<h2 id='id4'>术语</h2>
 <dl> 
   <dt>程序头(Program Header)</dt>
   <dd> 程序头在[gabi]的<q>Program Header</q>一节中定义，是ELF文件执行视图的
@@ -68,7 +68,7 @@
   载时重定  位的时间。详见[abi386-4]的<q>Procedure Linkage Table</q>一节。 
   </dd>
 </dl>
-<h2 id='id4'>程序运行的基本流程</h2>
+<h2 id='id5'>程序运行的基本流程</h2>
 
 <p>首先给出一个大致的流程。</p>
 
@@ -94,7 +94,7 @@
 
 <p>下面结合实际代码给出Linux下详细的运行流程。</p>
 
-<h3 id='id5'>程序的加载</h3>
+<h3 id='id6'>程序的加载</h3>
 
 <p>程序的加载是通过执行<code>exec(3)</code>系统调用实现的。当在命令行上执行一个程 序或在图形界面系统中双击一个可执行文件时最终都是通过这个系统调用来执行程序 的。执行这个系统调用后，陷入操作系统内核，由操作系统负责加载该程序文件。在 操作系统确认相关参数后，然后通过内存映射方式加载进内存。若该ELF文件是动态链 接的可执行文件（程序头中存在<code>PT_INTERP</code>）需要动态连接器的支持，操作 系统则将该动态连接器映射进内存，并准备好相应的环境，将控制权转移给动态连接 器。若ELF文件是静态链接的，则操作系统准备好环境后直接转移到ELF文件的入口点 开始执行。详细过程如下：</p>
 
@@ -110,7 +110,7 @@
 
 <p>另见<span>abi386-4</span>的第5节，<span>gabi</span>的&#8221;Dynamic Linking&#8221;.</p>
 
-<h3 id='id6'>运行动态连接器</h3>
+<h3 id='id7'>运行动态连接器</h3>
 
 <p>对于动态链接的可执行文件，还需要动态连接器为其加载可执行文件依赖的共享对象 文件并进行符号重定位才可以执行。动态连接器的位置存储在可执行文件程序头的 <code>PT_INTERP</code>元素中（见<span>gabi</span>&#8220;Program Header&#8221;一节）。动态连接器的 运行过程如下：</p>
 
@@ -150,7 +150,7 @@
 
 <p>动态连接器任务完成后将控制权转移给用户程序，此时用户程序才正是开始执行。</p>
 
-<h3 id='id7'>用户程序的执行</h3>
+<h3 id='id8'>用户程序的执行</h3>
 
 <p>不管用户程序是静态的还是动态的可执行文件，它们的入口处都在<code>_start
 (glibc/sysdeps/i386/elf/Start.S)</code>。它首先设置好一些寄存器后调用 <code>__libc_start_main() (glibc/csu/libc-start.c)</code>。 <code>__libc_start_main()</code>主要进行以下工作:</p>
@@ -165,7 +165,7 @@
 <li><code>main()</code>返回后调用<code>exit() (glibc/stdlib/exit.c)</code>。<code>exit()</code>以注册的相反顺 序调用<code>atexit() (glibc/stdlib/atexit.c)</code>和<code>__cxa_atexit()</code>注册的函数，然 后调用<code>_exit()</code>结束进程。</li>
 </ol>
 
-<h2 id='id8'>参考文献</h2>
+<h2 id='id9'>参考文献</h2>
 
 <ul>
 <li>[abi386-4] <em>System V Application Binary Interface: Intel 386 Architecture Processor Supplement,</em> Fourth Edition.</li>
@@ -212,6 +212,13 @@
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" defer="defer"></script>-->
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
     </div>
   </body>
 </html>
