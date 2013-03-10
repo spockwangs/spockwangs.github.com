@@ -1,186 +1,48 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
-    <title>Archives</title>
-  </head>
-  <body>
-    <header class="header">
-      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
-    </header>
+---
+layout: default
+title: Archives
+---
 
-    <nav>
-      <ul>
-        <li><a href="/">Archives</a></li>
-        <li><a href="/about.html">About</a></li>
-      </ul>
-    </nav>
-
-    <div id="main">
-      <div id="content-wrapper">
-        <div id="content">
-          <div class="article">
-  <h1 class="title">Archives</h1>
-  
-  <h2 class="title"><a href="/2013/08/20/linux-program.html">Linux程序的加载、运行与终止</a></h2>
+<div class="article">
+  <h1 class="title">{{ page.title }}</h1>
+  {% for post in paginator.posts %}
+  <h2 class="title">
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </h2>
   <div class="meta">
     <span class="tags">
-      
+      {% for tag in post.tags %}
+      <li class="tag">
+        <a href="/tags/{{ tag }}" title='Posts tagged"{{ tag }}"'>{{ tag }}</a>
+      </li>
+      {% endfor %}
     </span>
-    <span class="date">2013-08-20</span>
+    <span class="date">{{ post.date|date: "%Y-%m-%d" }}</span>
   </div>
-  
-  <h2 class="title"><a href="/2013/02/25/hello.html">Hello</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-    </span>
-    <span class="date">2013-02-25</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/11/25/c-coding-guideline.html">C++ Coding Guideline</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-11-25</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/05/16/mysql-help.html">MySql Help</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Administration/" title='Posts tagged"Administration"'>Administration</a></li>
-      
-    </span>
-    <span class="date">2012-05-16</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/05/14/gnu-tool-chain.html">GNU Tool Chain</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-05-14</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/05/14/c-gotchas.html">C++ Gotchas</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-05-14</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/05/13/java-gotchas-2.html">Java Gotchas</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-05-13</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/05/13/cgotchas.html">C gotchas</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-05-13</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/02/06/%25e6%259c%258d%25e5%258a%25a1%25e5%2599%25a8%25e7%25a8%258b%25e5%25ba%258f%25e5%25bc%2580%25e5%258f%2591%25e5%25ae%259e%25e8%25b7%25b5.html">服务器程序开发实践</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Programming/" title='Posts tagged"Programming"'>Programming</a></li>
-      
-    </span>
-    <span class="date">2012-02-06</span>
-  </div>
-  
-  <h2 class="title"><a href="/2012/02/03/tcp-faq.html">TCP FAQ</a></h2>
-  <div class="meta">
-    <span class="tags">
-      
-      <li class="tag"><a href="/tags/Network/" title='Posts tagged"Network"'>Network</a></li>
-      
-    </span>
-    <span class="date">2012-02-03</span>
-  </div>
-  
+  {% endfor %}
 </div>
 
 <!-- Pagination links -->
 <div class="pagination">
   <div class="left">
     <div class="previous">
-      
-      Previous
-      
+      {% if paginator.previous_page == 1 %}
+      <a href="/">Previous</a>
+      {% else %}
+      <a href="/page{{paginator.previous_page}}">Previous</a>
+      {% endif %}
     </div>
   </div>
   <div class="middle">
-    <div class="page_number ">Page: 1 of 3</div>
+    <div class="page_number">Page: {{paginator.page}} of {{paginator.total_pages}}</div>
   </div>
   <div class="right">
     <div class="next">
-      
-      <a href="/page2">Next</a>
-      
+      {% if paginator.next_page %}
+      <a href="/page{{paginator.next_page}}">Next</a>
+      {% else %}
+      Next
+      {% endif %}
     </div>
   </div>
 </div>
-
-        </div>
-      </div>
-      <div class="sidebar">
-        <div id="sidebar-wrapper">
-          <h1>Tags</h1>
-          <ul class="tags">
-            
-            <li>
-              <span class="tag">
-                <a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a>
-              </span> x 19</li>
-            
-            <li>
-              <span class="tag">
-                <a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a>
-              </span> x 1</li>
-            
-            <li>
-              <span class="tag">
-                <a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a>
-              </span> x 5</li>
-            
-            <li>
-              <span class="tag">
-                <a href="/tags/Network/" title='Posts tagged "Network"'>Network</a>
-              </span> x 3</li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
-    </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/javascripts/generate_toc.js"></script>
-    </div>
-  </body>
-</html>

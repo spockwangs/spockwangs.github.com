@@ -25,19 +25,19 @@
           {{ content }}
         </div>
       </div>
-      <div class="sidebar">
+      <div id="sidebar">
         <div id="sidebar-wrapper">
           <h1>Tags</h1>
           <ul class="tags">
             {% for tag in site.tags %}
-            <li><span class="tag"><a href="/tags/{{ tag[0] }}/" title='Posts tagged "{{ tag[0] }}"'>{{ tag[0] }}</a></span>x {{ tag[1].size }}</li>
+            <li><span class="tag"><a href="/tags/{{ tag[0] }}/" title='Posts tagged "{{ tag[0] }}"'>{{ tag[0] }}</a></span>&nbsp;x&nbsp;{{ tag[1].size }}</li>
             {% endfor %}
           </ul>
         </div>
       </div>
     </div>
 
-    <footer class="footer">
+    <footer id="footer">
       <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

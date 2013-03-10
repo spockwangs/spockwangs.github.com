@@ -251,22 +251,23 @@ nav li + li a {
     padding: 20px 50px;
 }
 
-.sidebar {
+#sidebar {
     display: block;
     width: 24%;
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #eee;
     float: right;
 }
 
-.sidebar ul {
+#sidebar ul {
     display: block;
     list-style: none;
     padding: 0;
 }
 
-.sidebar li {
+#sidebar li {
     display: list-item;
     margin: 5px 0;
     list-style: none;
@@ -325,20 +326,24 @@ nav li + li a {
     float: right;
 }
 
-.article .toc-wrapper {
+#toc-wrapper {
     display: block;
     margin: 0 0 1em 1em;
     padding: .5em 1em;
+    max-width: 50%;
     border: solid #d4d8eb 1px;
     border-radius: .5em;
     float: right;
 }
 
-.toc-wrapper .toc-header {
+#toc-wrapper .toc-header {
     font-weight: bold;
     font-size: 125%;
 }
 
+/*
+ * Table of Contents
+ */
 .toc ul, .toc ol {
     padding-left: 14px;
 }
@@ -354,6 +359,10 @@ nav li + li a {
 
 .toc li li {
     font-weight: normal;
+}
+
+.invisible {
+    display: none !important;
 }
 
 .article table {
@@ -384,6 +393,22 @@ nav li + li a {
     background-color: #e6e9f5;
 }
 
+.article > .footer {
+    margin-top: 2em;
+    padding-top: .5em;
+    border-top: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+.article > .footer .previous {
+    float: left;
+}
+
+.article > .footer .next {
+    float: right;
+}
+
 #pager {
     display: block;
     position: relative;
@@ -402,7 +427,7 @@ nav li + li a {
     text-align: right;
 }
 
-.footer {
+#footer {
     display: block;
     margin: 0;
     margin-bottom: 50px;
@@ -449,7 +474,6 @@ nav li + li a {
 
 .pagination .next {
     display: inline-block;
-    margin-right: 0;
     padding: 3px 7px;
     border-left: 1px solid #dadada;
     text-align: right;
