@@ -247,7 +247,6 @@ nav li + li a {
     margin: 0;
     padding-bottom: 9999px;
     margin-bottom: -9999px;
-    border-right: 1px solid #e0e0e0;
     float: left;
     background-color: #f8f8f8;
 }
@@ -256,9 +255,14 @@ nav li + li a {
     padding: 20px 50px;
 }
 
+#sidebar-wrapper {
+    display: block;
+    padding-left: 20px;
+}
+
 #sidebar {
     display: block;
-    width: 24%;
+    width: 25%;
     height: 100%;
     margin: 0;
     padding-bottom: 9999px;
