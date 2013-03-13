@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
+    <title>C++ Coding Guideline</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
+        <div id="content">
+          <article class="article">
+  <header>
+    <h1 class="title">C++ Coding Guideline</h1>
+    <div class="meta">
+      <span>
+        
+        <li class="thetag">Programming</li>
+        
+      </span>
+      <span class="meta-date">2012-11-25</span>
+    </div>
+  </header>
+  <div id="toc-wrapper" class="invisible">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    <h3 id='declare_the_constructor_and_destructor_in_the_header_file_and_define_them_in_the_source_file_when_using_pimpl_idiom_even_if_they_are_empty'>Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.</h3>
+
+<p>Consider the following code.</p>
+
+<pre><code>// pimpl.h
+class Impl;    // forward declaration
+class Pimpl {
+public:
+   Pimpl();
+   
+   // The destructor is not declared, so the compiler will generate one.
+
+private:
+    boost::scoped_ptr&lt;Impl&gt; m_impl;
+};
+
+// pimpl.cc
+class Impl {
+     // ...
+};
+
+Pimpl::Pimpl()
+    : m_impl(new Impl)
+{}</code></pre>
+
+<p>If you do not declare the destructor the compiler will generate one in every translation unit that includes <code>impl.h</code>, which will call the destructor of member variables, that is, the destructor of <code>m_impl</code> which requires the complete definition of <code>Impl</code>. But the whole purpose of Pimpl idiom is to hide the definition of <code>Impl</code>. To solve this problem you should declare the destructor in the header file to prevent the compiler from generating one, and define it in the source file. Then only the <code>impl.cc</code> requires the complete definition of <code>Impl</code>. Other translation units just call <code>Pimpl</code>&#8217;s destructor as an external function, so they don&#8217;t need to generate it.</p>
+  </div>
+  <footer class="footer">
+    
+    <div class="previous">
+      <a href="/2012/05/16/mysql-help.html" title="Previous post: MySql Help">«MySql Help</a>
+    </div>
+    
+    
+    <div class="next">
+      <a href="/2013/02/25/hello.html" title="Next post: Hello">Hello»</a>
+    </div>
+    
+  </footer>
+</article>
+
+        </div>
+      </div>
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
+          <h1>Tags</h1>
+          <ul class="tag-list">
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
+    </div>
+  </body>
+</html>

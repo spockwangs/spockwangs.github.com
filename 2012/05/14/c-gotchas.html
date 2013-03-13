@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
+    <title>C++ Gotchas</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
+        <div id="content">
+          <article class="article">
+  <header>
+    <h1 class="title">C++ Gotchas</h1>
+    <div class="meta">
+      <span>
+        
+        <li class="thetag">Programming</li>
+        
+      </span>
+      <span class="meta-date">2012-05-14</span>
+    </div>
+  </header>
+  <div id="toc-wrapper" class="invisible">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    <h2>Variables, Operators and Conversions</h2>
+<p>
+Implicit conversions are not applied to non-const reference arguments.  See p.146 of [C++].
+</p>
+<p>
+The distinction between const-reference and non-const reference parameters is that the former matches constants and const variables while the latter matches others in overloading resolution.  Const-reference can bind temporary objects but non-const reference can not.
+</p>
+<p>
+Not like C, consts have internal linkage by default.  However, you can use extern to give it external linkage.  See bottom of p.199 of [C++].
+</p>
+<p>
+There are four kinds of cast in C++: static_cast, dynamic_cast, const_cast, and reinterpret_cast.
+</p>
+<h3>Initialization</h3>
+<p>
+The global objects and class static member objects are constructed according to their order of definition (section 9.4.1 of [C++]).  The local static objects are constructed when accessed the first time (See section 7.1.2 of [C++]).  They are destructed in the reverse order.  An array of class objects are initialized by calling corresponding constructors for each of its elements, following the subscript order (clause 3 of 12.6 of [ISO C++ 1998]).
+</p>
+<p>
+The objects with static storage duration is first zero-initialized (Section 8.5 of [ISO C++ 1998]) and then initialized by calling appropriate constructors.  Local non-static objects which are class type are initialized by calling appropriate constructors (call default constructors if no initializers).  Local non-static objects which are built-in types have indeterminate initial values.  On initialization of non local objects see 3.6.2 of [ISO C++ 1998].  On initialization of static objects see clause 4 of section 6.7 of [ISO C++ 1998].
+</p>
+<h3>Program Termination</h3>
+<p>
+<ul>
+<li>By exit(): destructors for local objects are not called; destructors for constructed static objects are called.</li>
+<li>By abort(): all destructors are not called.</li>
+<li>By throwing an uncaught exception: all destructors are not called.</li>
+<li>By returning from main(): all destructors are called.</li>
+<li>See p.218 of [C++].</li>
+</ul>
+</p>
+<h3>Operator Overloading</h3>
+<p>
+Overloaded operator functions must either be a member or take at least one
+argument of a user-defined type.  See 11.2.3 of [C++].
+</p>
+<h3><code>std::endl</code> vs. <code>"\n"</code></h3>
+<p><code>std::endl</code> causes the stdout stream to be flushed while <code>"\n"</code> does not.</p>
+<h3>Pass overloaded function as an template parameter</h3>
+<p>
+Be wary when passing overloaded functions as template parameter.  Because the passed function is not given any argument the compiler does not know which version of the overloaded function to call.  So you must explicitly supply template parameters with the function.
+</p>
+<h2>Class</h2>
+<p>
+A friend function should either be explicitly declared in an enclosing scope or take an argument of its class.  If not, the friend cannot be called.  See p.280 of [C++].
+</p>
+<p>
+A function member of a derived class is not in the same scope as a function member of the same name in a base class.  See section 13.2 of [ISO C++ 1998].  So the function of a derived class can not overload the function of the same name in the base class, because overloading can only happen among the same names in the same scope.
+</p>
+<p>
+The scope of typedef types in class declaration begins from where it is defined to the end of class declaration, while the scope of class member variables and functions extend to the whole range of the class declaration.
+</p>
+<p>
+If a function does not catch an exception destructors of local objects of that function will not be called.  (See section 9.4.1.1 of [C++].)
+</p>
+<p>
+A function in derived class with more restricted access right can override the same function in the base class.  For example, a private function in a derived class can override the same public function in the base class.  Then I can access the private function in the derived class through virtual mechanism.  I think it is a loophole in the C++ grammar.  It is not allowed in Java.
+</p>
+<p>
+Constructors can not be virtual but destructors can be virtual, and sometimes it must be.  Calling virtual functions in constructors and destructors have the same effect as calling non-virtual functions.  The usual virtual mechanism does not make effects, because the virtual pointer is pointing to the virtual function table of this class, not the class of the actual object.
+</p>
+<p>
+Unlike Java, you cannot define static class within another class.
+</p>
+<p>
+The class defined in another class is not special in C++.  The member functions of embedded classes can access all fields (regardless of access rights)  of the enclosing class.  The enclosing class has not any special access rights to the inner class.  It is not allowed to access the private or protected members of the inner class.
+</p>
+<p>
+In the absence of an access-specifier for a base class, public is assumed when the derived class is declared <code>"struct"</code> and private is assumed when the class is declared <code>"class"</code>.
+</p>
+<pre>
+class B { ... };
+class D1 : B { ... }; 	// B private by default
+struct D2 : B { ... };	// B public by default
+</pre>
+<p>
+Static variables declared in a function member of a class, like static variable member, is shared by all objects of this class.
+</p>
+<h3>Assignment operator</h3>
+<ul>
+<li>Obliterate existing object;</li>
+<li>Check for self-assignment;</li>
+</ul>
+<p>
+Assign to all data members, including those from base classes (by calling assignment operators of base classes)
+</p>
+<h3>Constructor</h3>
+<p>
+The constructor of a class must specify a mem-initializer for all its virtual base classes (direct or indirect) and direct base classes if they do not have an accessible default constructor (clause 6 of 12.6.2 of [ISO C++ 1998]).
+</p>
+<h2>References</h2>
+<ul>
+<li>[C++] The C++ Programming Language, Third Edition.</li>
+<li>[ISO C++ 1998] The C++ Standard, 1998.</li>
+</ul>
+
+  </div>
+  <footer class="footer">
+    
+    <div class="previous">
+      <a href="/2012/05/13/java-gotchas-2.html" title="Previous post: Java Gotchas">«Java Gotchas</a>
+    </div>
+    
+    
+    <div class="next">
+      <a href="/2012/05/14/gnu-tool-chain.html" title="Next post: GNU Tool Chain">GNU Tool Chain»</a>
+    </div>
+    
+  </footer>
+</article>
+
+        </div>
+      </div>
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
+          <h1>Tags</h1>
+          <ul class="tag-list">
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
+    <title>How to support Unicode in C/C++</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
+        <div id="content">
+          <article class="article">
+  <header>
+    <h1 class="title">How to support Unicode in C/C++</h1>
+    <div class="meta">
+      <span>
+        
+        <li class="thetag">Programming</li>
+        
+      </span>
+      <span class="meta-date">2011-09-09</span>
+    </div>
+  </header>
+  <div id="toc-wrapper" class="invisible">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    <p>
+To support multilanguage in programs we have to decide an encoding for internal use.  It does not matter which encoding is used.  But it must be able to encode all Unicode  characters.  In this article I decide to use wide characters as the internal encoding because it is easy to use and has much support from standard C library.  The characters from the input is converted to wide characters for internal use.  All the logic of the program is based on the internal encoding.  When characters are required to transmitted to outside (e.g. print to <tt>stdout</tt> or across the network) they are converted to appropriate encoding.
+</p>
+<h2>Locale</h2>
+<p>
+The functions in the C library which does convertions between multi-byte characters and  wide characters is locale-specific (particularly the category <tt>LC_CTYPE</tt>).  Their behavior can be changed by <tt>setlocale</tt> defined in <tt>locale.h</tt>.  So when we want to convert from or to multi-byte characters we must set the value of <tt>LC_CTYPE </tt>correctly.
+</p>
+<p>
+There is a global locale in C++, as there is in C.  Initially the global locale is the locale "C".  You can get current global locale by calling <code>std::locale::locale()</code>.  Except the global locale you can construct as many locales as you want and imbue each stream with a different locale object.  Working with many different locales becomes easy in C++, but in C you have to switch locales frequently.
+</p>
+<h2>Input</h2>
+<p>
+Often the characters from the input source is encoded using some multi-byte encoding like GBK or UTF-8.  We have to find a way to convert from these multi-byte encoding to wide characters defined in C.  Foutunately C library has provided many functions to do the conversion.  But we must take care to set the relevant locale category to make them work correctly.
+</p>
+<p>
+We can use <tt>scanf</tt> to convert the input multi-byte sequence to wide characters, like the following which assmes the input characters are encoded in GBK.
+<code>
+wchar_t wcs[1024];
+setlocale(LC_CTYPE, "zh_CN.GBK");
+fscanf(fp, "%ls", wcs);
+</code>
+Or we can obtain the input as a byte-sequence and then call <tt>mbstowcs</tt> to do the conversion.
+<code>
+char bytes[1024];
+int len;
+wchar_t *wcs;
+fscanf(fp, "%s", bytes);
+
+ /* Get how many wide characters will be converted including NUL-terminator. */
+setlocale(LC_CTYPE, "zh_CN.GBK");
+len = mbstowcs(NULL, bytes, 0) + 1;
+wcs = (wchar_t *) malloc(len * sizeof(*wcs));
+mbstowcs(wcs, bytes, len);
+</code>
+But we must make sure the byte-sequence is a full valid multibyte sequence or <tt>-1</tt> is returned by the call to <tt>mbstowcs</tt>.
+</p>
+<p>
+In C++ we can use <code>wistream</code> to convert the input multibyte sequence to wide characters.
+<code>
+wstring ws;  // define wide string to hold input
+wcin.sync_with_stdio(false);
+wcin.imbue(std::locale::locale("zh_CN.GBK"));
+wcin &gt;&gt; ws;
+</code>
+Due to some limitations with it <code>iostream::imbue()</code> does not honor (but <code>fstream</code> does) the encoding we have to call <code>ios::sync_with_stdio(false)</code> to enable conversion. (See <a href="http://gcc.gnu.org/ml/libstdc++/2006-11/msg00058.html">http://gcc.gnu.org/ml/libstdc++/2006-11/msg00058.html</a>).
+</p>
+<p>
+We can also obtain the input as a byte sequence and then convert it to the destination encoding.
+<code>
+// Assume the input byte sequence is in 'from' with GBK encoding.
+string from;
+locale loc("zh_CN.GBK");
+const codecvt&lt;wchar_t, char, mbstat_t&gt;&amp; conv =
+use_facet&lt;codecvt&lt;wchar_t, char, mbstat_t&gt; &gt;(loc);
+mbstat_t mystate;
+
+// Calculate how many characters there are in 'from'.
+int length = conv.length(mystate, from.c_str(), from.c_str()+from.length(),
+numeric_limits&lt;size_t&gt;::max());
+
+wchar_t *pws = new wchar_t[length+1];
+pws[length] = L'\0';
+const char *from_next;
+wchar_t *to_next;
+codecvt&lt;wchar_t, char, mbstate_t&gt;::result myresult  =
+conv.in(mystate, in.c_str(), in.c_str()+in.length(), from_next,
+pws, pws+length, to_next);
+if (myresult == codecvt&lt;wchar_t, char, mbstate_t&gt;::ok) {
+&nbsp;&nbsp;&nbsp;&nbsp;// Conversion is ok.
+&nbsp;&nbsp;&nbsp;&nbsp;...
+}
+</code>
+</p>
+<h2>Output</h2>
+When wide characters are printed to the standard output they must be converted to multibyte sequence with the encoding specified by <tt>LC_CTYPE</tt> environment variable.  This is easy to do with <tt>setlocale</tt>.
+<code>
+/* Print wide characters in 'wcs'. */
+setlocale(LC_CTYPE, "");
+printf("%ls\n", wcs);
+</code>
+Or equivalently in C++:
+<code>
+// Assume wide string is in 'ws'.
+ios::sync_with_stdio(false);
+wcout.imbue(locale(""));
+wcout &lt;&lt; ws &lt;&lt; endl;
+</code>
+
+If we want to print wide characters to other destinations (files or network) we can convert the wide characters to multibyte sequence with the expected encoding by set the category <tt>LC_CTYPE</tt>.  For example the following code convertes wide characters to multibyte
+sequence in GBK encoding.
+<code>
+/* Assume wide characters is in 'wcs'. */
+setlocale(LC_CTYPE, "zh_CN.GBK");
+int len = wcstombs(NULL, wcs, 0)+1;
+char *buf = (char *) malloc(len * sizeof(*buf));
+wcstombs(buf, wcs, len);
+</code>
+Or equivalently in C++:
+<code>
+// Assume wide string is in 'ws'.
+locale loc("zh_CN.GBK");
+const codecvt&lt;wchar_t, char, mbstate_t&gt;&amp; conv =
+use_facet&lt;codecvt&lt;wchar_t, char, mbstate_t&gt; &gt;(loc);
+
+// At most 'len' bytes are required to store the string in
+// multibyte sequence.
+int len = conv.max_length() * (ws.length()+1);
+char *pstr = new char[len];
+const wchar_t *pwc;
+char *pc;
+mbstate_t mystate;
+codecvt&lt;wchar_t, char, mbstate_t&gt;::result myresult =
+conv.out(mystate, ws.c_str(), ws.c_str()+ws.length()+1, pwc,
+pstr, pstr+ws.length()+1, pc);
+if (myresult == codecvt&lt;wchar_t, char, mbstate_t&gt;::ok) {
+ &nbsp;&nbsp;&nbsp;&nbsp;// Conversion is ok.
+ &nbsp;&nbsp;&nbsp;&nbsp;...
+}
+</code>
+<h2>Frequent tasks with wide characters and strings</h2>
+<p>
+The C library functions which handle wide characters are often prefixed with <tt>wcs</tt>.  For the functions which handle <tt>char</tt> type characters there is an equivalent function which handles wide characters.
+</p>
+<h2>References</h2>
+<ul>
+	<li><em>C: A Reference Manual</em>, Fifth Edition.</li>
+	<li><a href="http://www.evanjones.ca/unicode-in-c.html">http://www.evanjones.ca/unicode-in-c.html</a></li>
+	<li><a href="http://www.cl.cam.ac.uk/~mgk25/unicode.html">http://www.cl.cam.ac.uk/~mgk25/unicode.html</a></li>
+</ul>
+
+  </div>
+  <footer class="footer">
+    
+    <div class="previous">
+      <a href="/2011/08/22/typecast-in-c.html" title="Previous post: Typecast in C++">«Typecast in C++</a>
+    </div>
+    
+    
+    <div class="next">
+      <a href="/2011/11/21/quotes.html" title="Next post: Quotes">Quotes»</a>
+    </div>
+    
+  </footer>
+</article>
+
+        </div>
+      </div>
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
+          <h1>Tags</h1>
+          <ul class="tag-list">
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
+    </div>
+  </body>
+</html>
