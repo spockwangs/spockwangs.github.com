@@ -169,14 +169,22 @@
 
 .grid {
     display: block;
-    margin: 0;
-    padding: 0;
     list-style-type: none;
+    overflow: hidden;
 }
 
 .grid > li {
-    display: inline-block;
-    margin: 0 5px;
+    display: block;
+    margin-right: 5px;
+    float: left;
+}
+
+.grid > li:last-of-type {
+    margin-right: 0;
+}
+
+.grid > li.right {
+    float: right;
 }
 
 .meta-date {
