@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
+    <title>CSS Best Practice</title>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
+    </header>
+
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
+        <div id="content">
+          <article class="article">
+  <header>
+    <h1 class="title">CSS Best Practice</h1>
+    <div class="meta grid">
+      
+      <li class="thetag"><a href="/tags/css" title='Posts tagged"css"'>css</a></li>
+      
+      <li class="meta-date right">2013-03-13</span>
+    </div>
+  </header>
+  <div id="toc-wrapper" class="is-invisible">
+    <div class="toc-header">Table of Contents</div>
+    <div id="toc">
+    </div>
+  </div>
+  <div id="article-content" class="content">
+    <h2>Use a reset styelsheet</h2>
+
+<p>Reset规则可以消除不同浏览器的差异，比较流行的reset规则有<a href="http://meyerweb.com/eric/tools/css/reset/index.html">Meyer
+Reset</a>和<a href="http://developer.yahoo.com/yui/reset/">Yahoo
+Reset</a>.</p>
+
+<h2>Categorize CSS Rules</h2>
+
+<p>将样式规则分类，不同类型的样式采用不同的CSS规则描述，以方便阅读、理解和复用，
+见<a href="http://smacss.com/book/">Scalable and Modular Architecture for CSS</a>.</p>
+
+<h2>Use Object-Oriented CSS</h2>
+
+<p>面向对象的CSS的两条基本原则是：</p>
+
+<ul>
+<li>将结构和皮肤分开</li>
+<li>将容器和内容分开</li>
+</ul>
+
+
+<p>遵循面向对象的原则可以使代码更加模块化和可重用。见<a href="https://github.com/stubbornella/oocss/wiki">OOCSS</a>.</p>
+
+<h2>Use "margin: 0 auto" to Center Layouts</h2>
+
+<p>Inline元素用<code>text-align: center</code>居中对齐，但是block元素没有对应的CSS属性。</p>
+
+<h2>Use Text-transform</h2>
+
+<p><code>text-transform</code>有以下几个属性：</p>
+
+<ul>
+<li>capitalize: 每个单词的首字母大写</li>
+<li>uppercase: 全部大写</li>
+<li>lowercase: 全部小写</li>
+</ul>
+
+
+<h2>Use em as the unit of font size</h2>
+
+<p>See <a href="http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm">http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm</a>.</p>
+
+<h2>Understanding CSS selector performance</h2>
+
+<p>复杂的CSS选择符会使浏览器耗用更多的时间计算一条CSS规则是否匹配一个元素，因
+此为了让浏览器更快地渲染页面我们应该使用仅可能简单的选择符。</p>
+
+<ol>
+<li>  使用单个选择符；</li>
+<li>  使用子选择符；</li>
+<li>  避免使用常见的标签名作选择符。</li>
+</ol>
+
+
+<p>See <a href="http://smacss.com/book/selectors">"Selector Performance"</a>, and
+<a href="https://developer.mozilla.org/en-US/docs/CSS/Writing_Efficient_CSS">"Writing Efficient CSS"</a>.</p>
+
+  </div>
+  <footer class="footer">
+    
+    <div class="footer-previous">
+      <a href="/2013/02/25/hello.html" title="Previous post: Hello">«Hello</a>
+    </div>
+    
+    
+    <div class="footer-next">
+      <a href="/2013/08/20/linux-program.html" title="Next post: Linux程序的加载、运行与终止">Linux程序的加载、运行与终止»</a>
+    </div>
+    
+  </footer>
+</article>
+
+        </div>
+      </div>
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
+          <h1>Tags</h1>
+          <ul class="tag-list">
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/css/" title='Posts tagged "css"'>css</a></span>&nbsp;x&nbsp;1</li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascripts/generate_toc.js"></script>
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script type="text/javascript">
+      <!-- Add Google prettify support. -->
+      $(function () {
+          $("pre > code").addClass("prettyprint");
+      });
+      </script>
+    </div>
+  </body>
+</html>
