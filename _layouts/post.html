@@ -6,11 +6,9 @@ layout: default
   <header>
     <h1 class="title">{{ page.title }}</h1>
     <div class="meta">
-      <span>
-        {% for tag in page.tags %}
-        <li class="thetag">{{ tag }}</li>
-        {% endfor %}
-      </span>
+      {% for tag in page.tags %}
+      <span class="thetag"><a href="/tags/{{ tag }}" title='Posts tagged"{{ tag }}"'>{{ tag }}</a></span>
+      {% endfor %}
       <span class="meta-date">{{ page.date|date: "%Y-%m-%d" }}</span>
     </div>
   </header>
