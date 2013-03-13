@@ -1,6 +1,8 @@
 ---
 layout: post
 title: CSS Best Practice
+tags:
+- css
 ---
 
 ## Use a reset styelsheet
@@ -18,11 +20,10 @@ Reset](http://developer.yahoo.com/yui/reset/).
 
 面向对象的CSS的两条基本原则是：
 
-* 将结构和皮肤分开
-* 将容器和内容分开
+*  将结构和皮肤分开
+*  将容器和内容分开
 
-遵循面向对象的原则可以使代码更加模块化和可重用。见
-(https://github.com/stubbornella/oocss/wiki).
+遵循面向对象的原则可以使代码更加模块化和可重用。见[OOCSS](https://github.com/stubbornella/oocss/wiki).
 
 ## Use "margin: 0 auto" to Center Layouts
 
@@ -30,15 +31,16 @@ Reset](http://developer.yahoo.com/yui/reset/).
 
 ## Use em as the unit of font size
 
-See (http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm).
+See [http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm](http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm).
 
 ## Understanding CSS selector performance
 
 复杂的CSS选择符会使浏览器耗用更多的时间计算一条CSS规则是否匹配一个元素，因
 此为了让浏览器更快地渲染页面我们应该使用仅可能简单的选择符。
 
-1. 使用单个选择符；
-2. 使用子选择符；
-3. 避免使用常见的标签名作选择符。
+1.  使用单个选择符；
+2.  使用子选择符；
+3.  避免使用常见的标签名作选择符。
 
-See (http://smacss.com/book/selectors), and (https://developer.mozilla.org/en-US/docs/CSS/Writing_Efficient_CSS).
+See ["Selector Performance"](http://smacss.com/book/selectors), and
+["Writing Efficient CSS"](https://developer.mozilla.org/en-US/docs/CSS/Writing_Efficient_CSS).
