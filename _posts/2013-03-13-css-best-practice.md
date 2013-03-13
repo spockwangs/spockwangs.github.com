@@ -27,7 +27,15 @@ Reset](http://developer.yahoo.com/yui/reset/).
 
 ## Use "margin: 0 auto" to Center Layouts
 
+Inline元素用`text-align: center`居中对齐，但是block元素没有对应的CSS属性。
+
 ## Use Text-transform
+
+`text-transform`有以下几个属性：
+
+*  capitalize: 每个单词的首字母大写
+*  uppercase: 全部大写
+*  lowercase: 全部小写
 
 ## Use em as the unit of font size
 
@@ -38,9 +46,9 @@ See [http://webdesign.about.com/cs/typemeasurements/a/aa042803a.htm](http://webd
 复杂的CSS选择符会使浏览器耗用更多的时间计算一条CSS规则是否匹配一个元素，因
 此为了让浏览器更快地渲染页面我们应该使用仅可能简单的选择符。
 
-1.  使用单个选择符；
-2.  使用子选择符；
-3.  避免使用常见的标签名作选择符。
+1.    使用单个选择符；
+2.    使用子选择符；
+3.    避免使用常见的标签名作选择符。
 
 See ["Selector Performance"](http://smacss.com/book/selectors), and
 ["Writing Efficient CSS"](https://developer.mozilla.org/en-US/docs/CSS/Writing_Efficient_CSS).
