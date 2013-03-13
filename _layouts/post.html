@@ -5,14 +5,14 @@ layout: default
 <article class="article">
   <header>
     <h1 class="title">{{ page.title }}</h1>
-    <div class="meta">
+    <div class="meta grid">
       {% for tag in page.tags %}
-      <span class="thetag"><a href="/tags/{{ tag }}" title='Posts tagged"{{ tag }}"'>{{ tag }}</a></span>
+      <li class="thetag"><a href="/tags/{{ tag }}" title='Posts tagged"{{ tag }}"'>{{ tag }}</a></li>
       {% endfor %}
-      <span class="meta-date">{{ page.date|date: "%Y-%m-%d" }}</span>
+      <li class="meta-date right">{{ page.date|date: "%Y-%m-%d" }}</span>
     </div>
   </header>
-  <div id="toc-wrapper" class="invisible">
+  <div id="toc-wrapper" class="is-invisible">
     <div class="toc-header">Table of Contents</div>
     <div id="toc">
     </div>
@@ -22,12 +22,12 @@ layout: default
   </div>
   <footer class="footer">
     {% if page.previous %}
-    <div class="previous">
+    <div class="footer-previous">
       <a href="{{ page.previous.url }}" title="Previous post: {{ page.previous.title }}">«{{ page.previous.title }}</a>
     </div>
     {% endif %}
     {% if page.next %}
-    <div class="next">
+    <div class="footer-next">
       <a href="{{ page.next.url }}" title="Next post: {{ page.next.title }}">{{ page.next.title }}»</a>
     </div>
     {% endif %}

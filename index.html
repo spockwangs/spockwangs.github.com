@@ -20,8 +20,8 @@ title: Archives
 
 <!-- Pagination links -->
 <div class="pagination">
-  <div class="left">
-    <div class="previous">
+  <div class="pagination-left">
+    <div class="pagination-previous">
       {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
       <a href="/">Previous</a>
@@ -33,11 +33,11 @@ title: Archives
       {% endif %}
     </div>
   </div>
-  <div class="middle">
-    <div class="page_number">Page: {{paginator.page}} of {{paginator.total_pages}}</div>
+  <div class="pagination-middle">
+    <div class="pagination-page_number">Page: {{paginator.page}} of {{paginator.total_pages}}</div>
   </div>
-  <div class="right">
-    <div class="next">
+  <div class="pagination-right">
+    <div class="pagination-next">
       {% if paginator.next_page %}
       <a href="/page{{paginator.next_page}}">Next</a>
       {% else %}

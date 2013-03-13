@@ -147,7 +147,7 @@ code {
     background-color: #f8f8f8;
 }
 
-pre code {
+pre > code {
     display: block;
     margin: 1.2em 0;
     padding: .3em .6em;
@@ -163,4 +163,40 @@ blockquote {
     padding-left: 1em;
     border-left: 7px solid #ddd;
     background-color: #f8f8f8;
+}
+
+table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: gray;
+}
+
+th, td {
+    padding: 5px 12px;
+    border: 1px solid #fff;
+    vertical-align: top;
+    text-align: left;
+}
+
+th {
+    display: block;
+    color: #000;
+    background-color: #d2d7e6;
+    line-height: 1.3;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+td {
+    background-color: #e6e9f5;
+}
+
+article > footer {
+    margin-top: 2em;
+    padding-top: .5em;
+    border-top: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
 }
