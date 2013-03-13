@@ -1,195 +1,27 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: inherit;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-header, footer, section {
-  display: block;
-  position: relative;
-}
-
 /* STYLES */
-html {
-    background-color: #222;
-}
-
-body {
-    display: block;
-    max-width: 1200px;
-    min-width: 960px;
-    margin: auto;
-    font-family: Helvetical, Arial, Sans-serif;
-    font-weight: normal;
-    font-size: 100%;
-    line-height: 1.5;
-    vertical-align: baseline;
-    color: #333;
-    position: relative;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #eb8c28;
-    font-weight: bold;
-    line-height: 1.1;
-    margin: 1.1em 0 .5em;
-}
-
-h1 {
-    font-size: 200%;
-}
-
-h2 {
-    font-size: 150%;
-}
-
-h3 {
-    font-size: 130%;
-}
-
-p {
-    margin: 1.2em 0;
-}
-
-em, i {
-    font-style: italic;
-}
-
-a {
-    text-decoration: none;
-}
-
-ul, ol {
-    padding-left: 2em;
-}
-
-ol {
-    list-style-type: decimal;
-}
-
-ul {
-    list-style-type: disc;
-}
-
-li {
-    display: list-item;
-    font-weight: normal;
-}
-
-dt {
-    display: block;
-    margin: 0;
-    padding: 3px 0;
-    font-family: Helvetical, Arial, Sans-serif;
-    font-weight: bold;
-}
-
-dd {
-    display: block;
-    margin: 0 0 0 2em;
-    padding: 0;
-    font-weight: normal;
-}
-
-pre, code, kbd, samp {
-    font-family: Consolas, 'Courier New', Courier, monospace;
-    line-height: 1.35;
-}
-
-code {
-    padding: 1px 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-clip: padding-box;
-    background-color: #f8f8f8;
-}
-
-pre code {
-    display: block;
-    margin: 1.2em 0;
-    padding: .3em .6em;
-    border-left-width: 5px;
-    border-radius: 0;
-    background-clip: border-box;
-    overflow-x: auto;
-}
-
-blockquote {
-    display: block;
-    margin: 0 2em;
-    padding-left: 1em;
-    border-left: 10px solid #ddd;
-    border-radius: 3px;
-    background-color: #f8f8f8;
-}
-
-.header {
+#header {
     display: block;
     margin: 0;
     padding: 40px 50px;
     background-color: #333;
 }
 
-.header .title {
+#title {
     display: block;
     margin: 0;
     color: #eeeeee;
     font-family: Helvetical, Arial, Sans-serif;
     font-weight: bold;
-    font-size: 200%;
 }
 
-header a:visited {
+#title > a, #title > a:visited {
     color: inherit;
 }
 
 /*
  * Navigation
  */
-nav {
+#nav {
     display: block;
     margin: 0;
     padding: 10px 50px;
@@ -200,37 +32,39 @@ nav {
     position: relative;
 }
 
-nav ul {
+#menus-wrap {
     display: block;
     list-style: none;
     overflow: hidden;
 }
 
-nav li {
+.menu {
     display: block;
-    list-style: none;
     padding: 0;
+    border-left: 1px solid #b0b0b0;
     float: left;
+    list-style: none;
 }
 
-nav li a {
+.menu.first {
+    border-left: none;
+}
+
+.menu > a {
     padding: 0 1em;
+    border-left: 1px solid #dedede;
     font-size: 1.1em;
     line-height: 1.5em;
     color: #6b6b6b;
     text-shadow: #ebebeb 0 1px;
 }
 
-nav li a:hover {
+.menu a:hover {
     color: #333;
 }
 
-nav li + li {
-    border-left: 1px solid #b0b0b0;
-}
-
-nav li + li a {
-    border-left: 1px solid #dedede;
+.menu.first > a {
+    border-left: none;
 }
 
 #main {
@@ -241,13 +75,29 @@ nav li + li a {
     overflow: hidden;
 }
 
-#content-wrapper {
+.col-wrapper {
     display: block;
-    width: 75%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.col-1-4, .col-3-4 {
+    display: block;
     padding-bottom: 9999px;
     margin-bottom: -9999px;
     float: left;
+}
+
+.col-1-4 {
+    width: 25%;
+}
+
+.col-3-4 {
+    width: 75%;
+}
+
+#content-wrapper {
     background-color: #f8f8f8;
 }
 
@@ -255,48 +105,60 @@ nav li + li a {
     padding: 20px 50px;
 }
 
-#sidebar-wrapper {
+#tags-wrapper {
     display: block;
     padding-left: 20px;
 }
 
 #sidebar {
-    display: block;
-    width: 25%;
-    height: 100%;
-    margin: 0;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
     background-color: #eee;
-    float: right;
 }
 
-#sidebar ul {
+.tag-wrapper {
+    display: block;
+    margin: 0 0 0 20px;
+}
+
+.tag-list {
     display: block;
     list-style: none;
     padding: 0;
 }
 
-#sidebar li {
+.tag-item {
     display: list-item;
-    margin: 5px 0;
-    list-style: none;
-    float: none;
 }
 
-.article {
+.thetag {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: #999;
+    font-size: 90%;
+}
+
+.thetag > a {
+    color: white;
+}
+
+.thetag > a:hover {
+    background-color: #777;
+}
+
+#article {
     margin: 0;
     overflow: hidden;
 }
 
-.article .title {
+.index-title {
     display: block;
     color: #30418c;
     font-weight: bold;
     line-height: 1.1;
 }
 
-.article .meta {
+.meta {
     display: block;
     margin: 0 0 10px;
     padding: 0 0 5px;;
@@ -305,33 +167,20 @@ nav li + li a {
     vertical-align: baseline;
 }
 
-.meta .tags li {
-    display: list-item;
-    list-style: none;
-    margin: 0 5px;
-    float: left;
-}
-
-.tags .tag {
-    margin: 0;
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: white;
-    background-color: #999;
-    font-size: 90%;
-}
-
-.tag:hover {
-    background-color: #777;
-}
-
-.tag a {
-    color: white;
-    font-size: 90%;
-}
-
-.meta .date {
+.grid {
     display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.grid > li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.meta-date {
+    display: inline-block;
     font-style: italic;
     float: right;
 }

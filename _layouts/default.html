@@ -4,33 +4,34 @@
     <meta charset="utf-8" />
     <meta name="author" content="{{ site.author.name }}" />
     <meta name="description" content="{{ site.description }}" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <header class="header">
-      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="/">Archives</a></li>
-        <li><a href="/about.html">About</a></li>
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
       </ul>
     </nav>
 
-    <div id="main">
-      <div id="content-wrapper">
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
         <div id="content">
           {{ content }}
         </div>
       </div>
-      <div id="sidebar">
-        <div id="sidebar-wrapper">
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
           <h1>Tags</h1>
-          <ul class="tags">
+          <ul class="tag-list">
             {% for tag in site.tags %}
-            <li><span class="tag"><a href="/tags/{{ tag[0] }}/" title='Posts tagged "{{ tag[0] }}"'>{{ tag[0] }}</a></span>&nbsp;x&nbsp;{{ tag[1].size }}</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/{{ tag[0] }}/" title='Posts tagged "{{ tag[0] }}"'>{{ tag[0] }}</a></span>&nbsp;x&nbsp;{{ tag[1].size }}</li>
             {% endfor %}
           </ul>
         </div>
