@@ -4,34 +4,35 @@
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
     <title>GNU Tool Chain</title>
   </head>
   <body>
-    <header class="header">
-      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="/">Archives</a></li>
-        <li><a href="/about.html">About</a></li>
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
       </ul>
     </nav>
 
-    <div id="main">
-      <div id="content-wrapper">
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
         <div id="content">
           <article class="article">
   <header>
     <h1 class="title">GNU Tool Chain</h1>
     <div class="meta">
-      <span class="tags">
+      <span>
         
-        <li class="tag">Programming</li>
+        <li class="thetag">Programming</li>
         
       </span>
-      <span class="date">2012-05-14</span>
+      <span class="meta-date">2012-05-14</span>
     </div>
   </header>
   <div id="toc-wrapper" class="invisible">
@@ -158,18 +159,18 @@
 
         </div>
       </div>
-      <div id="sidebar">
-        <div id="sidebar-wrapper">
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
           <h1>Tags</h1>
-          <ul class="tags">
+          <ul class="tag-list">
             
-            <li><span class="tag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
             
-            <li><span class="tag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
             
-            <li><span class="tag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
             
-            <li><span class="tag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
             
           </ul>
         </div>
@@ -181,7 +182,7 @@
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/javascripts/generate_toc.js"></script>
-    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" defer="defer"></script>-->
+    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script type="text/javascript">
       <!-- Add Google prettify support. -->
       $(function () {
