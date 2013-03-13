@@ -57,5 +57,5 @@ $(function () {
 
     // Only show TOC if there is at least one section
     if (html.length > 0)
-        $('#toc-wrapper').removeClass('invisible');
+        $('#toc-wrapper').removeClass('is-invisible');
 });
