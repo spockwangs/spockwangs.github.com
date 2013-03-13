@@ -4,49 +4,60 @@
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="/stylesheets/default.css" />
+    <link rel="stylesheet" href="/stylesheets/base.css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
     <title>Linux程序的加载、运行与终止</title>
   </head>
   <body>
-    <header class="header">
-      <h1 class="title"><a href="/">Judewang's Thoughts</a></h1>
+    <header id="header">
+      <h1 id="title"><a href="/">Judewang's Thoughts</a></h1>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="/">Archives</a></li>
-        <li><a href="/about.html">About</a></li>
+    <nav id="nav">
+      <ul id="menus-wrap">
+        <li class="menu first"><a href="/">Archives</a></li>
+        <li class="menu"><a href="/about.html">About</a></li>
       </ul>
     </nav>
 
-    <div id="main">
-      <div id="content-wrapper">
+    <div id="main" class="col-wrapper">
+      <div id="content-wrapper" class="col-3-4">
         <div id="content">
           <article class="article">
   <header>
     <h1 class="title">Linux程序的加载、运行与终止</h1>
-    <div class="meta">
-      <span class="tags">
-        
-      </span>
-      <span class="date">2013-08-20</span>
+    <div class="meta grid">
+      
+      <li class="meta-date right">2013-08-20</span>
     </div>
   </header>
-  <div id="toc-wrapper" class="invisible">
+  <div id="toc-wrapper" class="is-invisible">
     <div class="toc-header">Table of Contents</div>
     <div id="toc">
     </div>
   </div>
   <div id="article-content" class="content">
-    <h2 id='id3'>简介</h2>
+    <h2>简介</h2>
 
-<p>用户在编写程序时都要定义一个<code>main()</code>函数作为程序运行的入口。程序开始执行时就 从这个函数开始。当这个函数返回时就表明程序运行结束了。可是用户编写的程序要能 正确运行远不是这么简单。比如，我们不禁要问<code>main()</code>是由谁调用的呢？当从 <code>main()</code>返回后又运行到哪里去了呢？C++程序中定义的全局对象是如何构造的呢？又 是如何析构的呢？如果程序是动态链接的，它所依赖的共享库是如何加载进内存的？更 复杂的是，共享对象中的全局对象是如何构造的和析构的呢？要回答这些问题，就不得 不弄清程序加载、运行和终止的整个流程，从中也可以知道系统软件（包括操作系统、 动态链接器、链接编辑器和编译器）为了支持用户程序的正确运行做了多么复杂的工作。</p>
+<p>用户在编写程序时都要定义一个<code>main()</code>函数作为程序运行的入口。程序开始执行时就
+从这个函数开始。当这个函数返回时就表明程序运行结束了。可是用户编写的程序要能
+正确运行远不是这么简单。比如，我们不禁要问<code>main()</code>是由谁调用的呢？当从
+<code>main()</code>返回后又运行到哪里去了呢？C++程序中定义的全局对象是如何构造的呢？又
+是如何析构的呢？如果程序是动态链接的，它所依赖的共享库是如何加载进内存的？更
+复杂的是，共享对象中的全局对象是如何构造的和析构的呢？要回答这些问题，就不得
+不弄清程序加载、运行和终止的整个流程，从中也可以知道系统软件（包括操作系统、
+动态链接器、链接编辑器和编译器）为了支持用户程序的正确运行做了多么复杂的工作。</p>
 
-<p>为了支持用户程序的正确运行需要解决以下几个重要问题： * 加载用户程序以及它所依赖的所有共享对象； * 对用户程序和共享对象进行_符号解析_和_重定位_； * 向用户程序传递环境变量和命令行参数。 * 根据C++标准的规定，全局对象（包括用户程序和共享库中定义的）必须 在<code>main()</code>执行前初始化，并在程序结束时以相反的顺序析构。</p>
+<p>为了支持用户程序的正确运行需要解决以下几个重要问题：
+* 加载用户程序以及它所依赖的所有共享对象；
+* 对用户程序和共享对象进行<em>符号解析</em>和<em>重定位</em>；
+* 向用户程序传递环境变量和命令行参数。
+* 根据C++标准的规定，全局对象（包括用户程序和共享库中定义的）必须  在<code>main()</code>执行前初始化，并在程序结束时以相反的顺序析构。</p>
 
 <p>为了理清这些问题，下面我们来分析Linux系统下程序的运行流程。</p>
 
-<h2 id='id4'>术语</h2>
+<h2>术语</h2>
+
 <dl> 
   <dt>程序头(Program Header)</dt>
   <dd> 程序头在[gabi]的<q>Program Header</q>一节中定义，是ELF文件执行视图的
@@ -68,119 +79,162 @@
   载时重定  位的时间。详见[abi386-4]的<q>Procedure Linkage Table</q>一节。 
   </dd>
 </dl>
-<h2 id='id5'>程序运行的基本流程</h2>
+
+
+<h2>程序运行的基本流程</h2>
 
 <p>首先给出一个大致的流程。</p>
 
-<p>1. 操作系统运行用户程序时将其映射到内存中； 2. 当它看到可执行文件中的<code>PT_INERP</code>时，操作系统将<code>PT_INTERP</code>指定的动态链接 器映射进内存，并通过栈向其传递它所需要的参数，并跳到动态链接器的入口处开 始执行；</p>
-
 <ol>
-<li>
-<p>动态链接器开始自举（Bootstrap），对自己进行重定位，并开始构造符号表；</p>
-</li>
-
-<li>
-<p>自举完成后，动态链接器根据可执行文件.dynamic段中的DT_NEEDED元素开始加 载依赖的共享对象，并加入它的符号表。如果这个共享对象依赖其它的共享对象， 动态链接器也会加载它们。当这个过程结束时，所有需要的共享对象都已加载进内 存，动态链接器也具有了程序和所有共享库的符号表。 5. 这时，动态链接器重新遍历共享库，并进行加载时重定位（注意加载时重定位 采 用依赖图的后序遍历顺序进行。也就是说如果A对象依赖B对象，则先处理B对象再 处 理A对象）。加载时重定位包括：</p>
+<li>操作系统运行用户程序时将其映射到内存中；</li>
+<li>当它看到可执行文件中的<code>PT_INERP</code>时，操作系统将<code>PT_INTERP</code>指定的动态链接
+器映射进内存，并通过栈向其传递它所需要的参数，并跳到动态链接器的入口处开
+始执行；</li>
+<li>动态链接器开始自举（Bootstrap），对自己进行重定位，并开始构造符号表；</li>
+<li>自举完成后，动态链接器根据可执行文件.dynamic段中的DT_NEEDED元素开始加
+载依赖的共享对象，并加入它的符号表。如果这个共享对象依赖其它的共享对象，
+动态链接器也会加载它们。当这个过程结束时，所有需要的共享对象都已加载进内
+存，动态链接器也具有了程序和所有共享库的符号表。</li>
+<li>这时，动态链接器重新遍历共享库，并进行加载时重定位（注意加载时重定位  采
+用依赖图的后序遍历顺序进行。也就是说如果A对象依赖B对象，则先处理B对象再  处
+理A对象）。加载时重定位包括：
 
 <ul>
 <li>对数据的引用，在<code>.rel.dyn</code>段中，需要初始化一个GOT（在<code>.got</code>中）项为一个全局符号的地址；</li>
-
-<li>对代码的引用（在<code>.rel.plt</code>段中），需要初始化一个GOT（在<code>.got.plt</code>)项 为PLT表中第二条指令的地址（<q>Procedure Linkage Table</q>, <span>abi386-4</span>）。 如果共享对象有初始化代码（在<code>.init</code>中，全局对象的初始化就是这样实现 的），动态链接器会执行它，并将终止代码（在<code>.fini</code>中，全局对象的 析构就是这样实现的）记录下来以便退出时执行。动态链接器不会执行用户程序 的初始化代码，它由用户程序的启动代码自己执行。这个过程完成后，所有的共 享对象都已重定位并初始化，动态链接器跳到用户程序的入口处开始执行。注意，为 了能在程序退出时让动态链接器有机会调用共享对象的终止代码，动态链接器会 传递一个终止函数（用以调用共享对象的终止代码）给用户程序。 * 用户程序开始执行。首先它注册动态链接器的终止函数和它自己的终止函数， 然后调用用户程序的初始化代码，然后调用用户定义的<code>main()</code>函数。 <code>main()</code>函数返回后，以注册的相反顺序调用终止函数（也就是说先调用用户程 序的终止函数，再调用动态链接器的终止函数），最后调用<code>_exit()</code>退出进程。</li>
+<li>对代码的引用（在<code>.rel.plt</code>段中），需要初始化一个GOT（在<code>.got.plt</code>)项
+为PLT表中第二条指令的地址（<q>Procedure Linkage Table</q>, [abi386-4]）。
+如果共享对象有初始化代码（在<code>.init</code>中，全局对象的初始化就是这样实现
+的），动态链接器会执行它，并将终止代码（在<code>.fini</code>中，全局对象的
+析构就是这样实现的）记录下来以便退出时执行。动态链接器不会执行用户程序
+的初始化代码，它由用户程序的启动代码自己执行。这个过程完成后，所有的共
+享对象都已重定位并初始化，动态链接器跳到用户程序的入口处开始执行。注意，为
+了能在程序退出时让动态链接器有机会调用共享对象的终止代码，动态链接器会
+传递一个终止函数（用以调用共享对象的终止代码）给用户程序。</li>
+<li>用户程序开始执行。首先它注册动态链接器的终止函数和它自己的终止函数，
+然后调用用户程序的初始化代码，然后调用用户定义的<code>main()</code>函数。
+<code>main()</code>函数返回后，以注册的相反顺序调用终止函数（也就是说先调用用户程
+序的终止函数，再调用动态链接器的终止函数），最后调用<code>_exit()</code>退出进程。</li>
 </ul>
 </li>
 </ol>
 
-<p>详见<a href='http://www.iecc.com/linker/' title='Linkers and Loaders'>Linkers and Loaders</a>第10章。</p>
+
+<p>详见<a href="http://www.iecc.com/linker/" title="Linkers and Loaders">Linkers and Loaders</a>第10章。</p>
 
 <p>下面结合实际代码给出Linux下详细的运行流程。</p>
 
-<h3 id='id6'>程序的加载</h3>
+<h3>程序的加载</h3>
 
-<p>程序的加载是通过执行<code>exec(3)</code>系统调用实现的。当在命令行上执行一个程 序或在图形界面系统中双击一个可执行文件时最终都是通过这个系统调用来执行程序 的。执行这个系统调用后，陷入操作系统内核，由操作系统负责加载该程序文件。在 操作系统确认相关参数后，然后通过内存映射方式加载进内存。若该ELF文件是动态链 接的可执行文件（程序头中存在<code>PT_INTERP</code>）需要动态连接器的支持，操作 系统则将该动态连接器映射进内存，并准备好相应的环境，将控制权转移给动态连接 器。若ELF文件是静态链接的，则操作系统准备好环境后直接转移到ELF文件的入口点 开始执行。详细过程如下：</p>
+<p>程序的加载是通过执行<code>exec(3)</code>系统调用实现的。当在命令行上执行一个程
+序或在图形界面系统中双击一个可执行文件时最终都是通过这个系统调用来执行程序
+的。执行这个系统调用后，陷入操作系统内核，由操作系统负责加载该程序文件。在
+操作系统确认相关参数后，然后通过内存映射方式加载进内存。若该ELF文件是动态链
+接的可执行文件（程序头中存在<code>PT_INTERP</code>）需要动态连接器的支持，操作
+系统则将该动态连接器映射进内存，并准备好相应的环境，将控制权转移给动态连接
+器。若ELF文件是静态链接的，则操作系统准备好环境后直接转移到ELF文件的入口点
+开始执行。详细过程如下：</p>
 
 <ol>
-<li>执行<code>exec(3)</code>调用后陷入操作系统内核，检查参数，并判断可执行文件 的类型。因为Linux支持的可执行文件不止一种类型，加载不同类型的文件方法不一 样。下面假设文件类型为ELF。</li>
-
-<li>检查ELF文件格式的有效性，读入程序头（Program Header），并检查是否存在 <code>PT_INTERP</code>项。存在的话说明该文件是动态链接的可执行文件，需要动态 连接器的支持。</li>
-
-<li>根据ELF文件程序头的信息对ELF文件进行映射，通常包括两个段：代码段和数据段。 4. 初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态 连接器的一些附加参数（Auxiliary Vector）。（见<span>abi386-4</span>的图3-31）</li>
-
-<li>若ELF文件是静态链接的可执行文件，跳转到用户程序入口点（由其程序头定义） 开始执行；若ELF文件是动态链接的可执行文件，映射动态连接器，并跳转到动态连 接器的入口处开始执行。</li>
+<li>执行<code>exec(3)</code>调用后陷入操作系统内核，检查参数，并判断可执行文件
+的类型。因为Linux支持的可执行文件不止一种类型，加载不同类型的文件方法不一
+样。下面假设文件类型为ELF。</li>
+<li>检查ELF文件格式的有效性，读入程序头（Program Header），并检查是否存在
+<code>PT_INTERP</code>项。存在的话说明该文件是动态链接的可执行文件，需要动态
+连接器的支持。</li>
+<li>根据ELF文件程序头的信息对ELF文件进行映射，通常包括两个段：代码段和数据段。</li>
+<li>初始化进程运行的堆栈环境，在栈中存储环境变量、命令行参数以及需要传给动态
+连接器的一些附加参数（Auxiliary Vector）。（见[abi386-4]的图3-31）</li>
+<li>若ELF文件是静态链接的可执行文件，跳转到用户程序入口点（由其程序头定义）
+开始执行；若ELF文件是动态链接的可执行文件，映射动态连接器，并跳转到动态连
+接器的入口处开始执行。</li>
 </ol>
 
-<p>另见<span>abi386-4</span>的第5节，<span>gabi</span>的&#8221;Dynamic Linking&#8221;.</p>
 
-<h3 id='id7'>运行动态连接器</h3>
+<p>另见[abi386-4]的第5节，[gabi]的"Dynamic Linking".</p>
 
-<p>对于动态链接的可执行文件，还需要动态连接器为其加载可执行文件依赖的共享对象 文件并进行符号重定位才可以执行。动态连接器的位置存储在可执行文件程序头的 <code>PT_INTERP</code>元素中（见<span>gabi</span>&#8220;Program Header&#8221;一节）。动态连接器的 运行过程如下：</p>
+<h3>运行动态连接器</h3>
+
+<p>对于动态链接的可执行文件，还需要动态连接器为其加载可执行文件依赖的共享对象
+文件并进行符号重定位才可以执行。动态连接器的位置存储在可执行文件程序头的
+<code>PT_INTERP</code>元素中（见[gabi]"Program Header"一节）。动态连接器的
+运行过程如下：</p>
 
 <ul>
-<li>
-<p>动态连接器的入口是<code>_start</code>，在 <code>glibc/sysdeps/i386/dl-machine.h</code>中的<code>RTLD_START</code>宏中定义。 它首先调用<code>_dl_start() (glibc/elf/rtld.c)</code>。</p>
-</li>
+<li>动态连接器的入口是<code>_start</code>，在
+<code>glibc/sysdeps/i386/dl-machine.h</code>中的<code>RTLD_START</code>宏中定义。
+它首先调用<code>_dl_start() (glibc/elf/rtld.c)</code>。</li>
+<li><code>_dl_start()</code>首先对动态连接器自己进行重定位，最后调用
+<code>_dl_start_final() (glibc/elf/rtld.c)</code>收集一些基本的运行时信息后调
+用<code>_dl_sysdep_start() (glibc/elf/dl-sysdep.c)</code>。</li>
+<li><code>_dl_sysdep_start()</code>首先处理由操作系统建立的环境信息（Figure 3-31,
+p.28, [abi386-4]），设置相关参数(<code>_dl_argc:</code> 命令行参数的个
+数，<code>_dl_argv:</code> 命令行参数数组，<code>_environ:</code> 环境数
+组，<code>_dl_auxv:</code> 传递给动态连接器的附加参数数组)，在读入
+<code>_dl_auxv</code>数组存储的信息，最后调用<code>_dl_main()
+(glibc/elf/rtld.c)</code>进行动态连接器的主要任务。</li>
+<li><p><code>_dl_main()</code>非常长，主要工作是加载可执行文件依赖的所有共享对象，构
+造符号表，并进行<strong>加载时重定位</strong>（有些重定位可以延迟到需要时
+再进行，称为<strong>运行时重定位</strong>）。考虑到
+<code>R_386_COPY</code>（见[abi386-4]的78页）重定位类型，要特别加载时重定位的
+顺序。下面是摘自<code>_dl_main()</code>中的一段注释。</p>
 
-<li>
-<p><code>_dl_start()</code>首先对动态连接器自己进行重定位，最后调用 <code>_dl_start_final() (glibc/elf/rtld.c)</code>收集一些基本的运行时信息后调 用<code>_dl_sysdep_start() (glibc/elf/dl-sysdep.c)</code>。</p>
-</li>
-
-<li>
-<p><code>_dl_sysdep_start()</code>首先处理由操作系统建立的环境信息（Figure 3-31, p.28, <span>abi386-4</span>），设置相关参数(<code>_dl_argc:</code> 命令行参数的个 数，<code>_dl_argv:</code> 命令行参数数组，<code>_environ:</code> 环境数 组，<code>_dl_auxv:</code> 传递给动态连接器的附加参数数组)，在读入 <code>_dl_auxv</code>数组存储的信息，最后调用<code>_dl_main()
-(glibc/elf/rtld.c)</code>进行动态连接器的主要任务。</p>
-</li>
-
-<li>
-<p><code>_dl_main()</code>非常长，主要工作是加载可执行文件依赖的所有共享对象，构 造符号表，并进行<strong>加载时重定位</strong>（有些重定位可以延迟到需要时 再进行，称为<strong>运行时重定位</strong>）。考虑到 <code>R_386_COPY</code>（见<span>abi386-4</span>的78页）重定位类型，要特别加载时重定位的 顺序。下面是摘自<code>_dl_main()</code>中的一段注释。</p>
-<blockquote>
-  /* Now we have all the objects loaded.  Relocate them all except for the
+<p>  <blockquote>
+  /<em> Now we have all the objects loaded.  Relocate them all except for the
   dynamic linker itself.  We do this in reverse order so that copy  relocs
   of earlier objects overwrite the data written by later  objects.  We do
   not re-relocate the dynamic linker itself in this  loop because that
   could result in the GOT entries for functions we  call being changed, and
   that would break us.  It is safe to relocate  the dynamic linker out of
   order because it has no copy relocs (we  know that because it is
-  self-contained). */
-  </blockquote>
-<p>简单地说，先重定位一个对象文件所依赖的所有对象文件再重定位这个对象文件。 重定位完成后返回到<code>_dl_sysdep_start()</code>，然后返回到 <code>_dl_start_final()</code>，然后再返回到<code>_dl_start()</code>，继续返回 到<code>_start</code>。</p>
-</li>
+  self-contained). </em>/
+  </blockquote></p>
 
-<li>
-<p><code>_start</code>调用动态连接器的初始化函数（以调用每个共享对象的初始化代 码），并把动态连接器的终止函数（以调用每个共享对象的终止代码）地址存入 <code>EDX</code>寄存器以传给可执行文件，然后跳转到可执行文件的入口处开始执行。</p>
-</li>
+<p>  简单地说，先重定位一个对象文件所依赖的所有对象文件再重定位这个对象文件。
+重定位完成后返回到<code>_dl_sysdep_start()</code>，然后返回到
+<code>_dl_start_final()</code>，然后再返回到<code>_dl_start()</code>，继续返回
+到<code>_start</code>。</p></li>
+<li><code>_start</code>调用动态连接器的初始化函数（以调用每个共享对象的初始化代
+码），并把动态连接器的终止函数（以调用每个共享对象的终止代码）地址存入
+<code>EDX</code>寄存器以传给可执行文件，然后跳转到可执行文件的入口处开始执行。</li>
 </ul>
+
 
 <p>动态连接器任务完成后将控制权转移给用户程序，此时用户程序才正是开始执行。</p>
 
-<h3 id='id8'>用户程序的执行</h3>
+<h3>用户程序的执行</h3>
 
 <p>不管用户程序是静态的还是动态的可执行文件，它们的入口处都在<code>_start
-(glibc/sysdeps/i386/elf/Start.S)</code>。它首先设置好一些寄存器后调用 <code>__libc_start_main() (glibc/csu/libc-start.c)</code>。 <code>__libc_start_main()</code>主要进行以下工作:</p>
+(glibc/sysdeps/i386/elf/Start.S)</code>。它首先设置好一些寄存器后调用
+<code>__libc_start_main() (glibc/csu/libc-start.c)</code>。
+<code>__libc_start_main()</code>主要进行以下工作:</p>
 
 <ol>
-<li>调用<code>__cxa_atexit() (glibc/stdlib/cxa_atexit.c)</code>注册动态连接器通 过<code>EDX</code>寄存器传过来的终止函数。</li>
-
-<li>调用<code>__cxa_atexit()</code>注册用户程序的终止函数 3. 调用用户程序的初始化函数</li>
-
+<li>调用<code>__cxa_atexit() (glibc/stdlib/cxa_atexit.c)</code>注册动态连接器通
+过<code>EDX</code>寄存器传过来的终止函数。</li>
+<li>调用<code>__cxa_atexit()</code>注册用户程序的终止函数</li>
+<li>调用用户程序的初始化函数</li>
 <li>调用用户提供的<code>main()</code>函数</li>
-
-<li><code>main()</code>返回后调用<code>exit() (glibc/stdlib/exit.c)</code>。<code>exit()</code>以注册的相反顺 序调用<code>atexit() (glibc/stdlib/atexit.c)</code>和<code>__cxa_atexit()</code>注册的函数，然 后调用<code>_exit()</code>结束进程。</li>
+<li><code>main()</code>返回后调用<code>exit() (glibc/stdlib/exit.c)</code>。<code>exit()</code>以注册的相反顺
+序调用<code>atexit() (glibc/stdlib/atexit.c)</code>和<code>__cxa_atexit()</code>注册的函数，然
+后调用<code>_exit()</code>结束进程。</li>
 </ol>
 
-<h2 id='id9'>参考文献</h2>
+
+<h2>参考文献</h2>
 
 <ul>
 <li>[abi386-4] <em>System V Application Binary Interface: Intel 386 Architecture Processor Supplement,</em> Fourth Edition.</li>
-
 <li>[gabi4] <em>System V Application Binary Interface</em>, 2001.</li>
-
-<li>[Levine] John R. Levine, <em><a href='http://www.iecc.com/linker/'>Linkers and Loaders</a></em>.</li>
-
-<li><a href='http://ftp.gnu.org/gnu/glibc/'>Glibc源代码</a></li>
+<li>[Levine] John R. Levine, <em><a href="http://www.iecc.com/linker/">Linkers and Loaders</a></em>.</li>
+<li><a href="http://ftp.gnu.org/gnu/glibc/">Glibc源代码</a></li>
 </ul>
+
+
   </div>
   <footer class="footer">
     
-    <div class="previous">
-      <a href="/2013/02/25/hello.html" title="Previous post: Hello">«Hello</a>
+    <div class="footer-previous">
+      <a href="/2013/03/13/css-best-practice.html" title="Previous post: CSS Best Practice">«CSS Best Practice</a>
     </div>
     
     
@@ -189,18 +243,20 @@
 
         </div>
       </div>
-      <div id="sidebar">
-        <div id="sidebar-wrapper">
+      <div id="sidebar" class="col-1-4">
+        <div class="tag-wrapper">
           <h1>Tags</h1>
-          <ul class="tags">
+          <ul class="tag-list">
             
-            <li><span class="tag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
             
-            <li><span class="tag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
             
-            <li><span class="tag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
             
-            <li><span class="tag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
+            
+            <li class="tag-item"><span class="thetag"><a href="/tags/css/" title='Posts tagged "css"'>css</a></span>&nbsp;x&nbsp;1</li>
             
           </ul>
         </div>
