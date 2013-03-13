@@ -198,7 +198,7 @@
     margin: 0 0 1em 1em;
     padding: .5em 1em;
     max-width: 50%;
-    border: solid #d4d8eb 1px;
+    border: 1px solid #ccc;
     border-radius: .5em;
     float: right;
 }
