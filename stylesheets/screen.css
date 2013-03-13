@@ -73,6 +73,7 @@
     padding: 0;
     border-bottom: 1px solid #bfbfbf;
     overflow: hidden;
+    background-color: #eee;
 }
 
 .col-wrapper {
@@ -84,8 +85,8 @@
 
 .col-1-4, .col-3-4 {
     display: block;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
+    margin: 0;
+    padding: 0;
     float: left;
 }
 
