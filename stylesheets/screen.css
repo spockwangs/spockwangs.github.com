@@ -78,8 +78,6 @@
 .col-wrapper {
     display: block;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
 .col-1-4, .col-3-4 {
@@ -105,12 +103,27 @@
     padding: 20px 50px;
 }
 
+<<<<<<< HEAD
 #tags-wrapper {
     display: block;
     padding-left: 20px;
 }
 
 #sidebar {
+=======
+#sidebar-wrapper {
+    display: block;
+    padding-left: 20px;
+}
+
+#sidebar {
+    display: block;
+    width: 25%;
+    height: 100%;
+    margin: 0;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+>>>>>>> 12c5d67340a12e78f688364e6e951bbed7244ba8
     background-color: #eee;
 }
 
