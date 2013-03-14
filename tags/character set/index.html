@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="/stylesheets/base.css" />
     <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
-    <title>C++ Coding Guideline</title>
+    <title>Posts Tagged &ldquo;character set&rdquo;</title>
   </head>
   <body>
     <header id="header">
@@ -23,74 +23,142 @@
     <div id="main" class="col-wrapper">
       <div id="content-wrapper" class="col-3-4">
         <div id="content">
-          <article class="article">
-  <header>
-    <h1 class="title">C++ Coding Guideline</h1>
-    <div class="meta grid">
-      
-      <li class="thetag"><a href="/tags/Programming" title='Posts tagged"Programming"'>Programming</a></li>
-      
-      <li class="meta-date right">2012-11-25</span>
-    </div>
-  </header>
-  <div id="toc-wrapper" class="is-invisible">
-    <div class="toc-header">Table of Contents</div>
-    <div id="toc">
-    </div>
+          <div class="article">
+  <h1 class="title">Posts Tagged &ldquo;character set&rdquo;</h1>
+  
+  
+  
+  
+  
+  
+  
+  <h2 class="title"><a href="/2013/03/14/mysql-character-set.html">关于Mysql客户端、连接和服务器字符集</a></h2>
+  <div class="meta">
+    
+    <span class="thetag"><a href="/tags/mysql" title='Posts tagged"mysql"'>mysql</a></span>
+    
+    <span class="thetag"><a href="/tags/character set" title='Posts tagged"character set"'>character set</a></span>
+    
+    <span class="meta-date">2013-03-14</span>
   </div>
-  <div id="article-content" class="content">
-    <h3>Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.</h3>
-
-<p>Consider the following code.</p>
-
-<pre><code>// pimpl.h
-class Impl;    // forward declaration
-class Pimpl {
-public:
-   Pimpl();
-
-   // The destructor is not declared, so the compiler will generate one.
-
-private:
-    boost::scoped_ptr&lt;Impl&gt; m_impl;
-};
-
-// pimpl.cc
-class Impl {
-     // ...
-};
-
-Pimpl::Pimpl()
-    : m_impl(new Impl)
-{}
-</code></pre>
-
-<p>If you do not declare the destructor the compiler will generate one in
-every translation unit that includes <code>impl.h</code>, which will call
-the destructor of member variables, that is, the destructor
-of <code>m_impl</code> which requires the complete definition
-of <code>Impl</code>. But the whole purpose of Pimpl idiom is to hide the
-definition of <code>Impl</code>. To solve this problem you should declare
-the destructor in the header file to prevent the compiler from generating
-one, and define it in the source file. Then only the <code>impl.cc</code> requires the
-complete definition of <code>Impl</code>. Other translation units just
-call <code>Pimpl</code>'s destructor as an external function, so they don't
-need to generate it.</p>
-
-  </div>
-  <footer class="footer">
-    
-    <div class="footer-previous">
-      <a href="/2012/05/16/mysql-help.html" title="Previous post: MySql Help">«MySql Help</a>
-    </div>
-    
-    
-    <div class="footer-next">
-      <a href="/2013/02/25/hello.html" title="Next post: Hello">Hello»</a>
-    </div>
-    
-  </footer>
-</article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
 
         </div>
       </div>
