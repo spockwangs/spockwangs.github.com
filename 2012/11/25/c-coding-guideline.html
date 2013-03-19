@@ -39,7 +39,9 @@
     </div>
   </div>
   <div id="article-content" class="content">
-    <h3>Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.</h3>
+    <h2>Pimpl idiom</h2>
+
+<p><strong>Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.</strong></p>
 
 <p>Consider the following code.</p>
 
@@ -76,6 +78,23 @@ one, and define it in the source file. Then only the <code>impl.cc</code> requir
 complete definition of <code>Impl</code>. Other translation units just
 call <code>Pimpl</code>'s destructor as an external function, so they don't
 need to generate it.</p>
+
+<h2>Prefer anonymous namespace functions to class static functions.</h2>
+
+<p>When you are implementing a class's interface, you may need some helper
+functions which has no relation with the private (member or static)
+data. You can either declare the helper functions as the private static
+functions in the class header file, or as the anonymous namespace functions
+in the class source file.</p>
+
+<p>Since it does not need to access the private data, the helper function
+should be kept out of the class definition to make them loosely
+coupled. And it is the implementation's details, which we don't want the
+client of the class see it. So if we can put it outside the header file, we
+should do it. If we put it in the header file, every time the
+implementation changes the client using this class has to be
+re-compiled. So we should put the implementation details outside of the
+class header file as much as possible.</p>
 
   </div>
   <footer class="footer">
