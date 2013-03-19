@@ -14,7 +14,9 @@ meta:
   _wp_old_slug: ''
 ---
 
-### Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.
+## Pimpl idiom
+
+**Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.**
 
 Consider the following code.
 
@@ -50,3 +52,20 @@ one, and define it in the source file. Then only the `impl.cc` requires the
 complete definition of `Impl`. Other translation units just
 call `Pimpl`'s destructor as an external function, so they don't
 need to generate it.
+
+## Prefer anonymous namespace functions to class static functions.
+
+When you are implementing a class's interface, you may need some helper
+functions which has no relation with the private (member or static)
+data. You can either declare the helper functions as the private static
+functions in the class header file, or as the anonymous namespace functions
+in the class source file.
+
+Since it does not need to access the private data, the helper function
+should be kept out of the class definition to make them loosely
+coupled. And it is the implementation's details, which we don't want the
+client of the class see it. So if we can put it outside the header file, we
+should do it. If we put it in the header file, every time the
+implementation changes the client using this class has to be
+re-compiled. So we should put the implementation details outside of the
+class header file as much as possible.
