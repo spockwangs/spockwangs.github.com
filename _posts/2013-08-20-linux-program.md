@@ -131,16 +131,14 @@ title: Linux程序的加载、运行与终止
   `R_386_COPY`（见[abi386-4]的78页）重定位类型，要特别加载时重定位的
   顺序。下面是摘自`_dl_main()`中的一段注释。
 
-    <blockquote>
-    /* Now we have all the objects loaded.  Relocate them all except for the
-    dynamic linker itself.  We do this in reverse order so that copy  relocs
-    of earlier objects overwrite the data written by later  objects.  We do
-    not re-relocate the dynamic linker itself in this  loop because that
-    could result in the GOT entries for functions we  call being changed, and
-    that would break us.  It is safe to relocate  the dynamic linker out of
-    order because it has no copy relocs (we  know that because it is
-    self-contained). */
-    </blockquote>
+    > Now we have all the objects loaded.  Relocate them all except for the
+    > dynamic linker itself.  We do this in reverse order so that copy  relocs
+    > of earlier objects overwrite the data written by later  objects.  We do
+    > not re-relocate the dynamic linker itself in this  loop because that
+    > could result in the GOT entries for functions we  call being changed, and
+    > that would break us.  It is safe to relocate  the dynamic linker out of
+    > order because it has no copy relocs (we  know that because it is
+    > self-contained).
 
     简单地说，先重定位一个对象文件所依赖的所有对象文件再重定位这个对象文件。
   重定位完成后返回到`_dl_sysdep_start()`，然后返回到

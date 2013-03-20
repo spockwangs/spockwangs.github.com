@@ -163,6 +163,7 @@ blockquote {
     padding-left: 1em;
     border-left: 7px solid #ddd;
     background-color: #f8f8f8;
+    color: #666;
 }
 
 table {
