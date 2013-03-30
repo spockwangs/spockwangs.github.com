@@ -7,9 +7,9 @@ tags:
 - concurrency
 ---
 
-# Introduction
+## Introduction
 
-Brian Kernighan在_software tools_一书中表达了这样的观点：“编程的本质就是控制
+Brian Kernighan在_[Software Tools][software_tools]_一书中表达了这样的观点：“编程的本质就是控制
 复杂性”。正是软件的复杂性导致了大量软件项目的失败、延期或者超出预算，甚至带
 来巨大灾难。纵观整个编程方法学和软件工程的发展历程，无不是在为驯服软件的复
 杂性而努力。如果把眼光不仅仅是局限在软件领域，我们发现其它领域也一样表现出巨
@@ -22,13 +22,13 @@ Brian Kernighan在_software tools_一书中表达了这样的观点：“编程�
 > software engineer. Much of the complexity that he must master is arbitrary
 > complexity.
 
-面向对象的编程方法正是为应对软件复杂性而提出的目前最流行的方法。面向对象编
-程语言也因此变得极为流行，但是会流利地使用面向对象编程语言并不代表你会使用
-面向对象的编程方法。是否采用了面向对象的编程方法跟是否使用面向对象的编程语
-言是毫无关系的，只不过面向对象编程语言提供的特性使得面向对象软件构造变得更
-为容易。即使使用非面向对象的语言如C语言也一样可以进行面向对象编程。
-在_Object-oriented Analysis and Design with Applications_一书中，Grady Booch
-将面向对象编程定义为：
+面向对象的编程方法正是为应对软件复杂性而提出的目前最流行的方法。面向对象编程
+语言也因此变得极为流行，但是会流利地使用面向对象编程语言并不代表你会使用面向
+对象的编程方法。是否采用了面向对象的编程方法跟是否使用面向对象的编程语言是毫
+无关系的，只不过面向对象编程语言提供的特性使得面向对象软件构造变得更为容易。
+即使使用非面向对象的语言如C语言也一样可以进行面向对象编程。
+在_[Object-oriented Analysis and Design with Applications][ooad]_一书中，
+Grady Booch将面向对象编程定义为：
 
 > Object-oriented programming is a method of implementation in which
 > programs are organized as cooperative collections of objects, each of
@@ -46,7 +46,7 @@ Alan Kay关于面向对象编程的定义最核心的是对象间的消息通信
 扮演一个对象的角色，这也难怪面向对象编程的思想即使对于不懂计算机的人来讲仍
 然是非常直观的。
 
-# 如何进行面向对象分析与设计
+## 如何进行面向对象分析与设计
 
 有许多人曾经将编程与写作进行类比，因为编程并不太像其它工程学科，编写优秀的
 程序需要一定的创造性，并没有什么套路可供遵循。因此，面向对象的分析与设计过
@@ -99,7 +99,7 @@ relationships between the elements)，并详细规定他们各自的责任和义
 续招人，人一多沟通路径就必然会增加，管理将变的更困难，效率必然下降，这时就
 需要分离出一些独立的小组，行成一个层次关系，以方便管理。
 
-# 面向对象与并发和分布式计算
+## 面向对象与并发和分布式计算
 
 随着多核处理器的普及，并发编程变得日益重要。但是并发编程往往涉及到管理线程
 和保护共享状态，容易出错。面向对象的消息通信机制有效解决这个问题。我们可以
@@ -108,16 +108,22 @@ object. 不同的active object可以并发执行并通过消息传递来同步�
 享状态，大大减轻了程序员的负担。
 
 为了减轻并发编程的痛苦，也出现了一些其它的编程模型，比较著名的有Tony Hoare的
-Communicating Sequential Process和Carl Hewitt等人提出的Actor Model，不过它们
-都大同小异，都是通过某个实体（CSP中的Process，Actor Model中的Actor）是将控制
-流抽象出来并通过消息通信机制来同步以避免共享状态。
+[Communicating Sequential Process][csp]和Carl Hewitt等人提出的[Actor
+Model][actor_model]，不过它们都大同小异，都是通过某个实体（CSP中的Process，
+Actor Model中的Actor）是将控制流抽象出来并通过消息通信机制来同步以避免共享状
+态。
 
 面向对象编程还可以用于分布式计算，只不过这时active object分布在不同的计算机
 上，通过网络相互通信。
 
-# References
+## References
 
-* Grady Booch, Object-Oriented Analysis and Design with Applications,
-* Second Edition.
-* [Actor Model](http://en.wikipedia.org/wiki/Actor_model)
-* [Communicating Sequential Process](http://en.wikipedia.org/wiki/Communicating_sequential_processes)
+* Brian W. Kernighan, P. J. Plauger, _[Software Tools][software_tools]_.
+* Grady Booch, _[Object-Oriented Analysis and Design with Applications][ooad]_, Second Edition.
+* [Actor Model][actor_model]
+* [Communicating Sequential Process][csp]
+
+[software_tools]: http://www.amazon.com/Software-Tools-Brian-W-Kernighan/dp/020103669X
+[ooad]: http://www.amazon.com/Object-Oriented-Analysis-Design-Applications-3rd/dp/020189551X
+[actor_model]: http://en.wikipedia.org/wiki/Actor_model
+[csp]: http://en.wikipedia.org/wiki/Communicating_sequential_processes
