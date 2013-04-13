@@ -6,7 +6,7 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="/stylesheets/base.css" />
     <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
-    <title>FTP的主动和被动模式</title>
+    <title>哈佛训戒</title>
   </head>
   <body>
     <header id="header">
@@ -25,12 +25,12 @@
         <div id="content">
           <article id="article">
   <header>
-    <h1 class="title">FTP的主动和被动模式</h1>
+    <h1 class="title">哈佛训戒</h1>
     <div class="meta grid">
       
-      <li class="thetag"><a href="/tags/Network" title='Posts tagged"Network"'>Network</a></li>
+      <li class="thetag"><a href="/tags/quote" title='Posts tagged"quote"'>quote</a></li>
       
-      <li class="meta-date right">2012-02-03</li>
+      <li class="meta-date right">2013-04-13</li>
     </div>
   </header>
   <div id="toc-wrapper" class="is-invisible">
@@ -39,87 +39,40 @@
     </div>
   </div>
   <div id="article-content" class="content">
-    <p>
-	FTP是仅基于TCP的服务，不支持UDP。与众不同的是FTP使用2个端口，一个数据端口和一个命令端口（也可叫做控制端口）。通常来说这两个端口是21（命令端口）和20（数据端口）。但FTP工作方式的不同，数据端口并不总是20。这就是主动与被动FTP的最大不同之处。
-</p>
-<h2>
-	1. 主动FTP
-</h2>
-<p>
-	主动方式的FTP是这样的：客户端从一个任意的非特权端口N（N&gt;1024）连接到FTP服务器的命令端口，也就是21端口。然后客户端开始监听端口N+1，并发送FTP命令“PORT N+1”到FTP服务器。接着服务器会从它自己的数据端口（20）连接到客户端指定的数据端口（N+1）。
-</p>
-<p>
-	针对FTP服务器前面的防火墙来说，必须允许以下通讯才能支持主动方式FTP：
-</p>
-<ol>
-	<li>
-		任何大于1024的端口到FTP服务器的21端口。（客户端初始化的连接）；
-	</li>
-	<li>
-		FTP服务器的21端口到大于1024的端口。 （服务器响应客户端的控制端口）；
-	</li>
-	<li>
-		FTP服务器的20端口到大于1024的端口。（服务器端初始化数据连接到客户端的数据端口）；
-	</li>
-	<li>
-		大于1024的端口到FTP服务器的20端口（客户端发送ACK响应到服务器的数据端口）。
-	</li>
+    <ol>
+<li>此刻打盹，你将做梦；而此刻学习，你将圆梦。</li>
+<li>我荒废的今日，正是昨日殒身之人祈求的明日。</li>
+<li>觉得为时已晚的时候，恰恰是最早的时候。</li>
+<li>勿将今日之事拖到明日。</li>
+<li>学习时的苦痛是暂时的，未学到的痛苦是终生的。</li>
+<li>学习这件事，不是缺乏时间，而是缺乏努力。</li>
+<li>幸福或许不排名次，但成功必排名次。</li>
+<li>学习并不是人生的全部。但是既然连人生的一部分——学习也无法征服，还能做什么呢？</li>
+<li>请享受无法回避的痛苦。</li>
+<li> 只有比别人更早、更勤奋地努力，才能尝到成功的滋味。</li>
+<li> 谁也不能随随便便成功，它来自彻底的自我管理和毅力。</li>
+<li> 时间在流逝。</li>
+<li> 现在淌的哈喇子，将成为明天的眼泪。</li>
+<li> 狗一样地学，绅士一样地玩。</li>
+<li> 今天不走，明天要跑。</li>
+<li> 投资未来的人是，忠于现实的人。</li>
+<li> 教育程度代表收入。</li>
+<li> 一天过完，不会再来。</li>
+<li> 即使现在，对手也不停地翻动书页。</li>
+<li> 没有艰辛，便无所获。</li>
 </ol>
-<h2>
-	2. 被动FTP
-</h2>
-<p>
-	为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，或者叫做PASSIVE，当客户端通知服务器它处于被动模式时才启用。在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。当开启一个FTP连接时，客户端打开两个任意的非特权本地端口（N &gt; 1024和N+1）。第一个端口连接服务器的21端口，但与主动方式的FTP不同，客户端不会提交PORT命令并允许服务器来回连它的数据端口，而是提交PASV命令。这样做的结果是服务器会开启一个任意的非特权端口（P &gt; 1024），并发送PORT P命令给
-</p>
-<p>
-	客户端。然后客户端发起从本地端口N+1到服务器的端口P的连接用来传送数据。对于服务器端的防火墙来说，必须允许下面的通讯才能支持被动方式的FTP:
-</p>
-<ol>
-	<li>
-		从任何大于1024的端口到服务器的21端口（客户端初始化的连接） ；
-	</li>
-	<li>
-		服务器的21 端口到任何大于1024的端口（服务器响应到客户端的控制端口的连接） ；
-	</li>
-	<li>
-		从任何大于1024端口到服务器的大于1024端口（客户端初始化数据连接到服务器指定的任意端口）；
-	</li>
-	<li>
-		服务器的大于1024端口到远程的大于1024的端口（服务器发送ACK响应和数据到客户端的数据端口）。
-	</li>
-</ol>
-<p>
-	以上关于主动和被动FTP的解释，可以简单概括为以下两点：
-</p>
-<ol>
-	<li>
-		主动FTP：<br />
-		命令连接：客户端 &gt;1024端口 --&gt; 服务器 21端口<br />
-		数据连接：客户端 &gt;1024端口 &lt;-- 服务器 20端口&nbsp;
-	</li>
-	<li>
-		被动FTP：<br />
-		命令连接：客户端 &gt;1024端口 -&gt; 服务器 21端口<br />
-		数据连接：客户端 &gt;1024端口 -&gt; 服务器 &gt;1024端口
-	</li>
-</ol>
-<h2>
-	3. 主动与被动FTP优缺点
-</h2>
-<p>
-	主动FTP对FTP服务器的管理有利，但对客户端的管理不利。因为 FTP服务器企图与客户端的高位随机端口建立连接，而这个端口很有可能被客户端的防火墙阻塞掉。被动FTP对FTP客户端的管理有利，但对服务器端的管理不利。因为客户端要与服务器端建立两个连接，其中一个连到一个高位随机端口，而这个端口很有可能被服务器端的防火墙阻塞掉。
-</p>
+
 
   </div>
   <footer class="footer">
     
     <div class="footer-previous">
-      <a href="/2012/02/03/data-alignment.html" title="Previous post: 数据对齐">«数据对齐</a>
+      <a href="/2013/03/30/object-oriented-analysis-and-design.html" title="Previous post: 使用Booch方法进行面向对象分析与设计">«使用Booch方法进行面向对象分析与设计</a>
     </div>
     
     
     <div class="footer-next">
-      <a href="/2012/02/03/tcp%25e5%258d%258f%25e8%25ae%25ae%25e6%25b5%2585%25e6%259e%2590.html" title="Next post: TCP协议浅析">TCP协议浅析»</a>
+      <a href="/2013/08/20/linux-program.html" title="Next post: Linux程序的加载、运行与终止">Linux程序的加载、运行与终止»</a>
     </div>
     
   </footer>
