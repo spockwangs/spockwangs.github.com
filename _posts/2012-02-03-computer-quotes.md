@@ -98,13 +98,13 @@ programming systems require Turing machine techniques, the better.
 -- Alan Kay
 
 When people react instantly, they’re not thinking, they’re doing a table
-look up.
+look up.  
 -- Alan Kay
 
 The basicprinciple of recursive design is making the parts as powerful as
-the whole.
+the whole.  
 -- Bob Barton
 
 Science is not there to tell us about theUniverse, but to tell us how to
-talk about the Universe.
+talk about the Universe.  
 -- Niels Bohr
