@@ -37,7 +37,7 @@ But we try to avoid such solutions, convenient as they may at first appear,
 because they violate a basic principle of top-down design: every function
 should return to where it is called. &nbsp;This way, strategy is kept
 visible (and changeable) at the highest level of the code, and execution
-proceeds strictly from top to bottom.
+proceeds strictly from top to bottom.  
 -- p.47, _Software Tools_
 
 The value of a telecommunications network is proportional to the square of
@@ -105,6 +105,14 @@ The basicprinciple of recursive design is making the parts as powerful as
 the whole.  
 -- Bob Barton
 
-Science is not there to tell us about theUniverse, but to tell us how to
-talk about the Universe.  
+Science is not there to tell us about the universe, but to tell us how to
+talk about the universe.  
 -- Niels Bohr
+
+All magic comes with a price.  
+-- Rumplestiltskin, from _Once Upon A Time_
+
+I did it because it was easy. It was a mistake. There were other
+paths. Harder paths, and I wish I had taken them. ... Let's take the hard
+path.  
+-- Snow White, from _Once Upon A Time_
