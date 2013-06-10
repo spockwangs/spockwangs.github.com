@@ -71,8 +71,7 @@ implementation changes the client using this class has to be
 re-compiled. So we should put the implementation details outside of the
 class header file as much as possible.
 
-## Pass read-only arguments by const reference, and read-write arguments by
-value
+## Pass read-only arguments by const reference, and read-write arguments by value
 
 If the argument is intended to be read only in the function body, and
 
