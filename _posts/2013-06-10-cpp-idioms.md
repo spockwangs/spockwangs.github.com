@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++ Coding Guideline
+title: C++ Idioms
 tags:
 - Programming
 status: publish
@@ -16,7 +16,8 @@ meta:
 
 ## Pimpl idiom
 
-**Declare the constructor and destructor in the header file and define them in the source file when using Pimpl idiom, even if they are empty.**
+**Declare the constructor and destructor in the header file and define them
+  in the source file when using Pimpl idiom, even if they are empty.**
 
 Consider the following code.
 
@@ -69,3 +70,42 @@ should do it. If we put it in the header file, every time the
 implementation changes the client using this class has to be
 re-compiled. So we should put the implementation details outside of the
 class header file as much as possible.
+
+## Pass read-only arguments by const reference, and read-write arguments by
+   value
+
+If the argument is intended to be read only in the function body, and
+
+1. if its size is bigger than the pointer type pass it by const-reference,
+2. otherwise, pass it by value
+
+to avoid unnecessary copy.  That means values of class objec type should be
+passed by const-reference, and values of the small types like the basic
+types should be passed by value.  If the smaller ones were passed by const
+reference another pointer indirection cost would have been incurred in
+addition to the pointer copying cost when reading their values.
+
+If the argument is intended to be modifed in the function body, it is
+recommended to pass it by value instead of passing it by reference and
+making a copy in the function body.
+
+Consider the following code.
+
+    std::vector<std::string> 
+    sorted(std::vector<std::string> names)
+    {
+        std::sort(names);
+        return names;
+    }
+ 
+    // names is an lvalue; a copy is required so we don't modify names
+    std::vector<std::string> sorted_names1 = sorted( names );
+ 
+    // get_names() is an rvalue expression; we can omit the copy!
+    std::vector<std::string> sorted_names2 = sorted( get_names() );
+
+If the argument passed is an lvalue a copy is required.  But if the
+argument is an rvalue the copy can be optimized out by the compiler.
+
+See (http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/) for
+more details.
