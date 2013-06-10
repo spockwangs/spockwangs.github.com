@@ -97,9 +97,7 @@ implementation changes the client using this class has to be
 re-compiled. So we should put the implementation details outside of the
 class header file as much as possible.</p>
 
-<h2>Pass read-only arguments by const reference, and read-write arguments by</h2>
-
-<p>   value</p>
+<h2>Pass read-only arguments by const reference, and read-write arguments by value</h2>
 
 <p>If the argument is intended to be read only in the function body, and</p>
 
@@ -138,8 +136,43 @@ std::vector&lt;std::string&gt; sorted_names2 = sorted( get_names() );
 <p>If the argument passed is an lvalue a copy is required.  But if the
 argument is an rvalue the copy can be optimized out by the compiler.</p>
 
-<p>See (http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/) for
+<p>See <a href="http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/">"Want Speed? Pass by
+Value"</a> for
 more details.</p>
+
+<h2>Don't worry about returnning by value</h2>
+
+<p>Many modern C++ compilers provide the Return Value Optimization to elide
+the copy when returnning value.</p>
+
+<p>Consider the following code.</p>
+
+<pre><code>std::string getName()
+{
+    std::string name;
+
+    // do stuff to `name`
+
+    return name;
+}
+
+std::string s = getName();
+</code></pre>
+
+<p>Actually the signature of <code>getName()</code> is translated by the compiler to</p>
+
+<pre><code>void getName(std::string *p)
+{
+    // do stuff to `*p`
+    // not necessary to copy when returnning
+}
+</code></pre>
+
+<p>The caller allocates space for the return value on the stack, and pass the
+address of the space to the callee. Then the callee construct the return
+value directly in that space, which elimiates a copy from inside to
+outside. So we should no worry about the copy cost when returnning a big
+object from a function, and the signature is more satisfactory.</p>
 
   </div>
   <footer class="footer">

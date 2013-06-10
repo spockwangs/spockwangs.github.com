@@ -98,6 +98,10 @@ em, i {
     font-style: italic;
 }
 
+strong {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
 }
