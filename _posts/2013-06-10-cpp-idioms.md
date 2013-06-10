@@ -72,7 +72,7 @@ re-compiled. So we should put the implementation details outside of the
 class header file as much as possible.
 
 ## Pass read-only arguments by const reference, and read-write arguments by
-   value
+value
 
 If the argument is intended to be read only in the function body, and
 
@@ -107,5 +107,38 @@ Consider the following code.
 If the argument passed is an lvalue a copy is required.  But if the
 argument is an rvalue the copy can be optimized out by the compiler.
 
-See (http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/) for
+See ["Want Speed? Pass by
+Value"](http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/) for
 more details.
+
+## Don't worry about returnning by value
+
+Many modern C++ compilers provide the Return Value Optimization to elide
+the copy when returnning value. 
+
+Consider the following code.
+
+    std::string getName()
+    {
+        std::string name;
+        
+        // do stuff to `name`
+        
+        return name;
+    }
+
+    std::string s = getName();
+
+Actually the signature of `getName()` is translated by the compiler to
+
+    void getName(std::string *p)
+    {
+        // do stuff to `*p`
+        // not necessary to copy when returnning
+    }
+
+The caller allocates space for the return value on the stack, and pass the
+address of the space to the callee. Then the callee construct the return
+value directly in that space, which elimiates a copy from inside to
+outside. So we should no worry about the copy cost when returnning a big
+object from a function, and the signature is more satisfactory.
