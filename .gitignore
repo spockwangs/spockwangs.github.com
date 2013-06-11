@@ -1,5 +1,7 @@
 _site/
 *~
+images/*.log
+images/*.mpx
 images/*.svg
 mpost/*.log
 mpost/*.mpx
