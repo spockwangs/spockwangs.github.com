@@ -153,7 +153,7 @@ Example 1: class `B` inherits from `A`.
 
 Their memory layouts are shown as follows.
 
-![The memory layouts of class A](/images/cpp-object-model-2.svg)
+![The memory layouts of class A](/images/cpp-object-model-2.svg)  
 ![The memory layouts of class B](/images/cpp-object-model-3.svg)
 
 Note that the offset of `a` in class `A` is 4 and in the `A` subobject of
@@ -177,8 +177,8 @@ pointer and class `C` inherits from `A` and `B`.
 
 Their layouts are shown as follows.
 
-![Memory layout of class A](/images/cpp-object-model-4.svg)
-![Memory layout of class B](/images/cpp-object-model-5.svg)
+![Memory layout of class A](/images/cpp-object-model-4.svg)  
+![Memory layout of class B](/images/cpp-object-model-5.svg)  
 ![Memory layout of class C](/images/cpp-object-model-6.svg)
 
 Note that the offset of class `B data member `b` in class `B` is 4 bytes
@@ -201,8 +201,8 @@ pointer.
 
 Their layouts are shown as follows.
 
-![Member layouts of A](/images/cpp-object-model-7.svg)
-![Member layouts of A](/images/cpp-object-model-8.svg)
+![Member layouts of A](/images/cpp-object-model-7.svg)  
+![Member layouts of A](/images/cpp-object-model-8.svg)  
 ![Member layouts of A](/images/cpp-object-model-9.svg)
 
 ### Add virtual inheritance<a id="vinheri"></a>
@@ -297,9 +297,9 @@ Let's see an example.
 
 The layout of classes `A`, `B` and `C` is shown in Figures 11, 12 and 13 respectively.
 
-![Member layout of class A](/images/cpp-object-model-11.svg)
-![Member layout of class B](/images/cpp-object-model-12.svg)
-![Member layout of class C](/images/cpp-object-model-13.svg)
+![Member layout of class A](/images/cpp-object-model-11.svg)  
+![Member layout of class B](/images/cpp-object-model-12.svg)  
+![Member layout of class C](/images/cpp-object-model-13.svg)  
 
 In Figure 13 the sub-virtual-table `_vptr_A` points to has no
 adjustment values because it is the first sub-virtual-table.  The second
@@ -580,8 +580,8 @@ The following example can show when the adjustment is required.
 
 The memory layout corresponding to the above code is shown as below.
 
-![Memory layout of class A](/images/cpp-object-model-14.svg)
-![Memory layout of class B](/images/cpp-object-model-15.svg)
+![Memory layout of class A](/images/cpp-object-model-14.svg)  
+![Memory layout of class B](/images/cpp-object-model-15.svg)  
 ![Memory layout of class C](/images/cpp-object-model-16.svg)
 
 When calling `C::foo()` through a pointer to `A` the adjustment is
