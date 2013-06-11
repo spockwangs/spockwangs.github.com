@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!-- Created by MetaPost 1.504 on 2013.06.11:1749 -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="243.89719" height="81.59747" viewBox="0 0 243.89719 81.59747">
+<!-- Original BoundingBox: -3.25 -49.42218 240.64719 32.1753 -->
+  <defs>
+  </defs>
+  <path d="M3.8477 31.97609L6.8366 31.97609" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(6.8366 32.1753)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_118"></use>
+    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
+    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+  </g>
+  <path d="M26.0036 31.97609L28.9924 31.97609" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(28.9924 32.1753)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_66"></use>
+  </g>
+  <path d="M0.25 37.11249L39.04932 37.11249L39.04932 22.3675L0.25 22.3675Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(16.88225 47.94424)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_98"></use>
+  </g>
+  <path d="M0.25 51.85748L39.04932 51.85748L39.04932 37.11249L0.25 37.11249Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(17.15901 61.37474)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_97"></use>
+  </g>
+  <path d="M0.25 66.60248L39.04932 66.60248L39.04932 51.85748L0.25 51.85748Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(17.43576 76.11974)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_99"></use>
+  </g>
+  <path d="M0.25 81.34747L39.04932 81.34747L39.04932 66.60248L0.25 66.60248Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(70.39578 24.8028)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_82"></use>
+  </g>
+  <g transform="translate(76.89919 24.8028)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_84"></use>
+    <use xlink:href="#GLYPHcmr10_84" x="7.22235"></use>
+    <use xlink:href="#GLYPHcmr10_73" x="14.44472"></use>
+  </g>
+  <g transform="translate(98.20818 24.8028)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_112"></use>
+    <use xlink:href="#GLYPHcmr10_116" x="5.55565"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="9.44461"></use>
+  </g>
+  <path d="M67.39577 29.73999L114.51938 29.73999L114.51938 14.995L67.39577 14.995Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M67.39577 44.48499L114.51938 44.48499L114.51938 29.73999L67.39577 29.73999Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M67.39577 59.22998L114.51938 59.22998L114.51938 44.48499L67.39577 44.48499Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M39.04932 29.73999L67.39577 29.73999" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M63.7002 31.27078L67.39577 29.73999L63.7002 28.2092Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
+  <g transform="translate(88.46693 10.8327)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_48"></use>
+  </g>
+  <path d="M67.39577 14.995L114.51938 14.995L114.51938 0.25L67.39577 0.25Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(120.18858 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_105"></use>
+    <use xlink:href="#GLYPHcmr10_110" x="2.77782"></use>
+  </g>
+  <g transform="translate(128.21408 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_118"></use>
+  </g>
+  <g transform="translate(133.19539 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_101"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="4.44452"></use>
+    <use xlink:href="#GLYPHcmr10_115" x="8.36127"></use>
+    <use xlink:href="#GLYPHcmr10_105" x="12.30579"></use>
+    <use xlink:href="#GLYPHcmr10_111" x="15.08362"></use>
+    <use xlink:href="#GLYPHcmr10_110" x="20.08371"></use>
+  </g>
+  <g transform="translate(162.05939 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_111"></use>
+    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+  </g>
+  <g transform="translate(173.40578 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_111"></use>
+    <use xlink:href="#GLYPHcmr10_11" x="5.00009"></use>
+    <use xlink:href="#GLYPHcmr10_115" x="10.83354"></use>
+    <use xlink:href="#GLYPHcmr10_101" x="14.77806"></use>
+    <use xlink:href="#GLYPHcmr10_116" x="19.22258"></use>
+  </g>
+  <g transform="translate(199.75148 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_111"></use>
+    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+  </g>
+  <path d="M211.69559 9.91396L214.68439 9.91396" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(214.68439 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_118"></use>
+    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
+    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+  </g>
+  <path d="M233.85149 9.91396L236.84029 9.91396" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <g transform="translate(236.84029 10.11316)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_66"></use>
+  </g>
+  <g transform="translate(142.86583 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_116"></use>
+  </g>
+  <g transform="translate(146.46342 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_121"></use>
+    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
+  </g>
+  <g transform="translate(157.53313 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_101"></use>
+    <use xlink:href="#GLYPHcmr10_105" x="4.44452"></use>
+    <use xlink:href="#GLYPHcmr10_110" x="7.22235"></use>
+    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
+    <use xlink:href="#GLYPHcmr10_111" x="15.83363"></use>
+  </g>
+  <g transform="translate(181.60953 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_111"></use>
+    <use xlink:href="#GLYPHcmr10_98" x="5.00009"></use>
+  </g>
+  <g transform="translate(192.67912 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_106"></use>
+    <use xlink:href="#GLYPHcmr10_101" x="3.05562"></use>
+    <use xlink:href="#GLYPHcmr10_99" x="7.50014"></use>
+    <use xlink:href="#GLYPHcmr10_116" x="11.94467"></use>
+  </g>
+  <g transform="translate(211.77423 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_102"></use>
+    <use xlink:href="#GLYPHcmr10_111" x="3.05562"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="8.05571"></use>
+  </g>
+  <g transform="translate(227.02263 24.85815)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_67"></use>
+  </g>
+  <path d="M114.51938 22.3675L137.19662 22.3675" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M133.50105 23.89828L137.19662 22.3675L133.50105 20.8367Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
+  <g transform="translate(142.86583 39.60313)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_66"></use>
+    <use xlink:href="#GLYPHcmr10_58" x="7.08347"></use>
+    <use xlink:href="#GLYPHcmr10_58" x="9.8613"></use>
+    <use xlink:href="#GLYPHcmr10_98" x="12.63913"></use>
+    <use xlink:href="#GLYPHcmr10_97" x="18.19478"></use>
+    <use xlink:href="#GLYPHcmr10_114" x="23.19489"></use>
+    <use xlink:href="#GLYPHcmr10_40" x="27.11163"></use>
+    <use xlink:href="#GLYPHcmr10_41" x="31.0006"></use>
+  </g>
+  <path d="M114.51938 37.11249L137.19662 37.11249" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M133.50105 38.64328L137.19662 37.11249L133.50105 35.5817Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
+  <g transform="translate(142.86583 54.34813)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_67"></use>
+    <use xlink:href="#GLYPHcmr10_58" x="7.22235"></use>
+    <use xlink:href="#GLYPHcmr10_58" x="10.00018"></use>
+    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
+    <use xlink:href="#GLYPHcmr10_111" x="15.83363"></use>
+  </g>
+  <g transform="translate(163.89813 54.34813)" style="fill: rgb(0%,0%,0%);">
+    <use xlink:href="#GLYPHcmr10_111"></use>
+    <use xlink:href="#GLYPHcmr10_40" x="5.00009"></use>
+    <use xlink:href="#GLYPHcmr10_41" x="8.88905"></use>
+  </g>
+  <path d="M114.51938 51.85748L137.19662 51.85748" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
+  <path d="M133.50105 53.38828L137.19662 51.85748L133.50105 50.32669Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
+</svg>
