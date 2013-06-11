@@ -1,465 +1,56 @@
-This is MetaPost, version 1.504 (kpathsea version 6.1.0)  11 JUN 2013 17:49
+This is MetaPost, version 1.504 (kpathsea version 6.1.0)  11 JUN 2013 18:31
 **../mpost/cpp-object-model.mp
 (mpost.mp (/usr/share/texlive/texmf-dist/metapost/base/plain.mp
 Preloading the plain mem file, version 1.004))
 (../mpost/../mpost/cpp-object-model.mp
-(/usr/share/texlive/texmf-dist/metapost/base/boxes.mp) [1{psfonts.map}
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+(/usr/share/texlive/texmf-dist/metapost/base/boxes.mp) [1
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [2
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [3
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [4
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [5
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-] [6{psfonts.map
-Warning: fontmap entry for `!<symlink>ÿþp' already exists, duplicates ignored
-}
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmsy10' not found
-] [7
-Warning: fontmap entry for `cmr10' not found
-] [8
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+] [6
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+] [7] [8
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [9
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [10
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmsy10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [11
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [12
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [13
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmsy10' not found
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
 ] [14
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [15
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [16
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmsy10' not found
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] [17
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmr10' not found
-Warning: fontmap entry for `cmsy10' not found
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 0 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
+Warning: The character 11 cannot be output in SVG unless prologues:=3;
 ] )
 17 output files written: cpp-object-model-1.svg .. cpp-object-model-17.svg
 

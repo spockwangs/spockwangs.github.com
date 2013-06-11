@@ -1,89 +1,71 @@
 <?xml version="1.0"?>
-<!-- Created by MetaPost 1.504 on 2013.06.11:1749 -->
+<!-- Created by MetaPost 1.504 on 2013.06.11:1831 -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="296.61618" height="144.14093" viewBox="0 0 296.61618 144.14093">
 <!-- Original BoundingBox: -3.25 -105.49005 293.36618 38.65088 -->
-  <defs>
-  </defs>
   <path d="M3.8477 38.45168L6.8366 38.45168" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(6.8366 38.65088)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+    <text font-size="9.96265">vptr</text>
   </g>
   <path d="M26.0036 38.45168L28.9924 38.45168" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(28.9924 38.65088)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_65"></use>
+    <text font-size="9.96265">A</text>
   </g>
   <path d="M0.25 45.13777L39.46442 45.13777L39.46442 27.18266L0.25 27.18266Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(17.36656 56.60599)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_97"></use>
+    <text font-size="9.96265">a</text>
   </g>
   <path d="M0.25 63.09288L39.46442 63.09288L39.46442 45.13777L0.25 45.13777Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M4.05525 74.3619L7.04414 74.3619" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(7.04414 74.5611)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+    <text font-size="9.96265">vptr</text>
   </g>
   <path d="M26.21115 74.3619L29.19995 74.3619" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(29.19995 74.5611)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_66"></use>
+    <text font-size="9.96265">B</text>
   </g>
   <path d="M0.25 81.04799L39.46442 81.04799L39.46442 63.09288L0.25 63.09288Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(17.0898 93.4848)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_98"></use>
+    <text font-size="9.96265">b</text>
   </g>
   <path d="M0.25 99.0031L39.46442 99.0031L39.46442 81.04799L0.25 81.04799Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(17.64331 110.12541)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_99"></use>
+    <text font-size="9.96265">c</text>
   </g>
   <path d="M0.25 116.9582L39.46442 116.9582L39.46442 99.0031L0.25 99.0031Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(70.81088 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_82"></use>
+    <text font-size="9.96265">R</text>
   </g>
   <g transform="translate(77.31429 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_84"></use>
-    <use xlink:href="#GLYPHcmr10_84" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_73" x="14.44472"></use>
+    <text font-size="9.96265">TTI</text>
   </g>
   <g transform="translate(98.62328 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_112"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="5.55565"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="9.44461"></use>
+    <text font-size="9.96265">ptr</text>
   </g>
   <path d="M67.81087 36.16022L114.93448 36.16022L114.93448 18.20511L67.81087 18.20511Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M67.81087 54.11533L114.93448 54.11533L114.93448 36.16022L67.81087 36.16022Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M67.81087 72.07045L114.93448 72.07045L114.93448 54.11533L67.81087 54.11533Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(82.51698 83.8431)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmsy10_0"></use>
+    <text font-size="9.96265"></text>
   </g>
   <g transform="translate(90.26569 83.8431)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_49"></use>
-    <use xlink:href="#GLYPHcmr10_50" x="5.00009"></use>
+    <text font-size="9.96265">12</text>
   </g>
   <path d="M67.81087 90.02556L114.93448 90.02556L114.93448 72.07045L67.81087 72.07045Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(82.51698 101.79823)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmsy10_0"></use>
+    <text font-size="9.96265"></text>
   </g>
   <g transform="translate(90.26569 101.79823)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_49"></use>
-    <use xlink:href="#GLYPHcmr10_50" x="5.00009"></use>
+    <text font-size="9.96265">12</text>
   </g>
   <path d="M67.81087 107.98068L114.93448 107.98068L114.93448 90.02556L67.81087 90.02556Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(70.81088 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_82"></use>
+    <text font-size="9.96265">R</text>
   </g>
   <g transform="translate(77.31429 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_84"></use>
-    <use xlink:href="#GLYPHcmr10_84" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_73" x="14.44472"></use>
+    <text font-size="9.96265">TTI</text>
   </g>
   <g transform="translate(98.62328 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_112"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="5.55565"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="9.44461"></use>
+    <text font-size="9.96265">ptr</text>
   </g>
   <path d="M67.81087 125.9358L114.93448 125.9358L114.93448 107.98068L67.81087 107.98068Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M67.81087 143.89093L114.93448 143.89093L114.93448 125.9358L67.81087 125.9358Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
@@ -92,340 +74,200 @@
   <path d="M39.46442 72.07043C67.1503 72.07043,40.12498 125.9358,67.81087 125.9358" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M63.96909 127.04848C65.17079 126.86395,66.44836 126.50018,67.81087 125.9358C66.44836 125.37143,65.28777 124.72525,64.30759 124.00597Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
   <g transform="translate(88.88203 12.43776)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_48"></use>
+    <text font-size="9.96265">0</text>
   </g>
   <path d="M67.81087 18.20511L114.93448 18.20511L114.93448 0.25L67.81087 0.25Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(120.60368 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_105"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="2.77782"></use>
+    <text font-size="9.96265">in</text>
   </g>
   <g transform="translate(128.62918 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
+    <text font-size="9.96265">v</text>
   </g>
   <g transform="translate(133.61049 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_115" x="8.36127"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="12.30579"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="15.08362"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="20.08371"></use>
+    <text font-size="9.96265">ersion</text>
   </g>
   <g transform="translate(162.47449 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+    <text font-size="9.96265">of</text>
   </g>
   <g transform="translate(173.82088 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_11" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_115" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="14.77806"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="19.22258"></use>
+    <text font-size="9.96265">oset</text>
   </g>
   <g transform="translate(200.16658 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+    <text font-size="9.96265">of</text>
   </g>
   <path d="M212.11069 11.51901L215.09949 11.51901" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(215.09949 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+    <text font-size="9.96265">vptr</text>
   </g>
   <path d="M234.26659 11.51901L237.25539 11.51901" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(237.25539 11.71822)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_65"></use>
+    <text font-size="9.96265">A</text>
   </g>
   <g transform="translate(143.28093 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
+    <text font-size="9.96265">t</text>
   </g>
   <g transform="translate(146.87852 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_121"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
+    <text font-size="9.96265">yp</text>
   </g>
   <g transform="translate(157.94823 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="15.83363"></use>
+    <text font-size="9.96265">einfo</text>
   </g>
   <g transform="translate(182.02463 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_98" x="5.00009"></use>
+    <text font-size="9.96265">ob</text>
   </g>
   <g transform="translate(193.09422 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_106"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_99" x="7.50014"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="11.94467"></use>
+    <text font-size="9.96265">ject</text>
   </g>
   <g transform="translate(212.18933 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_102"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.05571"></use>
+    <text font-size="9.96265">for</text>
   </g>
   <g transform="translate(227.43773 29.67332)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
+    <text font-size="9.96265">C</text>
   </g>
   <path d="M114.93448 27.18266L137.61172 27.18266" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M133.91615 28.71346L137.61172 27.18266L133.91615 25.65187Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
   <g transform="translate(143.28093 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="10.00018"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="15.83363"></use>
+    <text font-size="9.96265">C::fo</text>
   </g>
   <g transform="translate(164.31323 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="8.88905"></use>
-    <use xlink:href="#GLYPHcmr10_44" x="12.77802"></use>
+    <text font-size="9.96265">o(),</text>
   </g>
   <g transform="translate(183.13162 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
+    <text font-size="9.96265">o</text>
   </g>
   <g transform="translate(187.83623 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
+    <text font-size="9.96265">v</text>
   </g>
   <g transform="translate(192.81754 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.36127"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="12.27802"></use>
-    <use xlink:href="#GLYPHcmr10_100" x="15.05585"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="20.61151"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="23.38933"></use>
-    <use xlink:href="#GLYPHcmr10_103" x="28.94499"></use>
+    <text font-size="9.96265">erriding</text>
   </g>
   <g transform="translate(229.95613 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_65"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.50012"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="10.27795"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="13.05579"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="16.1114"></use>
+    <text font-size="9.96265">A::fo</text>
   </g>
   <g transform="translate(251.26514 47.62842)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="8.88905"></use>
+    <text font-size="9.96265">o()</text>
   </g>
   <path d="M114.93448 45.13777L137.61172 45.13777" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M133.91615 46.66856L137.61172 45.13777L133.91615 43.60698Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
   <g transform="translate(143.28093 65.58353)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="10.00018"></use>
-    <use xlink:href="#GLYPHcmr10_98" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_97" x="18.33368"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="23.33377"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="27.25052"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="31.13948"></use>
-    <use xlink:href="#GLYPHcmr10_44" x="35.02844"></use>
+    <text font-size="9.96265">C::bar(),</text>
   </g>
   <g transform="translate(184.26624 65.58353)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
+    <text font-size="9.96265">o</text>
   </g>
   <g transform="translate(188.97083 65.58353)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
+    <text font-size="9.96265">v</text>
   </g>
   <g transform="translate(193.95213 65.58353)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.36127"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="12.27802"></use>
-    <use xlink:href="#GLYPHcmr10_100" x="15.05585"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="20.61151"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="23.38933"></use>
-    <use xlink:href="#GLYPHcmr10_103" x="28.94499"></use>
+    <text font-size="9.96265">erriding</text>
   </g>
   <g transform="translate(231.09073 65.58353)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_66"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.08347"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="9.8613"></use>
-    <use xlink:href="#GLYPHcmr10_98" x="12.63913"></use>
-    <use xlink:href="#GLYPHcmr10_97" x="18.19478"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="23.19489"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="27.11163"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="31.0006"></use>
+    <text font-size="9.96265">B::bar()</text>
   </g>
   <path d="M114.93448 63.09288L137.61172 63.09288" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M133.91615 64.62367L137.61172 63.09288L133.91615 61.56209Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
   <g transform="translate(120.60368 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_97"></use>
-    <use xlink:href="#GLYPHcmr10_100" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_106" x="10.55576"></use>
-    <use xlink:href="#GLYPHcmr10_117" x="13.61137"></use>
-    <use xlink:href="#GLYPHcmr10_115" x="19.16702"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="23.11154"></use>
-    <use xlink:href="#GLYPHcmr10_109" x="27.0005"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="35.334"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="39.77853"></use>
+    <text font-size="9.96265">adjustmen</text>
   </g>
   <g transform="translate(165.49098 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
+    <text font-size="9.96265">t</text>
   </g>
   <g transform="translate(172.68628 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
+    <text font-size="9.96265">v</text>
   </g>
   <g transform="translate(177.39088 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_97"></use>
-    <use xlink:href="#GLYPHcmr10_108" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_117" x="7.77792"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="13.33357"></use>
+    <text font-size="9.96265">alue</text>
   </g>
   <g transform="translate(198.42319 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_102"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.05571"></use>
+    <text font-size="9.96265">for</text>
   </g>
   <g transform="translate(213.67159 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
-    <use xlink:href="#GLYPHcmr10_104" x="3.88896"></use>
+    <text font-size="9.96265">th</text>
   </g>
   <g transform="translate(222.80399 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_117"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="5.55565"></use>
-    <use xlink:href="#GLYPHcmr10_107" x="11.11131"></use>
+    <text font-size="9.96265">unk</text>
   </g>
   <g transform="translate(242.45259 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="3.88896"></use>
+    <text font-size="9.96265">to</text>
   </g>
   <g transform="translate(254.62918 83.53864)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="10.00018"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_117" x="15.83363"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="21.3893"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="26.94496"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="30.83392"></use>
+    <text font-size="9.96265">C::fun()</text>
   </g>
   <g transform="translate(120.60368 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_105"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="2.77782"></use>
+    <text font-size="9.96265">in</text>
   </g>
   <g transform="translate(128.62918 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
+    <text font-size="9.96265">v</text>
   </g>
   <g transform="translate(133.61049 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_115" x="8.36127"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="12.30579"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="15.08362"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="20.08371"></use>
+    <text font-size="9.96265">ersion</text>
   </g>
   <g transform="translate(162.47449 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+    <text font-size="9.96265">of</text>
   </g>
   <g transform="translate(173.82088 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_11" x="5.00009"></use>
-    <use xlink:href="#GLYPHcmr10_115" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="14.77806"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="19.22258"></use>
+    <text font-size="9.96265">oset</text>
   </g>
   <g transform="translate(200.16658 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="5.00009"></use>
+    <text font-size="9.96265">of</text>
   </g>
   <path d="M212.11069 101.29459L215.09949 101.29459" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(215.09949 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="10.83354"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="14.7225"></use>
+    <text font-size="9.96265">vptr</text>
   </g>
   <path d="M234.26659 101.29459L237.25539 101.29459" style="stroke:rgb(0%,0%,0%); stroke-width: 0.3985;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <g transform="translate(237.25539 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_66"></use>
+    <text font-size="9.96265">B</text>
   </g>
   <g transform="translate(247.63318 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_105"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="2.77782"></use>
+    <text font-size="9.96265">in</text>
   </g>
   <g transform="translate(259.25629 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
+    <text font-size="9.96265">C</text>
   </g>
   <g transform="translate(269.77238 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_98" x="5.00009"></use>
+    <text font-size="9.96265">ob</text>
   </g>
   <g transform="translate(280.84198 101.49379)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_106"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_99" x="7.50014"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="11.94467"></use>
+    <text font-size="9.96265">ject</text>
   </g>
   <g transform="translate(143.28093 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
+    <text font-size="9.96265">t</text>
   </g>
   <g transform="translate(146.87852 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_121"></use>
-    <use xlink:href="#GLYPHcmr10_112" x="5.27788"></use>
+    <text font-size="9.96265">yp</text>
   </g>
   <g transform="translate(157.94823 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_101"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="4.44452"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="15.83363"></use>
+    <text font-size="9.96265">einfo</text>
   </g>
   <g transform="translate(182.02463 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_111"></use>
-    <use xlink:href="#GLYPHcmr10_98" x="5.00009"></use>
+    <text font-size="9.96265">ob</text>
   </g>
   <g transform="translate(193.09422 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_106"></use>
-    <use xlink:href="#GLYPHcmr10_101" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_99" x="7.50014"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="11.94467"></use>
+    <text font-size="9.96265">ject</text>
   </g>
   <g transform="translate(212.18933 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_102"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="3.05562"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.05571"></use>
+    <text font-size="9.96265">for</text>
   </g>
   <g transform="translate(227.43773 119.4489)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
+    <text font-size="9.96265">C</text>
   </g>
   <path d="M114.93448 116.95824L137.61172 116.95824" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M133.91615 118.48903L137.61172 116.95824L133.91615 115.42744Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>
   <g transform="translate(143.28093 137.404)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_118"></use>
-    <use xlink:href="#GLYPHcmr10_105" x="5.27788"></use>
-    <use xlink:href="#GLYPHcmr10_114" x="8.05571"></use>
-    <use xlink:href="#GLYPHcmr10_116" x="11.97246"></use>
-    <use xlink:href="#GLYPHcmr10_117" x="15.86142"></use>
-    <use xlink:href="#GLYPHcmr10_97" x="21.41708"></use>
-    <use xlink:href="#GLYPHcmr10_108" x="26.41718"></use>
+    <text font-size="9.96265">virtual</text>
   </g>
   <g transform="translate(175.68723 137.404)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
-    <use xlink:href="#GLYPHcmr10_104" x="3.88896"></use>
+    <text font-size="9.96265">th</text>
   </g>
   <g transform="translate(184.81973 137.404)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_117"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="5.55565"></use>
-    <use xlink:href="#GLYPHcmr10_107" x="11.11131"></use>
+    <text font-size="9.96265">unk</text>
   </g>
   <g transform="translate(204.46832 137.404)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_116"></use>
-    <use xlink:href="#GLYPHcmr10_111" x="3.88896"></use>
+    <text font-size="9.96265">to</text>
   </g>
   <g transform="translate(216.64493 137.404)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_67"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="7.22235"></use>
-    <use xlink:href="#GLYPHcmr10_58" x="10.00018"></use>
-    <use xlink:href="#GLYPHcmr10_102" x="12.77802"></use>
-    <use xlink:href="#GLYPHcmr10_117" x="15.83363"></use>
-    <use xlink:href="#GLYPHcmr10_110" x="21.3893"></use>
-    <use xlink:href="#GLYPHcmr10_40" x="26.94496"></use>
-    <use xlink:href="#GLYPHcmr10_41" x="30.83392"></use>
+    <text font-size="9.96265">C::fun()</text>
   </g>
   <path d="M114.93448 134.91336L137.61172 134.91336" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
   <path d="M133.91615 136.44415L137.61172 134.91336L133.91615 133.38257Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;fill: rgb(0%,0%,0%);"></path>

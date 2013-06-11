@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
-<!-- Created by MetaPost 1.504 on 2013.06.11:1749 -->
+<!-- Created by MetaPost 1.504 on 2013.06.11:1831 -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="57.1929" height="12.78952" viewBox="0 0 57.1929 12.78952">
 <!-- Original BoundingBox: -26.1058 -4.25 31.0871 8.53952 -->
-  <defs>
-  </defs>
   <g transform="translate(26.1058 8.53952)" style="fill: rgb(0%,0%,0%);">
-    <use xlink:href="#GLYPHcmr10_97"></use>
+    <text font-size="9.96265">a</text>
   </g>
   <path d="M0.25 12.53952L56.9429 12.53952L56.9429 0.25L0.25 0.25Z" style="stroke:rgb(0%,0%,0%); stroke-width: 0.5;stroke-linecap: round;stroke-linejoin: round;stroke-miterlimit: 10;fill: none;"></path>
 </svg>
