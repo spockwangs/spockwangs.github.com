@@ -209,7 +209,7 @@ struct B : A {
 
 <p>Their memory layouts are shown as follows.</p>
 
-<p><img src="/images/cpp-object-model-2.svg" alt="The memory layouts of class A" />
+<p><img src="/images/cpp-object-model-2.svg" alt="The memory layouts of class A" /><br/>
 <img src="/images/cpp-object-model-3.svg" alt="The memory layouts of class B" /></p>
 
 <p>Note that the offset of <code>a</code> in class <code>A</code> is 4 and in the <code>A</code> subobject of
@@ -234,8 +234,8 @@ struct C : A, B {
 
 <p>Their layouts are shown as follows.</p>
 
-<p><img src="/images/cpp-object-model-4.svg" alt="Memory layout of class A" />
-<img src="/images/cpp-object-model-5.svg" alt="Memory layout of class B" />
+<p><img src="/images/cpp-object-model-4.svg" alt="Memory layout of class A" /><br/>
+<img src="/images/cpp-object-model-5.svg" alt="Memory layout of class B" /><br/>
 <img src="/images/cpp-object-model-6.svg" alt="Memory layout of class C" /></p>
 
 <p>Note that the offset of class <code>B data member</code>b<code>in class</code>B<code>is 4 bytes
@@ -259,8 +259,8 @@ struct C: A, B {
 
 <p>Their layouts are shown as follows.</p>
 
-<p><img src="/images/cpp-object-model-7.svg" alt="Member layouts of A" />
-<img src="/images/cpp-object-model-8.svg" alt="Member layouts of A" />
+<p><img src="/images/cpp-object-model-7.svg" alt="Member layouts of A" /><br/>
+<img src="/images/cpp-object-model-8.svg" alt="Member layouts of A" /><br/>
 <img src="/images/cpp-object-model-9.svg" alt="Member layouts of A" /></p>
 
 <h3>Add virtual inheritance<a id="vinheri"></a></h3>
@@ -365,8 +365,8 @@ struct C: A, virtual B {
 
 <p>The layout of classes <code>A</code>, <code>B</code> and <code>C</code> is shown in Figures 11, 12 and 13 respectively.</p>
 
-<p><img src="/images/cpp-object-model-11.svg" alt="Member layout of class A" />
-<img src="/images/cpp-object-model-12.svg" alt="Member layout of class B" />
+<p><img src="/images/cpp-object-model-11.svg" alt="Member layout of class A" /><br/>
+<img src="/images/cpp-object-model-12.svg" alt="Member layout of class B" /><br/>
 <img src="/images/cpp-object-model-13.svg" alt="Member layout of class C" /></p>
 
 <p>In Figure 13 the sub-virtual-table <code>_vptr_A</code> points to has no
@@ -667,8 +667,8 @@ struct C: A, B {
 
 <p>The memory layout corresponding to the above code is shown as below.</p>
 
-<p><img src="/images/cpp-object-model-14.svg" alt="Memory layout of class A" />
-<img src="/images/cpp-object-model-15.svg" alt="Memory layout of class B" />
+<p><img src="/images/cpp-object-model-14.svg" alt="Memory layout of class A" /><br/>
+<img src="/images/cpp-object-model-15.svg" alt="Memory layout of class B" /><br/>
 <img src="/images/cpp-object-model-16.svg" alt="Memory layout of class C" /></p>
 
 <p>When calling <code>C::foo()</code> through a pointer to <code>A</code> the adjustment is

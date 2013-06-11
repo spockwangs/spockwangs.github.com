@@ -1,7 +1,7 @@
 % The SVG figures for "cpp-object-model.md".
 outputformat := "svg";
 outputtemplate := "%j-%c.svg";
-defaultscale := 10pt/fontsize(defaultfont);
+defaultscale := 16pt/fontsize(defaultfont);
 
 def drawtext(expr p, r) =
   begingroup
