@@ -1,4 +1,4 @@
-auto:        auto
+auto:        true
 server:      false
 port: 4000
 baseurl:    /
