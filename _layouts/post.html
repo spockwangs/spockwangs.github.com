@@ -2,36 +2,10 @@
 layout: default
 ---
 
-<article class="article">
-  <header>
-    <h1 class="title">{{ page.title }}</h1>
-    <div class="meta">
-      <span class="tags">
-        {% for tag in page.tags %}
-        <li class="tag">{{ tag }}</li>
-        {% endfor %}
-      </span>
-      <span class="date">{{ page.date|date: "%Y-%m-%d" }}</span>
-    </div>
-  </header>
-  <div id="toc-wrapper" class="invisible">
-    <div class="toc-header">Table of Contents</div>
-    <div id="toc">
-    </div>
-  </div>
-  <div id="article-content" class="content">
+{% include post_header.html %}
+<div class="row">
+  <div class="span9">
     {{ content }}
+    <div id="disqus_thread"></div>
   </div>
-  <footer class="footer">
-    {% if page.previous %}
-    <div class="previous">
-      <a href="{{ page.previous.url }}" title="Previous post: {{ page.previous.title }}">«{{ page.previous.title }}</a>
-    </div>
-    {% endif %}
-    {% if page.next %}
-    <div class="next">
-      <a href="{{ page.next.url }}" title="Next post: {{ page.next.title }}">{{ page.next.title }}»</a>
-    </div>
-    {% endif %}
-  </footer>
-</article>
+</div>

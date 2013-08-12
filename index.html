@@ -1,202 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="/stylesheets/base.css" />
-    <link rel="stylesheet" href="/stylesheets/screen.css" media="screen" />
-    <title>Archives</title>
-  </head>
-  <body>
-    <header id="header">
-      <h1 id="title"><a href="/">Spockwang's Thoughts</a></h1>
-    </header>
-
-    <nav id="nav">
-      <ul id="menus-wrap">
-        <li class="menu first"><a href="/">Archives</a></li>
-        <li class="menu"><a href="/about.html">About</a></li>
-      </ul>
-    </nav>
-
-    <div id="main" class="col-wrapper">
-      <div id="content-wrapper" class="col-3-4">
-        <div id="content">
-          <article id="article">
-  <h1 class="index-title">Archives</h1>
-  
-  <h2 class="title">
-    <a href="/2013/08/20/linux-program.html">Linux程序的加载、运行与终止</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="right meta-date">2013-08-20</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/06/10/cpp-idioms.html">C++ Idioms</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/Programming" title='Posts tagged"Programming"'>Programming</a></li>
-    
-    <li class="right meta-date">2013-06-10</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/04/13/havard_admonishment.html">哈佛训戒</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/quote" title='Posts tagged"quote"'>quote</a></li>
-    
-    <li class="right meta-date">2013-04-13</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/03/30/object-oriented-analysis-and-design.html">使用Booch方法进行面向对象分析与设计</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/object-oriented" title='Posts tagged"object-oriented"'>object-oriented</a></li>
-    
-    <li class="thetag"><a href="/tags/programming" title='Posts tagged"programming"'>programming</a></li>
-    
-    <li class="thetag"><a href="/tags/concurrency" title='Posts tagged"concurrency"'>concurrency</a></li>
-    
-    <li class="right meta-date">2013-03-30</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/03/14/mysql-character-set.html">关于Mysql客户端、连接和服务器字符集</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/mysql" title='Posts tagged"mysql"'>mysql</a></li>
-    
-    <li class="thetag"><a href="/tags/character set" title='Posts tagged"character set"'>character set</a></li>
-    
-    <li class="right meta-date">2013-03-14</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/03/13/css-best-practice.html">CSS Best Practice</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/css" title='Posts tagged"css"'>css</a></li>
-    
-    <li class="right meta-date">2013-03-13</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2013/02/25/hello.html">Hello</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="right meta-date">2013-02-25</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2012/05/16/mysql-help.html">MySql Help</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/Administration" title='Posts tagged"Administration"'>Administration</a></li>
-    
-    <li class="right meta-date">2012-05-16</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2012/05/14/gnu-tool-chain.html">GNU Tool Chain</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/Programming" title='Posts tagged"Programming"'>Programming</a></li>
-    
-    <li class="right meta-date">2012-05-14</li>
-  </div>
-  
-  <h2 class="title">
-    <a href="/2012/05/14/c-gotchas.html">C++ Gotchas</a>
-  </h2>
-  <div class="grid meta">
-    
-    <li class="thetag"><a href="/tags/Programming" title='Posts tagged"Programming"'>Programming</a></li>
-    
-    <li class="right meta-date">2012-05-14</li>
-  </div>
-  
-</article>
-
-<!-- Pagination links -->
-<div class="pagination">
-  <div class="pagination-left">
-    <div class="pagination-previous">
-      
-      Previous
-      
-    </div>
-  </div>
-  <div class="pagination-middle">
-    <div class="pagination-page_number">Page: 1 of 4</div>
-  </div>
-  <div class="pagination-right">
-    <div class="pagination-next">
-      
-      <a href="/page2">Next</a>
-      
-    </div>
+---
+layout: layout
+title: "spockwang"
+---
+{% for post in paginator.posts %}
+<div class="row">
+  <div class="span9">
+	<h4><strong><a href="{{ post.url }}">{{ post.title }}</a></strong></h4>      
+    <p>
+      {{ post.summary }}
+    </p>
+	<p>
+      <i class="icon-calendar"></i> {{ post.date | date: "%B %e, %Y" }}
+      | <i class="icon-comment"></i>
+      <a href="http://spockwangs.github.com{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+	  | <i class="icon-tags"></i> Tags :{% for tag in post.tags %} <a href="/tags/{{ tag }}" rel="tooltip" title="View posts tagged with &quot;{{ tag }}&quot;"><span class="label label-info">{{ tag }}</span></a>  {% if forloop.last != true %} {% endif %} {% endfor %}		            
+    </p>
+    <p><a href="{{ post.url }}">Read more</a></p>
+    <hr>
   </div>
 </div>
+{% endfor %}
 
-        </div>
-      </div>
-      <div id="sidebar" class="col-1-4">
-        <div class="tag-wrapper">
-          <h1>Tags</h1>
-          <ul class="tag-list">
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/Programming/" title='Posts tagged "Programming"'>Programming</a></span>&nbsp;x&nbsp;19</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/名言警句/" title='Posts tagged "名言警句"'>名言警句</a></span>&nbsp;x&nbsp;1</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/Administration/" title='Posts tagged "Administration"'>Administration</a></span>&nbsp;x&nbsp;5</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/programming/" title='Posts tagged "programming"'>programming</a></span>&nbsp;x&nbsp;2</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/quote/" title='Posts tagged "quote"'>quote</a></span>&nbsp;x&nbsp;2</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/Network/" title='Posts tagged "Network"'>Network</a></span>&nbsp;x&nbsp;3</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/css/" title='Posts tagged "css"'>css</a></span>&nbsp;x&nbsp;1</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/mysql/" title='Posts tagged "mysql"'>mysql</a></span>&nbsp;x&nbsp;1</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/character set/" title='Posts tagged "character set"'>character set</a></span>&nbsp;x&nbsp;1</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/object-oriented/" title='Posts tagged "object-oriented"'>object-oriented</a></span>&nbsp;x&nbsp;1</li>
-            
-            <li class="tag-item"><span class="thetag"><a href="/tags/concurrency/" title='Posts tagged "concurrency"'>concurrency</a></span>&nbsp;x&nbsp;1</li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <footer id="footer">
-      <p class="copyright">Copyright&nbsp;&copy;&nbsp2013 - judewang - Powered by jekyll</p>
-    </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="/javascripts/generate_toc.js"></script>
-    <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script type="text/javascript">
-      <!-- Add Google prettify support. -->
-      $(function () {
-          $("pre > code").addClass("prettyprint");
-      });
-      </script>
-    </div>
-  </body>
-</html>
+<!-- Pagination -->
+<div class="pagination">
+  <ul>
+    <li {% if paginator.page == 1 %} class="disabled" {% else %} class="active" {% endif %}>
+      <a href="/page{{paginator.previous_page}}">&laquo;</a>
+    </li>
+    {% for i in (1..paginator.total_pages) %}
+      <li {% if paginator.page == i %} class="disabled" {% else %} class="active" {% endif %}>
+        <a href="/page{{i}}">{{i}}</a>
+      </li>
+    {% endfor %}
+    <li {% if paginator.page == paginator.total_pages %} class="disabled" {% else %} class="active" {% endif %}>
+      <a href="/page{{paginator.next_page}}">&raquo;</a>
+    </li>
+  </ul>
+</div>
