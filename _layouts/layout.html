@@ -8,23 +8,22 @@
     <meta name="author" content="">
     <link href="/css/bootstrap.min.css" rel="stylesheet">  		 
     <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet" />
     <link href="/css/prettify.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/favicon.ico">    
   </head>
   <body>
     <div class="container">
-	  <div class="marketing">
-		<div class="content">	  
-		  <div class="row">			   				
-			<div class="span7 columns">						
-			  {{ content }} 					
-			</div>	
-			<div class="span4 columns">					
-
-			</div>				
-		  </div>						
-		</div>			
-	  </div>		
+	  <div class="content">	  
+		<div class="row">			   				
+		  <div class="span7 columns">						
+			{{ content }} 					
+		  </div>
+          <div class="span4 columns">
+            {% include about.html %}
+          </div>
+		</div>						
+	  </div>			
     </div>
 
     {% include footer.html %}
