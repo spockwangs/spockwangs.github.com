@@ -9,15 +9,17 @@ tags:
 
     int *p = new (sizeof(int));
 
-编译通不过，提示说是new运算符语法错误。但若换成如下：
+编译通不过，提示说是`new`运算符语法错误。但若换成如下：
 
     int *p = operator new (sizeof(int));
 
-编译顺利通过。一时不得其解。前一句代码显然是调用new运算符；后一句看起来也像是调用new运算符，毕竟其它运算符可以这样调用。
+编译顺利通过。一时不得其解。前一句代码显然是调用new运算符；后一句看起来也像
+是调用`new`运算符，毕竟其它运算符可以这样调用。
 
-在仔细查看了C++标准后，我才发现这两句代码实际上是不一样的。前一句是调用new运算符，但后一句是直接调用内存分配函数。本文就是要澄清这两者之间的区别。
+在仔细查看了C++标准后，我才发现这两句代码实际上是不一样的。前一句是调用`new`运
+算符，但后一句是直接调用内存分配函数。本文就是要澄清这两者之间的区别。
 
-new运算符有两步操作：
+`new`运算符有两步操作：
 
 1.  调用适当的内存分配函数分配内存`opeator new`或`operator new[]`;
 2.  调用适当的构造函数。
@@ -78,15 +80,20 @@ C++ 1998])
 所以这个函数是通常形式），则内存的大小作为第二个参数(clause 5 of 12.5, [ISO
 C++ 1998])。
 
-    delete p;    // call operator delete(p) or T::operator delete(p) or T::operator delete(p, sizeof(*p))
-    delete[] p;  // call operator delete[](p) or T::operator delete[](p) or T::operator delete[](p, sizeof(*p)*s+delta)
+    // call operator delete(p) or T::operator delete(p) or 
+    // T::operator delete(p, sizeof(*p))
+    delete p;    
+
+    // call operator delete[](p) or T::operator delete[](p) or
+    // T::operator delete[](p, sizeof(*p)*s+delta)
+    delete[] p;  
 
 若释放的对象不是数组，则`delete`的操作数的动态类型与静态类型要么一致，要么其
-析构函数是虚拟的；若释放的对象是数组，则delete[]操作数的动态类型与静态类型必
+析构函数是虚拟的；若释放的对象是数组，则`delete[]`操作数的动态类型与静态类型必
 须一致。（clause 3 of 5.3.5, [ISO C++ 1998])
     
 内存释放函数虽然是静态的，不能动态绑定，但是若类T的析构函数是虚拟的则编译器
-将根据指针T *p的动态类型来决定调用合适的内存释放函数(clause 7 of 12.5, [ISO
+将根据指针`T *p`的动态类型来决定调用合适的内存释放函数(clause 7 of 12.5, [ISO
 C++ 1998])。例如：
     
     struct B {

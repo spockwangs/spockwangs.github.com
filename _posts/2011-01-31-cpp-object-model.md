@@ -2,7 +2,8 @@
 layout: post
 title: The g++ implementation of C++ Object Model
 tags:
-- Programming
+- programming language
+- computer system
 ---
 
 This text discusses the C++ object model implemented by g++, including the
@@ -32,7 +33,7 @@ beyond the RTTI pointer which points to the `typeinfo` object for this
 class.  The virtual table slots can be accessed via positive, zero and
 negative index through virtual pointers.  The slots with non-negative index
 are used to store addresses of virtual functions (or their thunks, see
-[vcall](#vcall) or of a g++ defined function `__cxa_pure_virtual`, which
+[Call virtual functions](#vcall) or of a g++ defined function `__cxa_pure_virtual`, which
 will terminate the program, if a pure virtual function is declared.  The
 RTTI pointer is at index -1.  The inversion of offset of the virtual
 pointer in this object is at index -2.
@@ -102,7 +103,7 @@ not declare any virtual function, no virtual tables are created.
 2. Otherwise, if all base classes have no virtual tables and the
 derived class declares some virtual function, the rule for creating the
 virtual table is the same as the situation without inheritance
-(see [ninher](#ninher)).
+(see [Without inheritance](#ninher)).
 3. Otherwise, if some base class has a virtual table, the virtual table of the derived class is created by concatenating
 sub-virtual-tables. The rule to create the first sub-virtual-table is
 as follows.
@@ -120,7 +121,7 @@ as follows.
    1. copy the virtual table of a corresponding base class `B`;
    2. if a virtual function in `B` is overridden, update its
       corresponding virtual table slot to the address of thunk (see
-      [vcall](#vcall) to the overriding function (which implements
+      [Call virtual functions](#vcall) to the overriding function (which implements
       polymorphism);
    3. update the RTTI pointer to points to the `typeinfo` object
       for `D`;
@@ -181,7 +182,7 @@ Their layouts are shown as follows.
 ![Memory layout of class B](/images/cpp-object-model-5.svg)  
 ![Memory layout of class C](/images/cpp-object-model-6.svg)
 
-Note that the offset of class `B data member `b` in class `B` is 4 bytes
+Note that the offset of class `B` data member `b` in class `B` is 4 bytes
 and its offset in the class `B` subobject of class `C` is also 4 bytes.
 
 Example 3: multiple inheritance with the first base class lacking virtual
@@ -213,9 +214,9 @@ does not has fixed offset in derived class object.  So the virtual base
 class subobject must be accessed indirectly. g++ achieves this goal by
 putting virtual base class offset table, which contains offsets of
 each virtual base class subobject, in the virtual table.  ("Virtual
-inheritance" of 3.4 of "Inside the C++ Object Model")
+inheritance" of 3.4 of *Inside the C++ Object Model*)
 
-In addition, as discussed in [vcall](#vcall), the virtual function has
+In addition, as discussed in [Call virtual functions](#vcall), the virtual function has
 to adjust the `this` pointer sometimes, which is done by the thunk.  So
 the thunk needs a way to calculate the adjustment value.  For the situation
 with non-virtual inheritance this can be done at compile time because the
@@ -271,7 +272,7 @@ is same as usual except
     non-virtual base class which has a virtual table.  If all non-virtual
     base classes do not have a virtual table then the first
     sub-virtual-table is created for class `D` and the rule is the same
-    as in [ninher](#ninher).
+    as in [Without inheritance](#ninher).
 3.  Then the first sub-virtual-table is prepended with virtual base class
     offset table.
 4.  The second and subsequent sub-virtual-tables are prepended with a
@@ -529,10 +530,10 @@ object.  The address of each virtual function is stored in the virtual
 table slots.  Each virtual function is associated with an index of the
 table, which is never changed in the inheritance hierarchy and is known at
 compile time.  First the pointer must be adjusted to point to the subobject
-of the class in which the called virtual function is declared (see
-[nscall](#nscall) for how to do the adjustment).  Then the virtual pointer can
-be found through the adjusted pointer and the address of the virtual
-function can be found by indexing the virtual table.
+of the class in which the called virtual function is declared (see [Call
+non-static member functions](#nscall) for how to do the adjustment).  Then
+the virtual pointer can be found through the adjusted pointer and the
+address of the virtual function can be found by indexing the virtual table.
 
 The second task is passing an appropriate `this` pointer, which the
 actually called virtual function expects to receive.  The compiler does not

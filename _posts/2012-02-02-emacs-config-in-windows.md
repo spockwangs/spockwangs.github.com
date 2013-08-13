@@ -8,7 +8,7 @@ tags:
 ## Emacs的配置文件
 
 在Windows下，Emacs的配置文件存放在被Emacs称为HOME的目录下。默认情况下该目录
-是`C:/Users/&lt;login name&gt;/AppData/Roaming/`（Windows 7）。这个目录可以通
+是`C:/Users/<login name>/AppData/Roaming/`（Windows 7）。这个目录可以通
 过环境变量`HOME`来设置。
 
 ## 启用Emacs的服务器模式
@@ -20,10 +20,10 @@ Emacs有一个服务器模式，就是先启动Emacs服务器，然后每当编�
 
 为了达到这个目的，需要做以下几步设置：
 
-1.  在`~/.emacs`中加入
-    (server-start)
-这样Emacs第一次启动时会启动服务器。
-2.  设置环境变量`EMACS_SERVER_FILE`为`%HOME%/.emacs.d/server/server`。这是Emacs客户端与服务器用来通信的。每当服务器启动时都会建立这个文件，退出时删除这个文件。这个环境变量告诉Emacs客户端服务器建立的文件在哪里。
+1.  在`~/.emacs`中加入`(server-start)`. 这样Emacs第一次启动时会启动服务器。
+2.  设置环境变量`EMACS_SERVER_FILE`为`%HOME%/.emacs.d/server/server`。这是
+Emacs客户端与服务器用来通信的。每当服务器启动时都会建立这个文件，退出时删除
+这个文件。这个环境变量告诉Emacs客户端服务器建立的文件在哪里。
 
 ## 将Emacs加入右键菜单
 
