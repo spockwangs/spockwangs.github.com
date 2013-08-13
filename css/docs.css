@@ -12,7 +12,6 @@
 
 body {
   position: relative;
-  padding-top: 40px;
 }
 
 /* Code in headings */
@@ -1133,4 +1132,19 @@ form.bs-docs-example {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+}
+
+/* The site header. */
+.header {
+    width: 100%;
+    padding: 50px 100px;
+    background-color: navy;
+}
+
+.site-title {
+    color: #fff;
+}
+
+.body {
+    margin-top: 70px;
 }
