@@ -21,22 +21,27 @@ title: "spockwang"
 <div class="pagination">
   {% if paginator.total_pages > 1 %}
   <ul>
+    <!-- Note the first page should be treated specially. -->
     {% if paginator.page == 1 %}
       <li class="disabled"><span>&laquo;</span></li>
+    {% elsif paginator.previous_page == 1 %}
+      <li><a href="/">&laquo;</a></li>
     {% else %}
       <li><a href="/page{{paginator.previous_page}}">&laquo;</a></li>
     {% endif %}
     {% for i in (1..paginator.total_pages) %}
       {% if paginator.page == i %}
         <li class="disabled"><span>{{i}}</span></li>
+      {% elsif i == 1 %}
+        <li><a href="/">1</a></li>
       {% else %}
-        <li class="active"><a href="/page{{i}}">{{i}}</a></li>
+        <li><a href="/page{{i}}">{{i}}</a></li>
       {% endif %}
     {% endfor %}
     {% if paginator.page == paginator.total_pages %}
       <li class="disabled"><span>&raquo;</span></li>
     {% else %}
-      <li class="active"><a href="/page{{paginator.next_page}}">&raquo;</a></li>
+      <li><a href="/page{{paginator.next_page}}">&raquo;</a></li>
     {% endif %}
   </ul>
   {% endif %}
