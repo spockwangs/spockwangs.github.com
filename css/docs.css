@@ -1148,3 +1148,11 @@ form.bs-docs-example {
 .body {
     margin-top: 70px;
 }
+
+.body h1 {
+    margin: 36px 0 27px;
+}
+
+.body h1, .body h2, .body h3 {
+    font-weight: 300;
+}
