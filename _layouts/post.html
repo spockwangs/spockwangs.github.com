@@ -11,9 +11,7 @@ layout: default
       <span class="pull-right">
         <i class="icon-tags"></i>
         {% for tag in page.tags %}
-        <a href="/tags/{{ tag }}" rel="tooltip" title="View posts tagged with &quot;{{ tag }}&quot;">
           <span class="label label-info">{{ tag }}</span>
-        </a>
         {% endfor %}
       </span>
       {% endif %}
