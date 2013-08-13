@@ -19,6 +19,7 @@ title: "spockwang"
 
 <!-- Pagination -->
 <div class="pagination">
+  {% if paginator.total_pages > 1 %}
   <ul>
     {% if paginator.page == 1 %}
       <li class="disabled"><span>&laquo;</span></li>
@@ -38,4 +39,5 @@ title: "spockwang"
       <li class="active"><a href="/page{{paginator.next_page}}">&raquo;</a></li>
     {% endif %}
   </ul>
+  {% endif %}
 </div>
