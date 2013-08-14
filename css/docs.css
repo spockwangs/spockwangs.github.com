@@ -1153,13 +1153,54 @@ form.bs-docs-example {
     margin: 36px 0 27px;
 }
 
+@font-face {
+    font-family: ff-helvetica;
+    src: url(/fonts/helvetica_lt.ttf);
+}
+
+@font-face {
+    font-family: ff-helvetica;
+    src: url(/fonts/helvetica_lt_bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyh.ttf);
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyh.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyhi.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ff-monaco;
+    src: url(/fonts/monaco.ttf);
+}
+
 .body h1, .body h2, .body h3, .body h4 {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: ff-helvetica,Helvetica,Arial,sans-serif;
     font-weight: 300;
 }
 
+.body pre, .body code {
+    font-family: Monaco, ff-monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
 .article {
-    font-family: "Century Schoolbook L", "DejaVu Serif", "FreeSerif", "SimSun", serif;
+    font-family: Helvetica,"Microsoft Yahei",ff-helvetica,ff-yahei,sans-serif;
     font-size: 16px;
     line-height: 1.5em;
+}
+
+.body p {
+    margin: 0 0 1em;
 }
