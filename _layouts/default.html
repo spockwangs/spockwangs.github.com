@@ -11,8 +11,15 @@
     <link href="/css/docs.css" rel="stylesheet" />
     <link href="/css/prettify.css" rel="stylesheet" />
 	<link rel="shortcut icon" href="/favicon.ico">
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+          var nodeList = document.querySelectorAll('pre');
+          for (var i = 0; i < nodeList.length; ++i)
+              nodeList.item(i).className = "prettyprint";
+          prettyPrint();
+      }, false);
+    </script>
   </head>
-  <body>
   <body>
 	<div class="body container">	
 	  {{ content }}
@@ -32,13 +39,5 @@
         })();
     </script>
     <script src="/js/prettify.js"></script>
-    <script type="text/javascript">
-      document.addEventListener('load', function () {
-          var nodeList = document.querySelectorAll('pre');
-          for (var i = 0; i < nodeList.length; ++i)
-              nodeList.item(i).className = "prettyprint";
-          prettyPrint();
-      }, false);
-    </script>
   </body>
 </html>
