@@ -2,6 +2,7 @@
 layout: post
 title: Symbol resolution by GNU ld
 tags:
+- computer system
 - programming language
 ---
 
@@ -28,11 +29,32 @@ complete.
 `STN_UNDEF`. 
 
 The rules for symbol resolution is as follows.
-1.  If a global symbol exists it can only appeared once in object files being combined. Multipe definitions of global symbols with the same name will cause an error. On the other hand, if a definition of a global symbol eixists, the appearence of weak symbols and/or common symbols with the same name will not cause an error. The link editor honors the global definition and ignores the weak and/or common ones.
-2.  Otherwise, if a common symbol exists, the appearence of weak symbols with the same name will not cause an error. The link editor honors the common definition and ignores the weak ones. If muliple common symbols with the same name exists, the link editor honors the common definition with the biggest size.
+
+1.  If a global symbol exists it can only appeared once in object files
+being combined. Multipe definitions of global symbols with the same name
+will cause an error. On the other hand, if a definition of a global symbol
+eixists, the appearence of weak symbols and/or common symbols with the same
+name will not cause an error. The link editor honors the global definition
+and ignores the weak and/or common ones.
+
+2.  Otherwise, if a common symbol exists, the appearence of weak symbols
+with the same name will not cause an error. The link editor honors the
+common definition and ignores the weak ones. If muliple common symbols with
+the same name exists, the link editor honors the common definition with the
+biggest size.
+
 3.  Otherwise, multiple appearences of weak symbols with the same name do not cause an error.
-	1.  If some of the weak symbols are defined (the section index is a positive integer), the link editor will honor the first found defined symbol and inogre the others.
-	2.  Otherwise, if all the weak symbols are undefined, the symbol will be left as an undefined weak symbol in the output file no matter what type of output file is being generated. In addition, if a executable is being generated, all the reference to the symbol will be assigned a value of zero. In the case of dynamic shared object, during process execution, the dynamic linker searches for this symbol. If the dynamic linker does not find a match, it binds a reference to a address of zero instead of generating a fatal runtime relocation error.
+    1.  If some of the weak symbols are defined (the section index is a
+    positive integer), the link editor will honor the first found defined
+    symbol and inogre the others.
+	2.  Otherwise, if all the weak symbols are undefined, the symbol will
+	be left as an undefined weak symbol in the output file no matter what
+	type of output file is being generated. In addition, if a executable is
+	being generated, all the reference to the symbol will be assigned a
+	value of zero. In the case of dynamic shared object, during process
+	execution, the dynamic linker searches for this symbol. If the dynamic
+	linker does not find a match, it binds a reference to a address of zero
+	instead of generating a fatal runtime relocation error.
 
 ## Testing Existence of Functionality
 

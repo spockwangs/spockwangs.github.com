@@ -110,9 +110,9 @@ talk about the universe.
 -- Niels Bohr
 
 All magic comes with a price.  
--- Rumplestiltskin, from _Once Upon A Time_
+-- Rumplestiltskin, from [_Once Upon A Time_](http://www.imdb.com/title/tt1843230/)
 
 I did it because it was easy. It was a mistake. There were other
 paths. Harder paths, and I wish I had taken them. ... Let's take the hard
 path.  
--- Snow White, from _Once Upon A Time_
+-- Snow White, from [_Once Upon A Time_](http://www.imdb.com/title/tt1843230/)

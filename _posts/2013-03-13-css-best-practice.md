@@ -2,7 +2,7 @@
 layout: post
 title: CSS Best Practice
 tags:
-- css
+- web programming
 ---
 
 ## Use a reset styelsheet

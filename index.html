@@ -1,19 +1,19 @@
 ---
 layout: layout
-title: "spockwang"
+title: "Spockwang's Thoughts"
 ---
 {% for post in paginator.posts %}
 <h4><strong><a href="{{ post.url }}">{{ post.title }}</a></strong></h4>      
 <p>
-  {{ post.summary }}
-</p>
-<p>
   <i class="icon-calendar"></i> {{ post.date | date: "%B %e, %Y" }}
-  | <i class="icon-comment"></i>
+  |
+  <i class="icon-comment"></i>
   <a href="http://spockwangs.github.com{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
-  | <i class="icon-tags"></i> Tags :{% for tag in post.tags %} <a href="/tags/{{ tag }}" rel="tooltip" title="View posts tagged with &quot;{{ tag }}&quot;"><span class="label label-info">{{ tag }}</span></a>  {% if forloop.last != true %} {% endif %} {% endfor %}		            
+  {% if post.tags.size > 0 %}
+  |
+  <i class="icon-tags"></i>{% for tag in post.tags %} <span class="label label-info">{{ tag }}</span></a>{% endfor %}
+  {% endif %}
 </p>
-<p><a href="{{ post.url }}">Read more</a></p>
 <hr>
 {% endfor %}
 
@@ -21,22 +21,27 @@ title: "spockwang"
 <div class="pagination">
   {% if paginator.total_pages > 1 %}
   <ul>
+    <!-- Note the first page should be treated specially. -->
     {% if paginator.page == 1 %}
       <li class="disabled"><span>&laquo;</span></li>
+    {% elsif paginator.previous_page == 1 %}
+      <li><a href="/">&laquo;</a></li>
     {% else %}
       <li><a href="/page{{paginator.previous_page}}">&laquo;</a></li>
     {% endif %}
     {% for i in (1..paginator.total_pages) %}
       {% if paginator.page == i %}
         <li class="disabled"><span>{{i}}</span></li>
+      {% elsif i == 1 %}
+        <li><a href="/">1</a></li>
       {% else %}
-        <li class="active"><a href="/page{{i}}">{{i}}</a></li>
+        <li><a href="/page{{i}}">{{i}}</a></li>
       {% endif %}
     {% endfor %}
     {% if paginator.page == paginator.total_pages %}
       <li class="disabled"><span>&raquo;</span></li>
     {% else %}
-      <li class="active"><a href="/page{{paginator.next_page}}">&raquo;</a></li>
+      <li><a href="/page{{paginator.next_page}}">&raquo;</a></li>
     {% endif %}
   </ul>
   {% endif %}

@@ -12,7 +12,6 @@
 
 body {
   position: relative;
-  padding-top: 40px;
 }
 
 /* Code in headings */
@@ -1133,4 +1132,75 @@ form.bs-docs-example {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+}
+
+/* The site header. */
+.header {
+    width: 100%;
+    padding: 50px 100px;
+    background-color: navy;
+}
+
+.site-title {
+    color: #fff;
+}
+
+.body {
+    margin-top: 70px;
+}
+
+.body h1 {
+    margin: 36px 0 27px;
+}
+
+@font-face {
+    font-family: ff-helvetica;
+    src: url(/fonts/helvetica_lt.ttf);
+}
+
+@font-face {
+    font-family: ff-helvetica;
+    src: url(/fonts/helvetica_lt_bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyh.ttf);
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyh.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ff-yahei;
+    src: url(/fonts/msyhi.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: ff-monaco;
+    src: url(/fonts/monaco.ttf);
+}
+
+.body h1, .body h2, .body h3, .body h4 {
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: 300;
+}
+
+.body pre, .body code {
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+.article {
+    font-family: Helvetica, "Microsoft Yahei", sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.body p {
+    margin: 0 0 1em;
 }

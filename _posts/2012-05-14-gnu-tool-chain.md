@@ -2,15 +2,8 @@
 layout: post
 title: GNU Tool Chain
 tags:
-- Programming
-status: publish
-type: post
-published: true
-meta:
-  _edit_lock: '1336924920'
-  _edit_last: '1'
-  _pingme: '1'
-  _encloseme: '1'
+- programming language
+- operating system
 ---
 
 ## Create Static Libraries
@@ -63,9 +56,9 @@ info.  See above "Link with Static Libraries".
 If the shared objects on the command line require other shared objects (you
 can check this by see the entry type `DT_NEED` of `.dynamic` section), the
 linker editor needs to know where to find the required shared objects.
-This info can be specified with the option <code>"-rpath-link"</code> or
-<code>"-rpath"</code> of ld or by other ways.  See ld(1) about options
-<code>"-rpath-link"</code> and <code>"-rpath"</code>.
+This info can be specified with the option `-rpath-link` or
+`-rpath` of ld or by other ways.  See `ld(1)` about options
+`-rpath-link` and `-rpath`.
 
 For example:
 
@@ -83,7 +76,7 @@ other than the above ways and they are searched in the following order:
 4. system paths `/lib` and `/usr/lib`
 5. the directories specified in `/etc/ld.so.conf`
 
-This is incomplete.  See option <code>-rpath-link</code> of ld(1) for more details.
+This is incomplete.  See option `-rpath-link` of `ld(1)` for more details.
 
 ## Runtime shared objects search path
 
@@ -104,9 +97,9 @@ it in a series of directories in the following order:
 1. The directories (separated by colons) in the entry DT_RPATH of .dynamic
    section in the executable (these paths are specified by the option "-rpath"
    of ld or "-Wl,-rpath" of gcc);
-2. The directories in the environment variable LD_LIBRARY_PATH (separated by colons);
-3. The directories specified in /etc/ld.so.conf (actually /etc/ld.so.cache,
-   so if you edit /etc/ld.so.conf you should run "ldconfig" to update the
+2. The directories in the environment variable `LD_LIBRARY_PATH` (separated by colons);
+3. The directories specified in `/etc/ld.so.conf` (actually `/etc/ld.so.cache`,
+   so if you edit `/etc/ld.so.conf` you should run `ldconfig` to update the
    cache and the shared objects should be named like libxxx.so);
 4. `/lib`
 5. `/usr/lib`

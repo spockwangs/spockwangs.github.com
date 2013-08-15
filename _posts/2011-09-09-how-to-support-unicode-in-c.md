@@ -12,17 +12,17 @@ wide characters as the internal encoding because it is easy to use and has
 much support from standard C library.  The characters from the input is
 converted to wide characters for internal use.  All the logic of the
 program is based on the internal encoding.  When characters are required to
-transmitted to outside (e.g. print to <tt>stdout</tt> or across the
+transmitted to outside (e.g. print to `stdout` or across the
 network) they are converted to appropriate encoding.
 
 ## Locale
 
 The functions in the C library which does convertions between multi-byte
 characters and wide characters is locale-specific (particularly the
-category <tt>LC_CTYPE</tt>).  Their behavior can be changed by
-<tt>setlocale</tt> defined in <tt>locale.h</tt>.  So when we want to
+category `LC_CTYPE`).  Their behavior can be changed by
+`setlocale` defined in `locale.h`.  So when we want to
 convert from or to multi-byte characters we must set the value of
-<tt>LC_CTYPE </tt>correctly.
+`LC_CTYPE `correctly.
 
 There is a global locale in C++, as there is in C.  Initially the global
 locale is the locale "C".  You can get current global locale by calling
@@ -39,7 +39,7 @@ multi-byte encoding to wide characters defined in C.  Foutunately C library
 has provided many functions to do the conversion.  But we must take care to
 set the relevant locale category to make them work correctly.
 
-We can use <tt>scanf</tt> to convert the input multi-byte sequence to wide
+We can use `scanf` to convert the input multi-byte sequence to wide
 characters, like the following which assmes the input characters are
 encoded in GBK.
 
@@ -47,7 +47,7 @@ encoded in GBK.
     setlocale(LC_CTYPE, "zh_CN.GBK");
     fscanf(fp, "%ls", wcs);
 
-Or we can obtain the input as a byte-sequence and then call <tt>mbstowcs</tt> to do the conversion.
+Or we can obtain the input as a byte-sequence and then call `mbstowcs` to do the conversion.
 
     char bytes[1024];
     int len;
@@ -61,7 +61,7 @@ Or we can obtain the input as a byte-sequence and then call <tt>mbstowcs</tt> to
     mbstowcs(wcs, bytes, len);
 
 But we must make sure the byte-sequence is a full valid multibyte sequence
-or <tt>-1</tt> is returned by the call to <tt>mbstowcs</tt>.
+or `-1` is returned by the call to `mbstowcs`.
 
 In C++ we can use <code>wistream</code> to convert the input multibyte sequence to wide characters.
 
@@ -104,7 +104,7 @@ We can also obtain the input as a byte sequence and then convert it to the desti
 
 When wide characters are printed to the standard output they must be
 converted to multibyte sequence with the encoding specified by
-<tt>LC_CTYPE</tt> environment variable.  This is easy to do with <tt>setlocale</tt>.
+`LC_CTYPE` environment variable.  This is easy to do with `setlocale`.
 
     /* Print wide characters in 'wcs'. */
     setlocale(LC_CTYPE, "");
@@ -119,7 +119,7 @@ Or equivalently in C++:
 
 If we want to print wide characters to other destinations (files or
 network) we can convert the wide characters to multibyte sequence with the
-expected encoding by set the category <tt>LC_CTYPE</tt>. For example the
+expected encoding by set the category `LC_CTYPE`. For example the
 following code convertes wide characters to multibyte sequence in GBK
 encoding.
 
@@ -154,11 +154,11 @@ Or equivalently in C++:
 ## Frequent tasks with wide characters and strings
 
 The C library functions which handle wide characters are often prefixed
-with <tt>wcs</tt>.  For the functions which handle <tt>char</tt> type
+with `wcs`.  For the functions which handle `char` type
 characters there is an equivalent function which handles wide characters.
 
 ## References
 
 *  _C: A Reference Manual_, Fifth Edition.
-*  (http://www.evanjones.ca/unicode-in-c.html)
-*  (http://www.cl.cam.ac.uk/~mgk25/unicode.html)
+*  [http://www.evanjones.ca/unicode-in-c.html](http://www.evanjones.ca/unicode-in-c.html)
+*  [http://www.cl.cam.ac.uk/~mgk25/unicode.html](http://www.cl.cam.ac.uk/~mgk25/unicode.html)
