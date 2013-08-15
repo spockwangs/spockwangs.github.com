@@ -36,7 +36,8 @@
       document.addEventListener('load', function () {
           var nodeList = document.querySelectorAll('pre');
           for (var i = 0; i < nodeList.length; ++i)
-              nodeList.item(i).style.class = "prettyprint";
+              nodeList.item(i).className = "prettyprint";
+          prettyPrint();
       }, false);
     </script>
   </body>
