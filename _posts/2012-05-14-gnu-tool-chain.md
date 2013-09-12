@@ -84,28 +84,32 @@ When a executive which depends on some shared objects runs the dynamic
 linker needs to load those shared objects.  So it needs to know two things:
 which shared objects and where to find them.
 
-The required shared objects are stored in the DT_NEED entry (shown as
-"(NEEDED)" in output of "readelf -d", may not exist if it does not depend
-on anything) of .dynamic section in the object, which is specified on the
+The required shared objects are stored in the `DT_NEED` entry (shown as
+"(NEEDED)" in output of `readelf -d`, may not exist if it does not depend
+on anything) of `.dynamic` section in the object, which is specified on the
 command line when generating this object file.
 
-If the value of DT_NEED entry is a path (absolute or relative) the dynamic
-linker will try to find it there, and if it does not find it the executable
-can not run.  If it is just a file name the dynamic linker will search for
-it in a series of directories in the following order:
+If the value of `DT_NEED` entry is a path (absolute or relative, i.e. has a
+slash) the dynamic linker will try to find it there, and if not found the
+executable can not run.  If it is just a file name the dynamic linker will
+search for it in a series of paths in the following order:
 
-1. The directories (separated by colons) in the entry DT_RPATH of .dynamic
-   section in the executable (these paths are specified by the option "-rpath"
-   of ld or "-Wl,-rpath" of gcc);
-2. The directories in the environment variable `LD_LIBRARY_PATH` (separated by colons);
-3. The directories specified in `/etc/ld.so.conf` (actually `/etc/ld.so.cache`,
+1. The paths (separated by colons) in the entry `DT_RPATH` of `.dynamic`
+   section in the executable (these paths are specified by the option `-rpath`
+   of `ld` or `-Wl,-rpath` of gcc);
+2. The paths in the environment variable `LD_LIBRARY_PATH` (separated
+   by colons);
+3. The paths specified in `/etc/ld.so.conf` (actually `/etc/ld.so.cache`,
    so if you edit `/etc/ld.so.conf` you should run `ldconfig` to update the
    cache and the shared objects should be named like libxxx.so);
 4. `/lib`
 5. `/usr/lib`
 
+Note: all the paths mentioned above is relative to the current working
+directory if it is a relative path.
+
 You can see the searching process by setting the environment variable
-`LD_DEBUG` to `libs` when running the executable.  See `ld.so(1)`.
+`LD_DEBUG` to `libs` when running the executable.  See `ld.so(8)`.
 
 ## Loading of dependent shared objects and symbol resolving
 
@@ -131,7 +135,9 @@ variable `LD_DEBUG`.  See `ld.so(8)`.
 ## References
 
 * `ld(1)` options `-shared`, `-L`, `-l`, `-rpath`, `-rpath-link`
-* `ld.so(1)`
+* [`ld.so(8)`](http://man7.org/linux/man-pages/man8/ld.so.8.html)
 * gcc(1) options `-shared`, `-static`, and `-Wl,`
+* See [here](http://refspecs.linuxbase.org/elf/gabi4+/ch5.dynamic.html#shobj_dependencies) for `DT_RPATH` and `DT_RUNPATH`.
 * 程序员的自我修养，Sections 7.6, 8.4 and 8.5
 * Computer System: A Programmer's Perspective, Chapter 7.
+* See [here](https://wiki.debian.org/Multiarch/LibraryPathOverview) for multi-arch support on toolchain implications.
