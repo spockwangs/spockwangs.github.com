@@ -117,5 +117,5 @@ paths. Harder paths, and I wish I had taken them. ... Let's take the hard
 path.  
 -- Snow White, from [_Once Upon A Time_](http://www.imdb.com/title/tt1843230/)
 
-Programs should not only work, but they should appear to work as well. 
+Programs should not only work, but they should appear to work as well.  
 -- PDP-1X Dogma
