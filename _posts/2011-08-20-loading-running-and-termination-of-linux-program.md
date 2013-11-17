@@ -142,9 +142,10 @@ p.28, [abi386-4]），设置相关参数(`_dl_argc:` 命令行参数的个数，
 (glibc/elf/rtld.c)进行动态连接器的主要任务。
 
 4.  `_dl_main()`非常长，主要工作是加载可执行文件依赖的所有共享对象，构造符号
-表，并进行**加载时重定位**（有些重定位可以延迟到需要时再进行，
-称为**运行时重定位**）。考虑到`R_386_COPY`（见[abi386-4]的78页）
-重定位类型，要特别加载时重定位的顺序。下面是摘自`_dl_main()`中的一段注释。
+表，并进行**加载时重定位**（有些重定位可以延迟到需要时再进行，称为**运行时重
+定位**）。考虑到`R_386_COPY`（见[abi386-4]的78页）重定位类型，要特别加载时重
+定位的顺序（因为需要copy relocation的变量的初始值可能是另一个全局变量的地址，
+所以需要先重定位这个变量）。下面是摘自`_dl_main()`中的一段注释。
 
     > /\* Now we have all the objects loaded.  Relocate them all except for
 the dynamic linker itself.  We do this in reverse order so that copy relocs
