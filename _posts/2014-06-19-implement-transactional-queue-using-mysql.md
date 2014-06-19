@@ -46,7 +46,7 @@ dequeue操作有点复杂，分3步：
 2. 处理消息，此时表不会被锁住，其它消费者也可以获取消息；
 3. 处理完毕后从数据库中删除。对于处理出错的消息可以根据业务要求重试、忽略或者插入消息队列待下次再处理。
 
-    delete from message_queue where owner='me'
+        delete from message_queue where owner='me'
 
 上面没有考虑失败的情况。如果某个消费者在第1步和第2步之间失败的话，一个被占用的消息可能永远不会再被处理，即使此时有其它消费者还在运行，这就不满足at-least-once的要求了。
 
