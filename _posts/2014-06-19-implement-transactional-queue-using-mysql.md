@@ -8,6 +8,7 @@ tags:
 ## Introduction
 
 在离线数据处理系统中，为了解除模块之间的耦合关系，往往需要消息队列来实现模块之间的通信。对于离线系统来讲，消息队列要满足以下要求：
+
 * 消息不能丢失，即使在系统失败的情况下。消息一旦被插入就一定会被至少处理一次（只被处理一次是最好的，但是实现起来有难度，所以只要求at-least-once semantic）；
 * FIFO顺序；
 * 支持多生产者；
@@ -32,6 +33,7 @@ tags:
     insert into message_queue (message) values ('a message');
     
 dequeue操作有点复杂，分3步：
+
 1. 获取未被处理的消息。先占有这些消息，设置owner。为了加快速度减少访问数据库的频率，可以批量操作；
     update message_queue set owner='me' where owner is null limit 10;
 根据`mysql_affected_rows()`的返回结果可以判断是否有未被处理的消息。若有，则取出消息：
@@ -62,7 +64,8 @@ dequeue操作有点复杂，分3步：
     
 `dequeue`的第1步的update操作改为如下（假设消息处理的耗时不超过60s）：
 
-    update message_queue set owner='me',dequeued_time=NOW() where owner is null or dequeued_time < SUBTIME(NOW(), SEC_TO_TIME(60)) limit 10;
+    update message_queue set owner='me',dequeued_time=NOW() 
+        where owner is null or dequeued_time < SUBTIME(NOW(), SEC_TO_TIME(60)) limit 10;
     
 这样即使消费者A在第1步和第2步之间失败了，消费者B还可以重新取出该消息重新处理。所以只要还有消费者在，消息至少会被处理一次。
 
