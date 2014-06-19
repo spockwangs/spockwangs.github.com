@@ -35,12 +35,17 @@ tags:
 dequeue操作有点复杂，分3步：
 
 1. 获取未被处理的消息。先占有这些消息，设置owner。为了加快速度减少访问数据库的频率，可以批量操作；
+
     update message_queue set owner='me' where owner is null limit 10;
-根据`mysql_affected_rows()`的返回结果可以判断是否有未被处理的消息。若有，则取出消息：
+
+根据[`mysql_affected_rows()`](http://dev.mysql.com/doc/refman/5.0/en/mysql-affected-rows.html)的返回结果可以判断是否有未被处理的消息。若有，则取出消息：
+
     select message from message_queue where owner='me';
+
 注意，`update`操作是根据自增ID的顺序操作的，这就实现了FIFO。若把这两步合并成一个事务执行会造成对表的锁占用过多时间（多了一个请求响应来回时间）。
 2. 处理消息，此时表不会被锁住，其它消费者也可以获取消息；
 3. 处理完毕后从数据库中删除。对于处理出错的消息可以根据业务要求重试、忽略或者插入消息队列待下次再处理。
+
     delete from message_queue where owner='me'
 
 上面没有考虑失败的情况。如果某个消费者在第1步和第2步之间失败的话，一个被占用的消息可能永远不会再被处理，即使此时有其它消费者还在运行，这就不满足at-least-once的要求了。
