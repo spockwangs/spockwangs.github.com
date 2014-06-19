@@ -104,7 +104,7 @@ Douglas Crockford在"Javascript: The Good Parts"一书中提出的Module Pattern
     <script src="app.js" type="text/javascript" async></script>
 
 标上`async`属性的脚本表明你没有在里面使用`document.write`之类的代码。浏览器
-将异步下载和执行这些脚本，并且不会组织DOM树的渲染。但是这会导致另一个问题：
+将异步下载和执行这些脚本，并且不会阻止DOM树的渲染。但是这会导致另一个问题：
 由于是异步执行，`app.js`可能在`base.js`之前执行，如果它们之间有依赖关系这将
 导致错误。
     
