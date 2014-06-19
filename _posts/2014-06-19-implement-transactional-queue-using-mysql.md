@@ -80,5 +80,5 @@ dequeue操作有点复杂，分3步：
 
 ## See also
 
-* https://blog.engineyard.com/2011/5-subtle-ways-youre-using-mysql-as-a-queue-and-why-itll-bite-you/
+* [5-subtle-ways-youre-using-mysql-as-a-queue-and-why-itll-bite-you](https://blog.engineyard.com/2011/5-subtle-ways-youre-using-mysql-as-a-queue-and-why-itll-bite-you/)
 * [RabbitMQ](https://www.rabbitmq.com/)是一个消息队列解决方案，毕竟用数据库实现只是权宜之计
