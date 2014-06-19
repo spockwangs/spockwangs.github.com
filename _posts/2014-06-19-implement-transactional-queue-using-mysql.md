@@ -61,6 +61,7 @@ dequeue操作有点复杂，分3步：
     );
     
 `dequeue`的第1步的update操作改为如下（假设消息处理的耗时不超过60s）：
+
     update message_queue set owner='me',dequeued_time=NOW() where owner is null or dequeued_time < SUBTIME(NOW(), SEC_TO_TIME(60)) limit 10;
     
 这样即使消费者A在第1步和第2步之间失败了，消费者B还可以重新取出该消息重新处理。所以只要还有消费者在，消息至少会被处理一次。
