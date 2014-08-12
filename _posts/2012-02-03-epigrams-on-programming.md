@@ -101,7 +101,7 @@ When people react instantly, they’re not thinking, they’re doing a table
 look up.  
 -- Alan Kay
 
-The basicprinciple of recursive design is making the parts as powerful as
+The basic principle of recursive design is making the parts as powerful as
 the whole.  
 -- Bob Barton
 
