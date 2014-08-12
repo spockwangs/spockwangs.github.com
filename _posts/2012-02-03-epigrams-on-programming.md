@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Computer Quotes
+title: Epigrams on Programming
 tags:
 - programming
 - quote
@@ -119,3 +119,10 @@ path.
 
 Programs should not only work, but they should appear to work as well.  
 -- PDP-1X Dogma
+
+Be conservative in what you do, be liberal in what you accept from others.  
+-- [Robust Principle](http://en.wikipedia.org/wiki/Robustness_Principle)
+
+Show me your flow charts and conceal your tables and I shall continue to be mystified, show me your
+tables and I won't usually need your flow charts; they'll be obvious.  
+-- Fred Brooks
