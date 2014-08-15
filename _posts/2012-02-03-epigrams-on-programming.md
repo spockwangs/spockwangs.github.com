@@ -126,3 +126,9 @@ Be conservative in what you do, be liberal in what you accept from others.
 Show me your flow charts and conceal your tables and I shall continue to be mystified, show me your
 tables and I won't usually need your flow charts; they'll be obvious.  
 -- Fred Brooks
+
+Form follows function.  
+-- [Louis Sullivan](http://en.wikipedia.org/wiki/Form_follows_function)
+
+Symmetry is a complexity reducing concept (co-routines include sub-routines); seek it everywhere.  
+-- [Alan J. Perlis](http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html)
