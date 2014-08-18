@@ -132,3 +132,6 @@ Form follows function.
 
 Symmetry is a complexity reducing concept (co-routines include sub-routines); seek it everywhere.  
 -- [Alan J. Perlis](http://pu.inf.uni-tuebingen.de/users/klaeren/epigrams.html)
+
+Our customers feel the variance, not the mean.
+-- [_What is Six Sigma? The roadmap to customer impact_](http://www.ge.com/sixsigma/SixSigma.pdf)
