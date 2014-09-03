@@ -135,3 +135,7 @@ Symmetry is a complexity reducing concept (co-routines include sub-routines); se
 
 Our customers feel the variance, not the mean.
 -- [_What is Six Sigma? The roadmap to customer impact_](http://www.ge.com/sixsigma/SixSigma.pdf)
+
+Important skill: ability to estimate performance of a system design without actually having to build
+it.  
+-- Jeff Dean
