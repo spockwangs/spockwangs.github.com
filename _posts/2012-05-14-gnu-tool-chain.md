@@ -9,6 +9,7 @@ tags:
 ## Create Static Libraries
 
 To compile source files
+
     $ gcc -c file1.c file2.c ...
 
 To create archives
