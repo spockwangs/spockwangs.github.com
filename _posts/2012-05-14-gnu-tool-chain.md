@@ -33,6 +33,8 @@ path by default.  The paths are searched in the following order:
 2. The paths specified by `SEARCH_DIR` command in the default link script if it is not yet replaced
    by the `-T` option.
 
+The contents of the default link script can be printed by using `--verbose` option to `ld`.
+
 See `-L`, `-T` and `-dT` in `ld(1)`.
 
 ## How Linkers Use Static Libraries to Resolve References
