@@ -25,8 +25,14 @@ Use option `-static` to avoid linking against shared libraries.  Use option
 `-l` to specify which libraries are required and `-L` to specify where to find
 these libraries.  If the required libraries are in system paths (i.e. `/lib`
 and `/usr/lib`) `-L` is not required because the linker will search the system
-path by default.  The paths specified on command line are searched before
-system paths.  See `ld(1)`.
+path by default.  The paths are searched in the following order:
+
+1. The paths specified by `-L` and by `SEARCH_DIR` command in the link script (not the default link
+   script, but the one specified by `-T`) in the command line from left to right;
+2. The paths specified by `SEARCH_DIR` command in the default link script if it is not yet replaced
+   by the `-T` option.
+
+See `-L`, `-T` and `-dT` in `ld(1)`.
 
 ## How Linkers Use Static Libraries to Resolve References
 

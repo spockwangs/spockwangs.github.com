@@ -139,3 +139,7 @@ Our customers feel the variance, not the mean.
 Important skill: ability to estimate performance of a system design without actually having to build
 it.  
 -- Jeff Dean
+
+The purpose of abstracting is not to be vague, but to create a new semantic level in which one can
+be absolutely precise.  
+-- Dijkstra
