@@ -143,3 +143,6 @@ it.
 The purpose of abstracting is not to be vague, but to create a new semantic level in which one can
 be absolutely precise.  
 -- Dijkstra
+
+Program into a programming language, not in it.  
+-- p.235, _The Science of Programming_
