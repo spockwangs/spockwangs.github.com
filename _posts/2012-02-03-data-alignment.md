@@ -183,3 +183,24 @@ MSDN对Visual C++的结构体对齐规则有[简单介绍](http://msdn.microsoft
 最后，对于具有普通成员和比特域的结构体，它们的对齐规则跟上面的一样。注意，普
 通成员与比特域不能合并，只有连续的比特域之间可以考虑合并，每一个成员都要对
 齐到自己的对齐模数上。
+
+## 如何实现数据对齐
+
+通过调用`malloc()`或者`new`运算符动态分配的内存已经是对任何类型都对齐了（见[这
+里
+](http://stackoverflow.com/questions/8752546/how-does-malloc-understand-alignment/18479609#18479609)
+）。如果自己动手写一个内存分配器也要注意分配对齐的内存。通常编译器会提供工具来帮助对齐，例如，GCC提
+供了[`__alignof__()`](https://gcc.gnu.org/onlinedocs/gcc/Alignment.html)来获得数据结构的对齐要求。
+C++11也提供了类似的运算符[`alignof`](http://en.cppreference.com/w/cpp/language/alignof)。
+
+在静态存储区或者栈上定义的对象由编译器分配内存并保证对齐要求。如果是用户自己在静态存储区或者栈上分配
+内存可以使用编译器或者编程语言提供的工具实现对齐，如GCC提供
+[`aligned`](https://gcc.gnu.org/onlinedocs/gcc/Common-Variable-Attributes.html#Common-Variable-Attributes)
+属性实现对齐：
+
+    int a __attribute ((aligned(__alignof(std::string)));
+
+表示`a`的对齐要求与`std::string`一样。C++11提供了运算符
+[`alignas`](http://en.cppreference.com/w/cpp/language/alignas)，上述的例子改写如下：
+
+    alignas(alignof(std::string)) int a;
