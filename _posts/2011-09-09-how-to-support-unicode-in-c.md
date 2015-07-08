@@ -68,7 +68,7 @@ In C++ we can use <code>wistream</code> to convert the input multibyte sequence 
     wstring ws;  // define wide string to hold input
     wcin.sync_with_stdio(false);
     wcin.imbue(std::locale::locale("zh_CN.GBK"));
-    wcin &gt;&gt; ws;
+    wcin >> ws;
 
 Due to some limitations with it <code>iostream::imbue()</code> does not
 honor (but <code>fstream</code> does) the encoding we have to call
@@ -80,24 +80,24 @@ We can also obtain the input as a byte sequence and then convert it to the desti
     // Assume the input byte sequence is in 'from' with GBK encoding.
     string from;
     locale loc("zh_CN.GBK");
-    const codecvt&lt;wchar_t, char, mbstat_t&gt;&amp; conv =
-    use_facet&lt;codecvt&lt;wchar_t, char, mbstat_t&gt; &gt;(loc);
+    const codecvt<wchar_t, char, mbstat_t>& conv =
+    use_facet<codecvt<wchar_t, char, mbstat_t> >(loc);
     mbstat_t mystate;
 
     // Calculate how many characters there are in 'from'.
     int length = conv.length(mystate, from.c_str(), from.c_str()+from.length(),
-    numeric_limits&lt;size_t&gt;::max());
+    numeric_limits<size_t>::max());
 
     wchar_t *pws = new wchar_t[length+1];
     pws[length] = L'\0';
     const char *from_next;
     wchar_t *to_next;
-    codecvt&lt;wchar_t, char, mbstate_t&gt;::result myresult  =
-    conv.in(mystate, in.c_str(), in.c_str()+in.length(), from_next,
-    pws, pws+length, to_next);
-    if (myresult == codecvt&lt;wchar_t, char, mbstate_t&gt;::ok) {
-    &nbsp;&nbsp;&nbsp;&nbsp;// Conversion is ok.
-    &nbsp;&nbsp;&nbsp;&nbsp;...
+    codecvt<wchar_t, char, mbstate_t>::result myresult  =
+        conv.in(mystate, in.c_str(), in.c_str()+in.length(), from_next,
+                pws, pws+length, to_next);
+    if (myresult == codecvt<wchar_t, char, mbstate_t>::ok) {
+        // Conversion is ok.
+        ...
     }
 
 ## Output
@@ -115,7 +115,7 @@ Or equivalently in C++:
     // Assume wide string is in 'ws'.
     ios::sync_with_stdio(false);
     wcout.imbue(locale(""));
-    wcout &lt;&lt; ws &lt;&lt; endl;
+    wcout << ws << endl;
 
 If we want to print wide characters to other destinations (files or
 network) we can convert the wide characters to multibyte sequence with the
@@ -133,8 +133,8 @@ Or equivalently in C++:
 
     // Assume wide string is in 'ws'.
     locale loc("zh_CN.GBK");
-    const codecvt&lt;wchar_t, char, mbstate_t&gt;&amp; conv =
-    use_facet&lt;codecvt&lt;wchar_t, char, mbstate_t&gt; &gt;(loc);
+    const codecvt<wchar_t, char, mbstate_t>&amp; conv =
+    use_facet<codecvt<wchar_t, char, mbstate_t> >(loc);
 
     // At most 'len' bytes are required to store the string in
     // multibyte sequence.
@@ -143,10 +143,10 @@ Or equivalently in C++:
     const wchar_t *pwc;
     char *pc;
     mbstate_t mystate;
-    codecvt&lt;wchar_t, char, mbstate_t&gt;::result myresult =
-    conv.out(mystate, ws.c_str(), ws.c_str()+ws.length()+1, pwc,
-    pstr, pstr+ws.length()+1, pc);
-    if (myresult == codecvt&lt;wchar_t, char, mbstate_t&gt;::ok) {
+    codecvt<wchar_t, char, mbstate_t>::result myresult =
+        conv.out(mystate, ws.c_str(), ws.c_str()+ws.length()+1, pwc,
+                 pstr, pstr+ws.length()+1, pc);
+    if (myresult == codecvt<wchar_t, char, mbstate_t>::ok) {
         // Conversion is ok.
         ...
     }
