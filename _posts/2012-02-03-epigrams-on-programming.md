@@ -127,6 +127,10 @@ Show me your flow charts and conceal your tables and I shall continue to be myst
 tables and I won't usually need your flow charts; they'll be obvious.  
 -- Fred Brooks
 
+Bad programmers worry about the code. Good programmers worry about data structures and their
+relationships.
+-- Linus Torvalds
+
 Form follows function.  
 -- [Louis Sullivan](http://en.wikipedia.org/wiki/Form_follows_function)
 
