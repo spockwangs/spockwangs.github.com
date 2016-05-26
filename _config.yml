@@ -11,6 +11,6 @@ plugins:     ./_plugins
 future:      true
 lsi:         false
 pygments:    true
-markdown:    rdiscount
+markdown:    kramdown
 permalink:   date
 paginate: 20
