@@ -14,3 +14,4 @@ pygments:    true
 markdown:    kramdown
 permalink:   date
 paginate: 20
+highlighter: rouge
